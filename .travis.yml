@@ -19,7 +19,7 @@ script:
 
 deploy:
   - edge:
-    branch: v1.8.47
+      branch: v1.8.47
   provider: pages
   repo: barthicus.github.io
   skip_cleanup: true

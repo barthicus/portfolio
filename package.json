@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/barthicus/barthicus.github.io.git"
+    "url": "git+https://github.com/barthicus/portfolio.git"
   },
   "keywords": [],
   "author": "Bartosz Podgruszecki",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/barthicus/barthicus.github.io/issues"
+    "url": "https://github.com/barthicus/portfolio/issues"
   },
-  "homepage": "https://github.com/barthicus/barthicus.github.io#readme",
+  "homepage": "https://github.com/barthicus/portfolio#readme",
   "dependencies": {
     "next": "^7.0.2",
     "react": "^16.6.3",

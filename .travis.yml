@@ -18,13 +18,11 @@ script:
   - npm run generate
 
 deploy:
-  - edge:
-      branch: v1.8.47
-    provider: pages
-    repo: barthicus/barthicus.github.io
-    skip_cleanup: true
-    github_token: $GITHUB_TOKEN
-    local_dir: out
-    target-branch: master
-    on:
-      branch: master
+  provider: pages
+  repo: barthicus/barthicus.github.io
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: out
+  target-branch: master
+  on:
+    branch: master

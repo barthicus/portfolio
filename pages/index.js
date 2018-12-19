@@ -1,6 +1,8 @@
+console.log('Czy działa?')
+
 const Index = () => (
   <div>
-    <p>Hello Next.js</p>
+    <p>Hello Next.js!</p>
   </div>
 )
 

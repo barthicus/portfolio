@@ -1,0 +1,27 @@
+{
+  "name": "my-portfolio",
+  "version": "1.0.0",
+  "description": "Bartosz Podgruszecki Portfolio",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barthicus/barthicus.github.io.git"
+  },
+  "keywords": [],
+  "author": "Bartosz Podgruszecki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/barthicus/barthicus.github.io/issues"
+  },
+  "homepage": "https://github.com/barthicus/barthicus.github.io#readme",
+  "dependencies": {
+    "next": "^7.0.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  }
+}

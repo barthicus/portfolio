@@ -7,7 +7,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "generate": "npm run build && next export"
+    "add-nojekyll": "echo.>out/.nojekyll",
+    "generate": "npm run build && next export && npm run add-nojekyll"
   },
   "repository": {
     "type": "git",

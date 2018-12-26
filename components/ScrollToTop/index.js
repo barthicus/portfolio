@@ -1,6 +1,7 @@
 import animateScrollTo from 'animated-scroll-to';
 import { Component } from 'react';
-import SvgIcon from './SvgIcon';
+import SvgIcon from '../SvgIcon';
+import './index.scss';
 
 export default class ScrollToTop extends Component {
   componentDidMount() {
@@ -30,7 +31,7 @@ export default class ScrollToTop extends Component {
           className="scrolltop__svg"
           viewBox="0 0 444.819 444.819"
         />
-        <span>to top</span>
+        <span className="scrolltop__text">to top</span>
       </button>
     );
   }

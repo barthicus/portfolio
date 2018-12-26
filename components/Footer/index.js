@@ -1,0 +1,35 @@
+import Link from 'next/link';
+import SvgIcon from '../SvgIcon';
+import Nav from '../Nav';
+import Blog from '../Blog';
+import Socials from '../Socials';
+import './index.scss';
+
+const Footer = () => (
+  <footer className="footer">
+    <SvgIcon icon="colorBar" className="color-bar" />
+    <Blog />
+    <div className="footer__bottom">
+      <div className="container">
+        <div className="columns">
+          <div className="column logo">
+            <Link href="/">
+              <a className="nav__link">
+                <span>Bartosz</span> <span>Podgruszecki</span>
+              </a>
+            </Link>
+          </div>
+          <Socials className="column socials" />
+          <div className="column">
+            <Nav />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="footer__copyrights">
+      <p>© 2018 Copyrights by Bartosz Podgruszecki. All Rights Reserved.</p>
+    </div>
+  </footer>
+);
+
+export default Footer;

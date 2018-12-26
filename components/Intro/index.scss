@@ -1,0 +1,14 @@
+@import "../Layout/scss/utils/index";
+
+.header__intro {
+  padding: 5rem 0;
+  color: #fff;
+  .container {
+    display: block;
+    text-align: center;
+  }
+  .button {
+    display: inline-block;
+    margin: 2rem 0;
+  }
+}

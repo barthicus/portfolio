@@ -1,7 +1,8 @@
 import Head from 'next/head';
-import Header from './Header';
-import Footer from './Footer';
-import ScrollToTop from './ScrollToTop';
+import Header from '../Header';
+import Footer from '../Footer';
+import ScrollToTop from '../ScrollToTop';
+import RwdInfo from '../RwdInfo';
 import './scss/index.scss';
 
 const Layout = props => (
@@ -15,6 +16,7 @@ const Layout = props => (
     <Header />
     <main>{props.children}</main>
     <ScrollToTop />
+    <RwdInfo />
     <Footer />
   </>
 );

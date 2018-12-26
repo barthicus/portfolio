@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './index.scss';
 
 const Project = ({ img, title, cat, desc, link }) => (
   <div className="project">

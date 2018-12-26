@@ -1,0 +1,42 @@
+.scrolltop {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: $color-blue;
+  border: none;
+  border-radius: rem-calc(3);
+  color: #fff;
+  box-shadow: 0 0 rem-calc(5) rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: rem-calc(11) rem-calc(6);
+  transition: .3s;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(1rem);
+  z-index: 1;
+
+  &--visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  &:hover, &:active {
+    background: #4b4c4c;
+  }
+  
+  svg {
+    width: rem-calc(20);
+    height: rem-calc(20);
+    margin-bottom: rem-calc(5);
+    fill: #fff;
+  }
+  span {
+    max-width: rem-calc(60);
+    font-size: rem-calc(12);
+    text-transform: uppercase;
+  }
+}

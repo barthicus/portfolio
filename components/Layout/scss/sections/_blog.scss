@@ -1,0 +1,26 @@
+.section--blog {
+  position: relative;
+  margin-top: 7rem;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: rem-calc(1);
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  }
+
+  .section__title {
+    color: #fff;
+  }
+  .section__subtitle {
+    color: #737377;
+  }
+
+  .blog {
+    color: #fff;
+    padding: 5rem 0;
+    justify-content: center;
+  }
+}

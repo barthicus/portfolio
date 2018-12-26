@@ -1,0 +1,112 @@
+.nav {
+  @include media-breakpoint-down(md) {
+    order: 3;
+  }
+  &__items {
+    display: flex;
+    list-style: none;
+    padding-left: 2rem;
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+  &__item:not(:last-child) {
+    margin-right: 1.3rem;
+  }
+  &__link {
+    color: #fff;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: .3s;
+    & > * {
+      pointer-events: none;
+    }
+  }
+  &__item--active .nav__link, .nav__link:hover {
+    color: $color-green;
+  }
+  &__trigger {
+    display: none;
+    cursor: pointer;
+    padding: 1rem;
+
+    $height-icon: 20px;
+    $width-line: 30px;
+    $height-line: 4px;
+    $transition-time: 0.4s;
+    $rotation: 45deg;
+    $translateY: ($height-icon / 2);
+    $translateX: 0;
+    @include media-breakpoint-down(md) {
+      display: block;
+    }
+    &:hover {
+      .line {
+        background: $color-green;
+      }
+    }
+    .lines {
+      position: relative;
+      width: $width-line;
+      height: $height-icon;
+    }
+    .line {
+      display: block;
+      background: #fff;
+      width: $width-line;
+      height: $height-line;
+      position: absolute;
+      left: 0;
+      border-radius: ($height-line / 2);
+      transition: all $transition-time;
+      pointer-events: none;
+      
+      &.line-1 {
+        top:0;
+      }
+      &.line-2 {
+        top:50%;
+      }
+      &.line-3 {
+        top:100%;
+      }
+    }
+    &--active {
+      .line {
+        background: $color-green;
+      }
+      .line-1 {
+        transform: translateY($translateY) translateX($translateX) rotate($rotation);
+      }
+      .line-2 {
+        opacity:0;
+      }
+      .line-3 {
+        transform: translateY($translateY * -1) translateX($translateX) rotate($rotation * -1);
+      }
+
+      & + .nav__items {
+        display: flex;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, .85);
+        .nav__item {
+          margin-right: 0;
+        }
+        .nav__link {
+          padding: 1rem 0;
+          display: block;
+          &:hover {
+            background-color: rgba(#000, 0.3);
+          }
+        }
+      }
+    }
+  }
+}

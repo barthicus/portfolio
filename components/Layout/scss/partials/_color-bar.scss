@@ -1,0 +1,82 @@
+.color-bar {
+  display: block;
+  width: 100vw;
+  height: rem-calc(4);
+  rect {
+    width: calc(100vw / 18);
+    height: rem-calc(4);
+    y: 0;
+    &:nth-child(1) {
+      fill: #05BF85;
+      x: 0;
+    }
+    &:nth-child(2) {
+      fill: #159F85;
+      x: calc(100vw / 18);
+    }
+    &:nth-child(3) {
+      fill: #15709F;
+      x: calc(2 * 100vw / 18);
+    }
+    &:nth-child(4) {
+      fill: #15569F;
+      x: calc(3 * 100vw / 18);
+    }
+    &:nth-child(5) {
+      fill: #152C9F;
+      x: calc(4 * 100vw / 18);
+    }
+    &:nth-child(6) {
+      fill: #6038C5;
+      x: calc(5 * 100vw / 18);
+    }
+    &:nth-child(7) {
+      fill: #AE4ADD;
+      x: calc(6 * 100vw / 18);
+    }
+    &:nth-child(8) {
+      fill: #DD4A96;
+      x: calc(7 * 100vw / 18);
+    }
+    &:nth-child(9) {
+      fill: #DD4A54;
+      x: calc(8 * 100vw / 18);
+    }
+    &:nth-child(10) {
+      fill: #DD814A;
+      x: calc(9 * 100vw / 18);
+    }
+    &:nth-child(11) {
+      fill: #DDB24A;
+      x: calc(10 * 100vw / 18);
+    }
+    &:nth-child(12) {
+      fill: #D8DD4A;
+      x: calc(11 * 100vw / 18);
+    }
+    &:nth-child(13) {
+      fill: #AEDD4A;
+      x: calc(12 * 100vw / 18);
+    }
+    &:nth-child(14) {
+      fill: #81DD4A;
+      x: calc(13 * 100vw / 18);
+    }
+    &:nth-child(15) {
+      fill: #05BF85;
+      x: calc(14 * 100vw / 18);
+    }
+    &:nth-child(16) {
+      fill: #4ADD54;
+      x: calc(15 * 100vw / 18);
+    }
+    &:nth-child(17) {
+      fill: #4ADDC7;
+      x: calc(16 * 100vw / 18);
+    }
+    &:nth-child(18) {
+      fill: #4AC0DD;
+      x: calc(17 * 100vw / 18);
+    }
+  }
+}

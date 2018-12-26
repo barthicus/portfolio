@@ -1,0 +1,26 @@
+/*
+ * Colors
+ */
+$color-grey: #363739;
+$color-green: #05DFC6;
+$color-blue: #29D9F7;
+$color-golden: #C4A565;
+
+/*
+ * Font weights
+ */
+ $font-light: 300;
+ $font-normal: 400;
+ $font-bold: 500;
+
+/*
+ * Grid
+ */
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1280px,
+  xxl: 1700px
+) !default;

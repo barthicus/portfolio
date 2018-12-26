@@ -1,0 +1,130 @@
+.section--projects {
+  flex-grow: 1;
+  text-align: center;
+  padding: 5rem 0 0;
+  .filter {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    &__item {
+      margin: 0 0.5rem;
+      padding: rem-calc(10) rem-calc(30);
+      border: rem-calc(2) dashed #e8e8e8;
+      color: #A4A4A4;
+      font-size: rem-calc(13);
+      &:hover {
+        background-color: #A4A4A4;
+        border-color: transparent;
+        color: #fff;
+      }
+      &--active {
+        border: rem-calc(2) solid $color-green;
+        color: $color-green;
+        cursor: not-allowed;
+      }
+    }
+  }
+  .projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 5rem auto 0;
+    padding-bottom: 5rem;
+    .project {
+      flex-basis: 48%;
+      margin-bottom: 2rem;
+      display: flex;
+      &__text {
+        margin: 1rem 0 1rem -3rem;
+        padding: 1.5rem;
+        background-color: #fff;
+        box-shadow: 0 rem-calc(10) rem-calc(60) rgba(80, 145, 176, 0.1);
+        border-radius: rem-calc(5);
+        z-index: 0;
+        text-align: left;
+      }
+      &__img-wrapper {
+        position: relative;
+        z-index: 0;
+        &::after {
+          content: '';
+          position: absolute;
+          box-shadow: 0 rem-calc(-2) 1rem 6px rgba(0, 0, 0, 0.12);
+          left: 1rem;
+          right: 1rem;
+          bottom: 0;
+          z-index: -1;
+        }
+      }
+      &__img {
+        border-radius: rem-calc(5);
+      }
+      &__title {
+        font-size: rem-calc(16);
+        font-weight: $font-bold;
+        margin: 0 0 0.5rem;
+      }
+      &__cat {
+        font-size: rem-calc(13);
+        font-weight: $font-light;
+        color: #C9C9C9;
+        text-transform: uppercase;
+      }
+      &__desc {
+        margin-top: 1rem;
+        font-size: rem-calc(14);
+        font-weight: $font-normal;
+        color: #7D7D7D;
+        line-height: rem-calc(25);
+      }
+      &__link {
+        padding: rem-calc(12) rem-calc(20);
+        font-size: rem-calc(13);
+        font-weight: $font-normal;
+        border-color: #17BABE;
+        color: #17BABE;
+        display: inline-block;
+        &:hover {
+          background-color: #17BABE;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .lead {
+    display: inline-block;
+    margin-bottom: -1.5rem;
+    box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.2);
+    border-radius: rem-calc(5);
+    background: linear-gradient(45deg, #1DE9E2, #89DAEF);
+    position: relative;
+    &__container {
+      display: flex;
+      align-items: center;
+      padding: 2rem 3rem;
+    }
+    &__text {
+      font-size: rem-calc(16);
+      font-weight: $font-light;
+      border-right: rem-calc(2) solid #5ED2DD;
+      text-align: right;
+      margin-right: 2rem;
+      padding-right: 3rem;
+      p {
+        margin: 0.5rem 0;
+      }
+    }
+    &__link {
+      color: #4B4B4B;
+      border-color: #4B4B4B;
+      border-width: 2px;
+      font-weight: $font-bold;
+      margin-left: 1rem;
+      &:hover {
+        color: #1DE9E2;
+        background-color: #4B4B4B;
+        border-color: transparent;
+      }
+    }
+  }
+}

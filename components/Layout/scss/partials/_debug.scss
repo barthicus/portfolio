@@ -1,0 +1,31 @@
+#DEBUG {
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  background-color: #000;
+  color: #fff;
+  padding: 0.7rem;
+  z-index: 10;
+  border: 2px dashed red;
+  & > * {
+    display: none;
+  }
+  @include media-breakpoint-only(xs) {
+    .xs { display: block; }
+  }
+  @include media-breakpoint-only(sm) {
+    .sm { display: block; }
+  }
+  @include media-breakpoint-only(md) {
+    .md { display: block; }
+  }
+  @include media-breakpoint-only(lg) {
+    .lg { display: block; }
+  }
+  @include media-breakpoint-only(xl) {
+    .xl { display: block; }
+  }
+  @include media-breakpoint-only(xxl) {
+    .xxl { display: block; }
+  }
+}

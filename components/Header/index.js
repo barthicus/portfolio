@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { withRouter } from 'next/router';
-import { Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SvgIcon from '../SvgIcon';
 import Intro from '../Intro';
@@ -12,21 +12,21 @@ class Header extends Component {
     router: PropTypes.object.isRequired
   };
 
+  state = {
+    isSticky: false
+  };
+
   componentDidMount() {
     this.handleScroll();
     document.addEventListener('scroll', this.handleScroll, true);
   }
 
-  handleScroll() {
-    const navbar = document.querySelector('header .navbar');
-    const mainSection = document.querySelector('header + main');
-
-    if (window.pageYOffset >= mainSection.offsetTop) {
-      navbar.classList.add('navbar--sticky');
-    } else {
-      navbar.classList.remove('navbar--sticky');
-    }
-  }
+  handleScroll = () => {
+    this.setState({
+      // isSticky: window.pageYOffset > this.colorBar.current.offsetTop
+      isSticky: window.pageYOffset > 200
+    });
+  };
 
   isHomepage() {
     return this.props.router.route === '/';
@@ -35,7 +35,9 @@ class Header extends Component {
   render() {
     return (
       <header className="header">
-        <div className="navbar">
+        <div
+          className={this.state.isSticky ? 'navbar navbar--sticky' : 'navbar'}
+        >
           <div className="container">
             <div className="navbar__logo">
               <Link href="/">

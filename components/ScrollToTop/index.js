@@ -9,6 +9,10 @@ export default class ScrollToTop extends Component {
     document.addEventListener('scroll', this.handleScroll, true);
   }
 
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.handleScroll, true);
+  }
+
   handleClick = () => {
     animateScrollTo(0, { speed: 200 });
   };

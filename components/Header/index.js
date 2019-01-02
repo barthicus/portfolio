@@ -21,6 +21,10 @@ class Header extends Component {
     document.addEventListener('scroll', this.handleScroll, true);
   }
 
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.handleScroll, true);
+  }
+
   handleScroll = () => {
     this.setState({
       // isSticky: window.pageYOffset > this.colorBar.current.offsetTop

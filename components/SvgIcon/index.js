@@ -1,47 +1,54 @@
 import PropTypes from 'prop-types';
+import gulpSvg from './svgs/gulp';
+import linkedinSvg from './svgs/linkedin';
+import githubSvg from './svgs/github';
+import arrowUpSvg from './svgs/arrowUp';
+import wordpressSvg from './svgs/wordpress';
+import gruntSvg from './svgs/grunt';
+import jquerySvg from './svgs/jquery';
+import colorBarSvg from './svgs/colorBar';
+import reactSvg from './svgs/react';
 import './index.scss';
 
 const svgIcons = {};
 
-svgIcons.colorBar = (
-  <g>
-    {[...Array(18).keys()].map(number => (
-      <rect key={number} />
-    ))}
-  </g>
-);
+svgIcons.gulp = gulpSvg;
+svgIcons.colorBar = colorBarSvg;
+svgIcons.linkedin = linkedinSvg;
+svgIcons.github = githubSvg;
+svgIcons.arrowUp = arrowUpSvg;
+svgIcons.wordpress = wordpressSvg;
+svgIcons.grunt = gruntSvg;
+svgIcons.jquery = jquerySvg;
+svgIcons.react = reactSvg;
 
-svgIcons.linkedin = (
-  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-);
-svgIcons.github = (
-  <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-);
-svgIcons.arrowUp = (
-  <path d="M433.968,278.657L248.387,92.79c-7.419-7.044-16.08-10.566-25.977-10.566c-10.088,0-18.652,3.521-25.697,10.566 L10.848,278.657C3.615,285.887,0,294.549,0,304.637c0,10.28,3.619,18.843,10.848,25.693l21.411,21.413   c6.854,7.23,15.42,10.852,25.697,10.852c10.278,0,18.842-3.621,25.697-10.852L222.41,213.271L361.168,351.74   c6.848,7.228,15.413,10.852,25.7,10.852c10.082,0,18.747-3.624,25.975-10.852l21.409-21.412   c7.043-7.043,10.567-15.608,10.567-25.693C444.819,294.545,441.205,285.884,433.968,278.657z" />
-);
-
-const SvgIcon = ({ icon, className, viewBox }) => (
+const SvgIcon = ({ icon, className, viewBox, title, fillRule }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     role="img"
-    viewBox={viewBox}
+    viewBox={viewBox || svgIcons[icon].viewBox}
     className={className}
-    aria-labelledby="title"
+    aria-labelledby={title}
+    title={title}
+    fillRule={fillRule}
   >
-    {svgIcons[icon]}
+    {svgIcons[icon].content}
   </svg>
 );
 
 SvgIcon.propTypes = {
   icon: PropTypes.string.isRequired,
   className: PropTypes.string,
-  viewBox: PropTypes.string
+  viewBox: PropTypes.string,
+  title: PropTypes.string,
+  fillRule: PropTypes.string
 };
 
 SvgIcon.defaultProps = {
   className: 'svg-icon',
-  viewBox: null
+  viewBox: null,
+  title: null,
+  fillRule: null
 };
 
 export default SvgIcon;

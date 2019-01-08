@@ -30,11 +30,7 @@ export default class ScrollToTop extends Component {
   render() {
     return (
       <button type="button" className="scrolltop" onClick={this.handleClick}>
-        <SvgIcon
-          icon="arrowUp"
-          className="scrolltop__svg"
-          viewBox="0 0 444.819 444.819"
-        />
+        <SvgIcon icon="arrowUp" className="scrolltop__svg" />
         <span className="scrolltop__text">to top</span>
       </button>
     );

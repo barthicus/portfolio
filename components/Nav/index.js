@@ -8,7 +8,7 @@ const Nav = props => (
     <ul className="nav__items">
       <li
         className={
-          props.router.route === '/'
+          props.router.pathname === '/'
             ? 'nav__item nav__item--active'
             : 'nav__item'
         }
@@ -19,7 +19,8 @@ const Nav = props => (
       </li>
       <li
         className={
-          props.router.route === '/projects'
+          props.router.pathname === '/projects' ||
+          props.router.pathname.startsWith('/projects/')
             ? 'nav__item nav__item--active'
             : 'nav__item'
         }
@@ -30,7 +31,7 @@ const Nav = props => (
       </li>
       <li
         className={
-          props.router.route === '/contact'
+          props.router.pathname === '/contact'
             ? 'nav__item nav__item--active'
             : 'nav__item'
         }

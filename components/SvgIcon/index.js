@@ -8,6 +8,9 @@ import gruntSvg from './svgs/grunt';
 import jquerySvg from './svgs/jquery';
 import colorBarSvg from './svgs/colorBar';
 import reactSvg from './svgs/react';
+import calendarSvg from './svgs/calendar';
+import codeSvg from './svgs/code';
+import laptopSvg from './svgs/laptop';
 import './index.scss';
 
 const svgIcons = {};
@@ -21,6 +24,9 @@ svgIcons.wordpress = wordpressSvg;
 svgIcons.grunt = gruntSvg;
 svgIcons.jquery = jquerySvg;
 svgIcons.react = reactSvg;
+svgIcons.calendar = calendarSvg;
+svgIcons.code = codeSvg;
+svgIcons.laptop = laptopSvg;
 
 const SvgIcon = ({ icon, className, viewBox, title, fillRule }) => (
   <svg

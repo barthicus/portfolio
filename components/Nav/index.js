@@ -13,7 +13,7 @@ const Nav = props => (
             : 'nav__item'
         }
       >
-        <Link href="/">
+        <Link href="/" prefetch>
           <a className="nav__link">Home</a>
         </Link>
       </li>
@@ -24,7 +24,7 @@ const Nav = props => (
             : 'nav__item'
         }
       >
-        <Link href="/projects">
+        <Link href="/projects" prefetch>
           <a className="nav__link">Projects</a>
         </Link>
       </li>
@@ -35,7 +35,7 @@ const Nav = props => (
             : 'nav__item'
         }
       >
-        <Link href="/contact">
+        <Link href="/contact" prefetch>
           <a className="nav__link">Contact</a>
         </Link>
       </li>

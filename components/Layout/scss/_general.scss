@@ -29,6 +29,7 @@ p + p {
   display: flex;
   width: 75rem;
   margin: 0 auto;
+  flex-wrap: wrap;
   &--column {
     flex-direction: column;
   }
@@ -45,6 +46,7 @@ p + p {
   display: flex;
   margin: 0 -2rem;
   flex-grow: 1;
+  flex-basis: 100%;
   @include media-breakpoint-down(md) {
     flex-direction: column;
     margin: 0;
@@ -79,11 +81,11 @@ button, .button, .button--outlined {
   }
   &--outlined {
     background: none;
-    border: rem-calc(1) solid $color-blue;
-    color: $color-blue;
+    border: rem-calc(1) solid $color-green;
+    color: $color-green;
     box-shadow: none;
     &:hover {
-      color: #000;
+      color: #fff;
       background-color:  $color-green;
       border-color:  $color-green;
       box-shadow: none;

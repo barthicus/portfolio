@@ -6,10 +6,10 @@ import Socials from '../Socials';
 import './index.scss';
 
 const Footer = () => (
-  <footer className="footer">
+  <footer className="root-footer">
     <SvgIcon icon="colorBar" className="color-bar" />
     <Blog />
-    <div className="footer__bottom">
+    <div className="root-footer__bottom">
       <div className="container">
         <div className="columns">
           <div className="column logo">
@@ -26,7 +26,7 @@ const Footer = () => (
         </div>
       </div>
     </div>
-    <div className="footer__copyrights">
+    <div className="root-footer__copyrights">
       <p>© 2018 Copyrights by Bartosz Podgruszecki. All Rights Reserved.</p>
     </div>
   </footer>

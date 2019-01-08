@@ -1,6 +1,6 @@
 @import "../Layout/scss/utils/index";
 
-.header__intro {
+.root-header__intro {
   padding: 5rem 0;
   color: #fff;
   .container {
@@ -10,5 +10,11 @@
   .button {
     display: inline-block;
     margin: 2rem 0;
+    padding: rem-calc(15) rem-calc(30);
+    box-shadow: 0 rem-calc(20) 2rem rgba(24, 220, 223, 0.14);
+    color: #2C2C55;
+    &:hover {
+      box-shadow: 0 0 2rem rgba(0, 0, 0, 0.8);
+    }
   }
 }

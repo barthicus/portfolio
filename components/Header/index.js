@@ -38,7 +38,7 @@ class Header extends Component {
 
   render() {
     return (
-      <header className="header">
+      <header className="root-header">
         <div
           className={this.state.isSticky ? 'navbar navbar--sticky' : 'navbar'}
         >

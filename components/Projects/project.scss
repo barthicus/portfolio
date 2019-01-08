@@ -1,0 +1,82 @@
+@import "../Layout/scss/utils/index";
+
+.section--projects .project {
+  flex-basis: 48%;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  &__text {
+    flex-grow: 1;
+    margin: 1rem 0 1rem -3rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    box-shadow: 0 rem-calc(10) rem-calc(60) rgba(80, 145, 176, 0.1);
+    border-radius: rem-calc(5);
+    z-index: 0;
+    text-align: left;
+  }
+  &__link-img {
+    line-height: 0;
+    &:hover {
+      .project__img-wrapper {
+        box-shadow: 0 0 1rem rem-calc(5) rgba($color-green, 0.3);
+      }
+      .project__img-wrapper::after {
+        box-shadow: none;
+      }
+    }
+  }
+  &__img-wrapper {
+    position: relative;
+    z-index: 0;
+    transition: .2s;
+    border-radius: rem-calc(5);
+    &::after {
+      content: '';
+      position: absolute;
+      // box-shadow: 0 rem-calc(-2) 1rem rem-calc(6) rgba(0, 0, 0, 0.12);
+      left: 1rem;
+      right: 1rem;
+      bottom: 0;
+      z-index: -1;
+    }
+  }
+  &__img {
+    border-radius: rem-calc(5);
+    width: 245px;
+  }
+  &__title {
+    font-size: rem-calc(16);
+    font-weight: $font-bold;
+    margin: 0 0 0.5rem;
+    color: #000;
+    transition: .3s;
+    &:hover {
+      color: $color-green;
+    }
+  }
+  &__cat {
+    font-size: rem-calc(13);
+    font-weight: $font-light;
+    color: #C9C9C9;
+    text-transform: uppercase;
+  }
+  &__intro {
+    margin-top: 1rem;
+    font-size: rem-calc(14);
+    font-weight: $font-normal;
+    color: #7D7D7D;
+    line-height: rem-calc(25);
+  }
+  &__link {
+    padding: rem-calc(12) rem-calc(20);
+    font-size: rem-calc(13);
+    font-weight: $font-normal;
+    border-color: #17BABE;
+    color: #17BABE;
+    &:hover {
+      background-color: #17BABE;
+      color: #fff;
+    }
+  }
+}

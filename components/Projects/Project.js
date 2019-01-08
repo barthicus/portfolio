@@ -1,16 +1,25 @@
 import PropTypes from 'prop-types';
-import './index.scss';
+import Link from 'next/link';
+import './project.scss';
 
-const Project = ({ img, title, cat, desc, link }) => (
+const Project = ({ thumb, title, cat, intro, online, slug }) => (
   <div className="project">
-    <div className="project__img-wrapper">
-      <img src={img} className="project__img" alt={title} />
-    </div>
+    <Link href={`/projects/${slug}`}>
+      <a className="project__link-img">
+        <div className="project__img-wrapper">
+          <img src={thumb} className="project__img" alt={title} />
+        </div>
+      </a>
+    </Link>
     <div className="project__text">
-      <h3 className="project__title">{title}</h3>
+      <Link href={`/projects/${slug}`}>
+        <a className="project__title">
+          <h3 className="project__title">{title}</h3>
+        </a>
+      </Link>
       <span className="project__cat">{cat}</span>
-      <p className="project__desc">{desc}</p>
-      <a href={link} className="project__link button button--outlined">
+      <p className="project__intro">{intro}</p>
+      <a href={online} className="project__link button button--outlined">
         Kod źródłowy
       </a>
     </div>
@@ -18,11 +27,12 @@ const Project = ({ img, title, cat, desc, link }) => (
 );
 
 Project.propTypes = {
-  img: PropTypes.string.isRequired,
+  thumb: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   cat: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired
+  intro: PropTypes.string.isRequired,
+  online: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired
 };
 
 export default Project;

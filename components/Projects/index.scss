@@ -7,26 +7,24 @@
   .filter {
     display: flex;
     justify-content: center;
+    flex-grow: 1;
     margin-top: 3rem;
     &__item {
       margin: 0 0.5rem;
       padding: rem-calc(10) rem-calc(30);
-      border: rem-calc(2) dashed #e8e8e8;
-      color: #A4A4A4;
+      border: rem-calc(2) dashed #bbb;
+      color: #bbb;
       font-size: rem-calc(13);
-      &:hover {
-        background-color: #A4A4A4;
-        border-color: transparent;
+      &:hover, &--active {
         color: #fff;
+        background-color: #bbb;
       }
-      &--active {
-        border: rem-calc(2) solid $color-green;
-        color: $color-green;
+      &--active:hover {
         cursor: not-allowed;
       }
     }
   }
-  .projects {
+  .projects__items {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -68,5 +66,19 @@
         border-color: transparent;
       }
     }
+  }
+  .fade-enter {
+    opacity: 0.01;
+  }
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+  .fade-leave {
+    opacity: 1;
+  }
+  .fade-leave.fade-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
   }
 }

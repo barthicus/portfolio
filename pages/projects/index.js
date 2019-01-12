@@ -1,25 +1,32 @@
+import PropTypes from 'prop-types';
+import StoryblokService from '../../utils/StoryblokService';
 import Layout from '../../components/Layout/index';
 import Projects from '../../components/Projects/index';
+import '../../components/Projects/index.scss';
 
-export default () => (
+const ProjectsPage = ({ projects }) => (
   <Layout>
     <section className="section section--projects">
       <h1 className="section__title">Projekty</h1>
-      <div className="filter">
-        <button
-          type="button"
-          className="filter__item filter__item--active button button--outlined"
-        >
-          Wszystko
-        </button>
-        <button type="button" className="filter__item button button--outlined">
-          Aplikacje
-        </button>
-        <button type="button" className="filter__item button button--outlined">
-          Strony www
-        </button>
-      </div>
-      <Projects />
+      <Projects projects={projects} showFilter />
     </section>
   </Layout>
 );
+
+ProjectsPage.getInitialProps = async ({ query }) => {
+  StoryblokService.setQuery(query);
+
+  const storyBlockContent = await StoryblokService.get('cdn/stories', {
+    starts_with: `projects`
+  });
+
+  return {
+    projects: storyBlockContent.data.stories
+  };
+};
+
+ProjectsPage.propTypes = {
+  projects: PropTypes.array.isRequired
+};
+
+export default ProjectsPage;

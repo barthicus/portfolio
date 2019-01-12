@@ -1,13 +1,21 @@
 @import "../Layout/scss/utils/index";
 
-.root-header__intro {
+.intro {
   padding: 5rem 0;
   color: #fff;
   .container {
     display: block;
     text-align: center;
   }
-  .button {
+  &__title {
+    font-size: rem-calc(50);
+    font-weight: $font-bold;
+  }
+  &__subtitle {
+    font-size: rem-calc(28);
+    font-weight: $font-light;
+  }
+  &__link {
     display: inline-block;
     margin: 2rem 0;
     padding: rem-calc(15) rem-calc(30);

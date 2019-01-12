@@ -3,7 +3,6 @@ import { withRouter } from 'next/router';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SvgIcon from '../SvgIcon';
-import Intro from '../Intro';
 import Nav from '../Nav';
 import './index.scss';
 
@@ -11,6 +10,11 @@ class Header extends Component {
   static propTypes = {
     router: PropTypes.object.isRequired
   };
+
+  constructor(props) {
+    super(props);
+    this.navbar = React.createRef();
+  }
 
   state = {
     isSticky: false
@@ -27,9 +31,18 @@ class Header extends Component {
 
   handleScroll = () => {
     this.setState({
-      // isSticky: window.pageYOffset > this.colorBar.current.offsetTop
-      isSticky: window.pageYOffset > 200
+      isSticky: window.pageYOffset > (this.isHomepage() ? 200 : 150)
     });
+
+    const intro = document.querySelector('.root-header__intro');
+    const main = document.querySelector('main');
+    const navBarHeight = `${this.navbar.current.clientHeight}px`;
+
+    if (this.isHomepage() && intro) {
+      intro.style.marginTop = this.state.isSticky ? navBarHeight : 0;
+    } else {
+      main.style.marginTop = this.state.isSticky ? navBarHeight : 0;
+    }
   };
 
   isHomepage() {
@@ -38,9 +51,10 @@ class Header extends Component {
 
   render() {
     return (
-      <header className="root-header">
+      <header className="root-header bg-with-pattern">
         <div
           className={this.state.isSticky ? 'navbar navbar--sticky' : 'navbar'}
+          ref={this.navbar}
         >
           <div className="container">
             <div className="navbar__logo">
@@ -54,8 +68,9 @@ class Header extends Component {
           </div>
           <SvgIcon icon="colorBar" className="color-bar" />
         </div>
-        {this.isHomepage() && <Intro />}
-        <SvgIcon icon="colorBar" className="color-bar" />
+        {!this.isHomepage() && (
+          <SvgIcon icon="colorBar" className="color-bar" />
+        )}
       </header>
     );
   }

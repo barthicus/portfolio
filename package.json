@@ -4,9 +4,9 @@
   "description": "Bartosz Podgruszecki Portfolio",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "generate": "npm run build && next export"
   },
   "repository": {
@@ -23,11 +23,17 @@
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
     "animated-scroll-to": "^1.2.2",
+    "marked": "^0.6.0",
     "next": "^7.0.2",
+    "next-page-transitions": "^1.0.0-alpha.4",
+    "next-routes": "^1.4.2",
     "node-sass": "^4.11.0",
     "react": "^16.6.3",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.6.3",
-    "react-syntax-highlighter": "^10.1.2"
+    "react-syntax-highlighter": "^10.1.2",
+    "storyblok-js-client": "^1.0.21",
+    "storyblok-react": "0.0.7"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

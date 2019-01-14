@@ -188,19 +188,25 @@
       height: rem-calc(20);
     }
   }
+  .code-fragments, .screencasts {
+    .column {
+      margin: 0;
+    }
+    figcaption {
+      font-weight: $font-light;
+    }
+  }
   .code-fragments {
     .columns {
       flex-wrap: wrap;
     }
-    .file {
-      font-weight: $font-light;
-    }
   }
   .screencasts {
-    .screencast {
-      img {
-        width: 100%;
-      }
+    img {
+      width: 100%;
+    }
+    figcaption {
+      margin-top: 0.5rem;
     }
   }
 }

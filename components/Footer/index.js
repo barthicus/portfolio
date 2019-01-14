@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import SvgIcon from '../SvgIcon';
 import Nav from '../Nav';
-import Blog from '../Blog';
+// import Blog from '../Blog';
 import Socials from '../Socials';
 import './index.scss';
 
 const Footer = () => (
   <footer className="root-footer">
     <SvgIcon icon="colorBar" className="color-bar" />
-    <Blog />
+    {/* <Blog /> */}
     <div className="root-footer__bottom">
       <div className="container">
         <div className="columns">

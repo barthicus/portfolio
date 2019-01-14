@@ -3,8 +3,10 @@ import svgIcons from './svgs';
 
 import './index.scss';
 
-const SvgIcon = ({ icon, className, title }) => {
+const SvgIcon = ({ icon, className, title, showDefault }) => {
   const svgIcon = svgIcons[icon];
+
+  if (!svgIcon && !showDefault) return null;
 
   if (svgIcon) {
     const scaleStyle = svgIcon.scale && {
@@ -31,12 +33,14 @@ const SvgIcon = ({ icon, className, title }) => {
 SvgIcon.propTypes = {
   icon: PropTypes.string.isRequired,
   className: PropTypes.string,
-  title: PropTypes.string
+  title: PropTypes.string,
+  showDefault: PropTypes.bool
 };
 
 SvgIcon.defaultProps = {
   className: 'svg-icon',
-  title: null
+  title: null,
+  showDefault: true
 };
 
 export default SvgIcon;

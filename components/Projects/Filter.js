@@ -1,59 +1,50 @@
-import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class Filter extends Component {
-  static propTypes = {
-    items: PropTypes.array.isRequired,
-    by: PropTypes.string.isRequired,
-    onFilter: PropTypes.func.isRequired,
-    className: PropTypes.string
-  };
+const getButtonClassName = (item, currentItem) => {
+  let className = 'filter__item button button--outlined';
+  if (item === currentItem) className += ' filter__item--active';
+  return className;
+};
 
-  static defaultProps = {
-    className: 'filter'
-  };
+const getFields = (items, by) => {
+  const fields = items.map(item => item.content[by]);
+  fields.unshift('all');
+  return fields.filter((item, i, array) => array.indexOf(item) === i);
+};
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentItem: 'all'
-    };
-  }
+const filterItems = (items, by, value, callback) => {
+  const filteredItems = items.filter(
+    item => item.content[by] === value || value === 'all'
+  );
+  callback(value, filteredItems);
+};
 
-  getButtonClassName = item => {
-    let className = 'filter__item button button--outlined';
-    if (item === this.state.currentItem) className += ' filter__item--active';
-    return className;
-  };
+const Filter = ({ items, by, className, currentItem, onFilter }) => (
+  <div className={className}>
+    {getFields(items, by).map(value => (
+      <button
+        type="button"
+        className={getButtonClassName(value, currentItem)}
+        onClick={() => filterItems(items, by, value, onFilter)}
+        key={value}
+      >
+        {value}
+      </button>
+    ))}
+  </div>
+);
 
-  getFields = (items, by) => {
-    const fields = items.map(item => item.content[by]);
-    fields.unshift('all');
-    return fields.filter((item, i, array) => array.indexOf(item) === i);
-  };
+Filter.propTypes = {
+  items: PropTypes.array.isRequired,
+  by: PropTypes.string.isRequired,
+  onFilter: PropTypes.func.isRequired,
+  className: PropTypes.string,
+  currentItem: PropTypes.string
+};
 
-  filterItems = (value, callback) => {
-    this.setState({ currentItem: value });
-    const filteredItems = this.props.items.filter(
-      item => item.content[this.props.by] === value || value === 'all'
-    );
-    callback(filteredItems);
-  };
+Filter.defaultProps = {
+  className: 'default',
+  currentItem: null
+};
 
-  render() {
-    return (
-      <div className={this.props.className}>
-        {this.getFields(this.props.items, this.props.by).map(item => (
-          <button
-            type="button"
-            className={this.getButtonClassName(item)}
-            onClick={() => this.filterItems(item, this.props.onFilter)}
-            key={item}
-          >
-            {item}
-          </button>
-        ))}
-      </div>
-    );
-  }
-}
+export default Filter;

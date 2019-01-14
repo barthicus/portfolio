@@ -18,13 +18,15 @@ export default class Projects extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      projects: props.projects
+      projects: props.projects,
+      currentCategory: 'all'
     };
   }
 
-  onFilter = filteredItems => {
+  onFilter = (currentCategory, filteredItems) => {
     this.setState(state => ({
       ...state,
+      currentCategory,
       projects: filteredItems
     }));
   };
@@ -36,6 +38,7 @@ export default class Projects extends Component {
           <Filter
             items={this.props.projects}
             by="cat"
+            currentItem={this.state.currentCategory}
             onFilter={this.onFilter}
             className="projects__filter filter"
           />

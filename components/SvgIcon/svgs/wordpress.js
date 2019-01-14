@@ -1,5 +1,6 @@
 export default {
   viewBox: '0 0 5.5555557 5.5555555',
+  fillRule: 'evenodd',
   content: (
     <path
       fill="#464342"

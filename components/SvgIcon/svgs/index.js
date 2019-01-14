@@ -14,6 +14,9 @@ import phpSvg from './php';
 import vueSvg from './vue';
 import javascriptSvg from './javascript';
 import apiplatformSvg from './apiplatform';
+import nextSvg from './next';
+import webpackSvg from './webpack';
+import laravelSvg from './laravel';
 
 const svgIcons = {};
 
@@ -33,5 +36,8 @@ svgIcons.php = phpSvg;
 svgIcons.vue = vueSvg;
 svgIcons.javascript = javascriptSvg;
 svgIcons.apiplatform = apiplatformSvg;
+svgIcons['next.js'] = nextSvg;
+svgIcons.webpack = webpackSvg;
+svgIcons.laravel = laravelSvg;
 
 export default svgIcons;

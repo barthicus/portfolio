@@ -17,6 +17,7 @@ import apiplatformSvg from './apiplatform';
 import nextSvg from './next';
 import webpackSvg from './webpack';
 import laravelSvg from './laravel';
+import boltSvg from './bolt';
 
 const svgIcons = {};
 
@@ -37,6 +38,7 @@ svgIcons.vue = vueSvg;
 svgIcons.javascript = javascriptSvg;
 svgIcons.apiplatform = apiplatformSvg;
 svgIcons['next.js'] = nextSvg;
+svgIcons['bolt.cm'] = boltSvg;
 svgIcons.webpack = webpackSvg;
 svgIcons.laravel = laravelSvg;
 

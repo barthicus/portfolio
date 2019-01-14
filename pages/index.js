@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import StoryblokService from '../utils/StoryblokService';
 import Layout from '../components/Layout';
-import Projects from '../components/Projects';
+import Projects from '../components/ProjectsList';
 import Intro from '../components/Intro';
 import SvgIcon from '../components/SvgIcon';
 

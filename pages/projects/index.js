@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import StoryblokService from '../../utils/StoryblokService';
 import Layout from '../../components/Layout/index';
-import Projects from '../../components/Projects/index';
-import '../../components/Projects/index.scss';
+import Projects from '../../components/ProjectsList/index';
 
 const ProjectsPage = ({ projects }) => (
   <Layout>

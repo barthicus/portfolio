@@ -24,7 +24,7 @@ export default class MyApp extends App {
           classNames="page-transition"
           monkeyPatchScrolling
         >
-          <Component key={this.props.router.route} {...pageProps} />
+          <Component {...pageProps} />
         </PageTransition>
         <style jsx global>{`
           .page-transition-enter {

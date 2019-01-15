@@ -11,8 +11,8 @@ const HomePage = ({ projects }) => (
     <Intro />
     <SvgIcon icon="colorBar" className="color-bar" />
     <section className="section section--projects">
-      <h2 className="section__subtitle">Projekty</h2>
-      <h1 className="section__title">Najnowsze projekty</h1>
+      <h2 className="section__subtitle">Projects</h2>
+      <h1 className="section__title">Latest projects</h1>
       <Projects projects={projects} />
       <div className="lead">
         <div className="lead__container">
@@ -21,7 +21,7 @@ const HomePage = ({ projects }) => (
             <p>Niektóre z nich staram się umieścić na GitHubie.</p>
           </div>
           <Link href="/projects" prefetch>
-            <a className="lead__link button button--outlined">Projekty</a>
+            <a className="lead__link button button--outlined">Projects</a>
           </Link>
         </div>
       </div>

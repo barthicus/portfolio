@@ -40,7 +40,7 @@ class Header extends Component {
 
     if (this.isHomepage() && intro) {
       intro.style.marginTop = this.state.isSticky ? navBarHeight : 0;
-    } else {
+    } else if (main) {
       main.style.marginTop = this.state.isSticky ? navBarHeight : 0;
     }
   };

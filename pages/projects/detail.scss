@@ -58,7 +58,7 @@
     text-align: center;
     // perspective: 1000px;
     perspective: rem-calc(1500);
-    &__img {
+    &__link {
       position: absolute;
       box-shadow: 0 0 rem-calc(30) rgba(0, 0, 0, 0.2);
       transform: rotateY(-30deg) rotateX(5deg);
@@ -89,6 +89,10 @@
           transform: rotateY(-30deg) rotateX(5deg) translateX(-50%) translateY(-1rem);
         }
       }
+    }
+    &__img {
+      display: block;
+      width: 100%;
     }
   }
   .text {
@@ -188,7 +192,7 @@
       height: rem-calc(20);
     }
   }
-  .code-fragments, .screencasts {
+  .code-fragments, .screens {
     .column {
       margin: 0;
     }
@@ -201,11 +205,12 @@
       flex-wrap: wrap;
     }
   }
-  .screencasts {
-    img {
+  .screen {
+    flex-basis: 33%;
+    &__img {
       width: 100%;
     }
-    figcaption {
+    &__title {
       margin-top: 0.5rem;
     }
   }

@@ -14,6 +14,7 @@ const Head = props => (
       />
       <link rel="icon" href="/static/img/favicon.png" />
       <link rel="apple-touch-icon-precomposed" href="/static/img/favicon.png" />
+      {props.children}
     </NextHead>
   </>
 );

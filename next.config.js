@@ -5,6 +5,7 @@ const { promisify } = require('util');
 
 const copyFile = promisify(fs.copyFile);
 const withSass = require('@zeit/next-sass');
+const withCss = require('@zeit/next-css');
 
 const exportPathMap = async (
   defaultPathMap,
@@ -43,4 +44,4 @@ const webpack = (config, { dev }) => {
   return config;
 };
 /* eslint-enable global-require */
-module.exports = withSass({ exportPathMap, webpack });
+module.exports = withSass(withCss({ exportPathMap, webpack }));

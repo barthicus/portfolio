@@ -36,7 +36,12 @@ const Project = ({
         <div className="footer">
           <div className="footer__links">
             {github && (
-              <a href={github} className="footer__link button button--outlined">
+              <a
+                href={github}
+                className="footer__link button button--outlined"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Github
               </a>
             )}
@@ -47,7 +52,7 @@ const Project = ({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                See Online
+                Preview
               </a>
             )}
           </div>

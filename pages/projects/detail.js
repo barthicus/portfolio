@@ -5,37 +5,51 @@ import PropTypes from 'prop-types';
 import animateScrollTo from 'animated-scroll-to';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import marked from 'marked';
+import { PhotoSwipe } from 'react-photoswipe';
 import StoryblokService from '../../utils/StoryblokService';
 import Layout from '../../components/Layout/index';
 import SvgIcon from '../../components/SvgIcon';
+import Head from '../../components/Layout/Head';
 
 import './detail.scss';
+// import 'react-photoswipe/lib/photoswipe.css';
 
 export default class ProjectDetailsPage extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
+    cat: PropTypes.string.isRequired,
     desc: PropTypes.string.isRequired,
     stack: PropTypes.string.isRequired,
     thumb: PropTypes.string.isRequired,
     released: PropTypes.string.isRequired,
-    desktop_view: PropTypes.string,
-    tablet_view: PropTypes.string,
-    phone_view: PropTypes.string,
     online: PropTypes.string,
+    github: PropTypes.string,
     tags: PropTypes.array,
     code_fragments: PropTypes.array,
-    screencasts: PropTypes.array
+    screens: PropTypes.array
   };
 
   static defaultProps = {
-    desktop_view: null,
-    tablet_view: null,
-    phone_view: null,
     tags: null,
     online: null,
+    github: null,
     code_fragments: null,
-    screencasts: null
+    screens: null
   };
+
+  constructor(props) {
+    super(props);
+
+    const { screens } = this.props;
+
+    this.state = {
+      isPhotoswipeOpen: false,
+      photoswipeIndex: 0,
+      phoneScreen: this.getScreenByTitle(screens, 'phone view'),
+      tabletScreen: this.getScreenByTitle(screens, 'tablet view'),
+      desktopScreen: this.getScreenByTitle(screens, 'desktop view')
+    };
+  }
 
   static async getInitialProps({ asPath, query }) {
     StoryblokService.setQuery(query);
@@ -63,30 +77,97 @@ export default class ProjectDetailsPage extends Component {
     );
   }
 
+  getScreenByTitle(screens, title) {
+    return screens.find(screen => screen.title === title);
+  }
+
+  getScreenIndexByUid(screens, uid) {
+    return screens.findIndex(screen => screen._uid === uid);
+  }
+
   scrollToSection = (elSelector, speed = 200) => {
     const position = document.querySelector(elSelector).offsetTop - 120;
     animateScrollTo(position, { speed });
   };
 
+  handleClose = () => {
+    this.setState(state => ({
+      ...state,
+      isPhotoswipeOpen: false,
+      photoswipeIndex: 0
+    }));
+  };
+
+  handleOpen = (e, uid) => {
+    e.preventDefault();
+
+    const { screens } = this.props;
+
+    this.setState(state => ({
+      ...state,
+      isPhotoswipeOpen: true,
+      photoswipeIndex: this.getScreenIndexByUid(screens, uid)
+    }));
+  };
+
+  convertImagesForPhotoswipe(images) {
+    return images.map(image => ({
+      src: image.source,
+      w: image.width,
+      h: image.height,
+      title: image.title
+    }));
+  }
+
+  ucfirst(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   render() {
+    const {
+      cat,
+      online,
+      screens,
+      thumb,
+      title,
+      desc,
+      stack,
+      tags,
+      released,
+      github,
+      code_fragments: codeFragments
+    } = this.props;
     return (
       <Layout>
+        <Head title="Projekt" description="Projekt XYZ">
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="/static/photoswipe.css"
+          />
+        </Head>
+        <PhotoSwipe
+          isOpen={this.state.isPhotoswipeOpen}
+          items={this.convertImagesForPhotoswipe(screens)}
+          onClose={this.state.handleClose}
+          options={{ history: false, index: this.state.photoswipeIndex }}
+        />
         <section className="section section--project">
           <div className="header">
-            <img src={this.props.thumb} alt="" className="header__bg" />
-            <h1 className="header__title">{this.props.title}</h1>
+            <img src={thumb} alt="" className="header__bg" />
+            <h1 className="header__title">{title}</h1>
           </div>
           <div className="container">
             <div className="columns">
               <div className="column is-half text">
                 <h2>Description</h2>
-                {this.getMdContent(this.props.desc, 'text__desc')}
+                {this.getMdContent(desc, 'text__desc')}
 
                 <h2>Technologies</h2>
-                {this.getMdContent(this.props.stack, 'text__stack')}
+                {this.getMdContent(stack, 'text__stack')}
 
                 <div className="tags">
-                  {this.props.tags.map(tag => (
+                  {tags.map(tag => (
                     <span className="tags__tag" title={tag} key={tag}>
                       <SvgIcon icon={tag} />
                     </span>
@@ -96,56 +177,84 @@ export default class ProjectDetailsPage extends Component {
                 <h2>Released</h2>
                 <div className="released">
                   <SvgIcon icon="calendar" />
-                  <p>{this.props.released}</p>
+                  <p>{released}</p>
                 </div>
               </div>
               <div className="column column--centered is-half">
                 <div className="images">
-                  {this.props.desktop_view && (
-                    <img
-                      src={this.props.desktop_view}
-                      alt={`${this.props.title} desktop view`}
-                      className="images__img images__img--desktop"
+                  {this.state.desktopScreen && (
+                    <a
+                      href={this.state.desktopScreen.source}
+                      onClick={e =>
+                        this.handleOpen(e, this.state.desktopScreen._uid)
+                      }
+                      className="images__link images__link--desktop"
                       title="Desktop View"
-                    />
+                    >
+                      <img
+                        src={this.state.desktopScreen.source}
+                        alt={`${title} desktop view`}
+                        className="images__img"
+                      />
+                    </a>
                   )}
-                  {this.props.tablet_view && (
-                    <img
-                      src={this.props.tablet_view}
-                      alt={`${this.props.title} tablet view`}
-                      className="images__img images__img--tablet"
+                  {this.state.tabletScreen && (
+                    <a
+                      href={this.state.tabletScreen.source}
+                      onClick={e =>
+                        this.handleOpen(e, this.state.tabletScreen._uid)
+                      }
+                      className="images__link images__link--tablet"
                       title="Tablet View"
-                    />
+                    >
+                      <img
+                        src={this.state.tabletScreen.source}
+                        alt={`${title} tablet view`}
+                        className="images__img"
+                      />
+                    </a>
                   )}
-                  {this.props.phone_view && (
-                    <img
-                      src={this.props.phone_view}
-                      alt={`${this.props.title} phone view`}
-                      className="images__img images__img--phone"
+                  {this.state.phoneScreen && (
+                    <a
+                      href={this.state.phoneScreen.source}
+                      onClick={e =>
+                        this.handleOpen(e, this.state.phoneScreen._uid)
+                      }
+                      className="images__link images__link--phone"
                       title="Phone View"
-                    />
+                    >
+                      <img
+                        src={this.state.phoneScreen.source}
+                        alt={`${title} phone view`}
+                        className="images__img"
+                      />
+                    </a>
                   )}
                 </div>
                 <div className="online-source">
                   <div className="text">
-                    <p className="text__title">Projekt komercyjny</p>
+                    <p className="text__title">{this.ucfirst(cat)}</p>
                     <p className="text__desc">
-                      {this.props.online &&
-                      this.props.online !== 'commercial' ? (
+                      {!github && (
                         <>
-                          Strona jest dostępna pod adresem:
-                          <br />
-                          {this.props.online}
+                          This is commercial project and is not available on
+                          GitHub.
                         </>
-                      ) : (
-                        'Podgląd kodu źródłowego dla tego projektu nie jest dostępny. Zostały jednak wydzielone jego fragmenty oraz dostępne są screencasty.'
                       )}
+                      {!github &&
+                        codeFragments.length > 1 &&
+                        screens.length > 1 && (
+                          <>
+                            <br />
+                            Code fragments and screens are available.
+                          </>
+                        )}
                     </p>
                   </div>
                   <div className="buttons">
-                    {this.props.online && this.props.online !== 'commercial' && (
+                    {online && online !== 'commercial' && (
                       <a
-                        href={this.props.online}
+                        href={online}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="visit-online button"
@@ -153,36 +262,46 @@ export default class ProjectDetailsPage extends Component {
                         See online
                       </a>
                     )}
-                    {this.props.code_fragments.length > 1 && (
+                    {github && (
+                      <a
+                        href={github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="button button--outlined"
+                      >
+                        GitHub
+                      </a>
+                    )}
+                    {codeFragments.length > 1 && (
                       <a
                         href="#code-fragments"
                         onClick={() => this.scrollToSection('#code-fragments')}
                         className="button button--outlined"
                       >
-                        Code
+                        Code preview
                       </a>
                     )}
-                    {this.props.screencasts.length > 1 && (
+                    {screens.length > 1 && (
                       <a
-                        href="#screencasts"
-                        onClick={() => this.scrollToSection('#screencasts')}
+                        href="#screens"
+                        onClick={() => this.scrollToSection('#screens')}
                         className="button button--outlined"
                       >
-                        Screencasts
+                        Screens
                       </a>
                     )}
                   </div>
                 </div>
               </div>
             </div>
-            {this.props.code_fragments.length > 1 && (
+            {codeFragments.length > 1 && (
               <>
                 <SvgIcon icon="colorBar" className="color-bar" />
                 <div className="columns code-fragments">
                   <div className="column">
                     <h2 id="code-fragments">Code examples</h2>
                     <div className="columns">
-                      {this.props.code_fragments.map(fragment => (
+                      {codeFragments.map(fragment => (
                         <figure className="column" key={fragment._uid}>
                           <SyntaxHighlighter language={fragment.lang}>
                             {fragment.content}
@@ -198,18 +317,28 @@ export default class ProjectDetailsPage extends Component {
               </>
             )}
 
-            {this.props.screencasts.length > 1 && (
+            {screens.length > 1 && (
               <>
                 <SvgIcon icon="colorBar" className="color-bar" />
-                <div className="columns screencasts">
+                <div className="columns screens">
                   <div className="column">
-                    <h2 id="screencasts">Screencasts</h2>
+                    <h2 id="screens">screens</h2>
                     <div className="columns">
-                      {this.props.screencasts.map(screencast => (
-                        <figure className="column" key={screencast._uid}>
-                          <img src={screencast.source} alt={screencast.title} />
-                          <figcaption className="file">
-                            {screencast.title}
+                      {screens.map(screen => (
+                        <figure className="column screen" key={screen._uid}>
+                          <a
+                            href={screen.source}
+                            onClick={e => this.handleOpen(e, screen._uid)}
+                            className="screen__link"
+                          >
+                            <img
+                              src={screen.source}
+                              alt={screen.title}
+                              className="screen__img"
+                            />
+                          </a>
+                          <figcaption className="screen__title">
+                            {screen.title}
                           </figcaption>
                         </figure>
                       ))}

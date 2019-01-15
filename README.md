@@ -4,10 +4,10 @@
 
 Hello everyone! I'm Bartosz Podgruszecki and this is my website where I can show my projects and present my current developer skills.
 
-I really wanted website to be as fast as possible so I chose static generated website and headless cms.
-My second goal was to built on using React. Having in mind these two facts I had 2 choices: Gatsby and Next.js. 
+I wanted to create website that could be as fast as possible and also easy to maintain so I chose static generated website combained with headless cms.
+My last requirement was to build a final product using React. Having in mind these facts I had 2 choices: Gatsby and Next.js. 
 
-Gatsby was looking pretty nice but I needed framework with a lot of configuration possibilities that doesn't forcing developer using some hard rules. This is why I went with Next.js (+ some other smaller libraries). Website the content is fetched from [Storyblok](https://storyblok.com).
+Gatsby was looking pretty nice but I needed framework with a lot of configuration possibilities that isn't forcing developer to anything. This is why I went with Next.js (+ some other smaller libraries). Website the content is fetched from [Storyblok](https://storyblok.com).
 
 I really recommend this stack - it's very convinient during development proccess (all configs ready, HMR, Scss) and also very easy to deploy (generate and uplaod files). I was missing some prettier and eslint hints so I added it and finally whole dev stage is really smooth and fast.
 

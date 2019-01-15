@@ -18,6 +18,7 @@ import nextSvg from './next';
 import webpackSvg from './webpack';
 import laravelSvg from './laravel';
 import boltSvg from './bolt';
+import travisSvg from './travis';
 
 const svgIcons = {};
 
@@ -41,5 +42,6 @@ svgIcons['next.js'] = nextSvg;
 svgIcons['bolt.cm'] = boltSvg;
 svgIcons.webpack = webpackSvg;
 svgIcons.laravel = laravelSvg;
+svgIcons.travis = travisSvg;
 
 export default svgIcons;

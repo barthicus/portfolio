@@ -15,13 +15,10 @@ export default class Projects extends Component {
     showFilter: false
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      projects: props.projects,
-      currentCategory: 'all'
-    };
-  }
+  state = {
+    projects: this.props.projects,
+    currentCategory: 'all'
+  };
 
   onFilter = (currentCategory, filteredItems) => {
     this.setState(state => ({

@@ -52,6 +52,7 @@ class StoryblokService {
       window.storyblok.on('input', event => {
         if (
           reactComponent.state &&
+          reactComponent.state.pageContent &&
           event.story.content._uid === reactComponent.state.pageContent._uid
         ) {
           reactComponent.setState({

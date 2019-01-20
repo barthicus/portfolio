@@ -17,6 +17,7 @@ import './detail.scss';
 export default class ProjectDetailsPage extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
+    intro: PropTypes.string.isRequired,
     cat: PropTypes.string.isRequired,
     desc: PropTypes.string.isRequired,
     stack: PropTypes.string.isRequired,
@@ -47,7 +48,8 @@ export default class ProjectDetailsPage extends Component {
       photoswipeIndex: 0,
       phoneScreen: this.getScreenByTitle(screens, 'phone view'),
       tabletScreen: this.getScreenByTitle(screens, 'tablet view'),
-      desktopScreen: this.getScreenByTitle(screens, 'desktop view')
+      desktopScreen:
+        this.getScreenByTitle(screens, 'desktop view') || screens[0]
     };
   }
 
@@ -130,6 +132,7 @@ export default class ProjectDetailsPage extends Component {
       screens,
       thumb,
       title,
+      intro,
       desc,
       stack,
       tags,
@@ -139,11 +142,14 @@ export default class ProjectDetailsPage extends Component {
     } = this.props;
     return (
       <Layout>
-        <Head title="Projekt" description="Projekt XYZ">
+        <Head
+          title={`${title} | Bartosz Podgruszecki Portfolio`}
+          description={intro}
+        >
           <link
             rel="stylesheet"
             type="text/css"
-            href="/static/photoswipe.css"
+            href="/static/photoswipe/photoswipe.css"
           />
         </Head>
         <PhotoSwipe
@@ -322,7 +328,7 @@ export default class ProjectDetailsPage extends Component {
                 <SvgIcon icon="colorBar" className="color-bar" />
                 <div className="columns screens">
                   <div className="column">
-                    <h2 id="screens">screens</h2>
+                    <h2 id="screens">Screens & Screencasts</h2>
                     <div className="columns">
                       {screens.map(screen => (
                         <figure className="column screen" key={screen._uid}>

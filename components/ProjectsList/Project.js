@@ -45,7 +45,7 @@ const Project = ({
                 Github
               </a>
             )}
-            {online && (
+            {online && online !== 'commercial' && (
               <a
                 href={online}
                 className="footer__link button button--outlined"

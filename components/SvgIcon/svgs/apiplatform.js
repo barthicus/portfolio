@@ -1,4 +1,5 @@
 export default {
+  title: 'ApiPlatform',
   viewBox: '0 0 400 419',
   content: (
     <>

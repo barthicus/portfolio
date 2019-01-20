@@ -1,4 +1,5 @@
 export default {
+  title: 'PHP',
   viewBox: '0 0 40 48',
   scale: 0.9,
   content: (

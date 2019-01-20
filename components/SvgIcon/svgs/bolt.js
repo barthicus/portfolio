@@ -1,4 +1,5 @@
 export default {
+  title: 'Bolt.cm',
   viewBox: '0 0 634 259',
   content: (
     <g>

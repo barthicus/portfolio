@@ -1,4 +1,5 @@
 export default {
+  title: 'Laravel',
   viewBox: '0 0 256 256',
   scale: 0.8,
   content: (

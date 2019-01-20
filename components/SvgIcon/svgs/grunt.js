@@ -1,4 +1,5 @@
 export default {
+  title: 'Grunt',
   viewBox: '0 0 48 48',
   content: (
     <>

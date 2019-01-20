@@ -1,4 +1,5 @@
 export default {
+  title: 'Gulp',
   viewBox: '0 0 175 387',
   content: (
     <>

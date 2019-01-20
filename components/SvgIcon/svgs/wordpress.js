@@ -1,4 +1,5 @@
 export default {
+  title: 'Wordpress',
   viewBox: '0 0 5.5555557 5.5555555',
   fillRule: 'evenodd',
   content: (

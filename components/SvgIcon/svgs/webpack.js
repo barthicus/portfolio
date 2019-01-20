@@ -1,4 +1,5 @@
 export default {
+  title: 'Webpack',
   viewBox: '0 0 774 875.7',
   content: (
     <>

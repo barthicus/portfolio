@@ -19,6 +19,8 @@ import webpackSvg from './webpack';
 import laravelSvg from './laravel';
 import boltSvg from './bolt';
 import travisSvg from './travis';
+import emailSvg from './email';
+import chevronRightSvg from './chevronRight';
 
 const svgIcons = {};
 
@@ -43,5 +45,7 @@ svgIcons['bolt.cm'] = boltSvg;
 svgIcons.webpack = webpackSvg;
 svgIcons.laravel = laravelSvg;
 svgIcons.travis = travisSvg;
+svgIcons.email = emailSvg;
+svgIcons.chevronRight = chevronRightSvg;
 
 export default svgIcons;

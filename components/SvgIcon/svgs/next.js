@@ -1,4 +1,5 @@
 export default {
+  title: 'Next.js',
   viewBox: '0 0 295 178',
   fillRule: 'evenodd',
   scale: 0.8,

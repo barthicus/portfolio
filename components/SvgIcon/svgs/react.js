@@ -1,4 +1,5 @@
 export default {
+  title: 'React',
   viewBox: '208 0 48 48',
   content: (
     <>

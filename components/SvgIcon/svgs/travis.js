@@ -1,4 +1,5 @@
 export default {
+  title: 'Travis CI',
   viewBox: '0 0 40 40',
   content: (
     <g>

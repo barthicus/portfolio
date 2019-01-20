@@ -1,4 +1,5 @@
 export default {
+  title: 'Vue.js',
   viewBox: '0 0 261.76 226.69',
   scale: 0.8,
   content: (

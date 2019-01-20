@@ -1,4 +1,5 @@
 export default {
+  title: 'jQuery',
   viewBox: '0 0 48 48',
   content: (
     <>

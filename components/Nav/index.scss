@@ -6,9 +6,11 @@
   }
   &__items {
     display: flex;
+    justify-content: flex-end;
     list-style: none;
     padding: 0;
-    @include media-breakpoint-down(md) {
+    transition: .3s;
+    @include media-breakpoint-down(sm) {
       display: none;
     }
   }
@@ -31,7 +33,9 @@
   &__trigger {
     display: none;
     cursor: pointer;
-    padding: 1rem;
+    padding: 0;
+    background: none;
+    border: none;
 
     $height-icon: 20px;
     $width-line: 30px;
@@ -40,7 +44,7 @@
     $rotation: 45deg;
     $translateY: ($height-icon / 2);
     $translateX: 0;
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(sm) {
       display: block;
     }
     &:hover {
@@ -52,6 +56,7 @@
       position: relative;
       width: $width-line;
       height: $height-icon;
+      pointer-events: none;
     }
     .line {
       display: block;
@@ -75,6 +80,10 @@
       }
     }
     &--active {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      z-index: 4;
       .line {
         background: $color-green;
       }
@@ -89,15 +98,21 @@
       }
 
       & + .nav__items {
-        display: flex;
-        position: absolute;
+        position: fixed;
         left: 0;
-        top: 100%;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         flex-direction: column;
         padding: 0;
         margin: 0;
-        width: 100%;
-        background-color: rgba(0, 0, 0, .85);
+        background-color: #252525;
+        animation-name: fadeIn;
+        animation-duration: .5s;
         .nav__item {
           margin-right: 0;
         }
@@ -105,7 +120,15 @@
           padding: 1rem 0;
           display: block;
           &:hover {
-            background-color: rgba(#000, 0.3);
+            // background-color: rgba(#000, 0.3);
+          }
+        }
+        @keyframes fadeIn {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
           }
         }
       }

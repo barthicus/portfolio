@@ -4,17 +4,28 @@
   flex-grow: 1;
   text-align: center;
   padding: 5rem 0 0;
+  @include media-breakpoint-down(md) {
+    padding-top: 2rem;
+  }
   .filter {
     display: flex;
     justify-content: center;
     flex-grow: 1;
     margin-top: 3rem;
+    @include media-breakpoint-down(xs) {
+      flex-direction: column;
+    }
     &__item {
       margin: 0 0.5rem;
       padding: rem-calc(10) rem-calc(30);
       border: rem-calc(2) dashed #bbb;
       color: #bbb;
       font-size: rem-calc(13);
+      justify-content: center;
+      align-items: center;
+      @include media-breakpoint-down(xs) {
+        margin: 0 0 1rem;
+      }
       &:hover, &--active {
         color: #fff;
         background-color: #bbb;
@@ -30,6 +41,10 @@
     justify-content: space-between;
     margin: 5rem auto 0;
     padding-bottom: 5rem;
+    @include media-breakpoint-down(md) {
+      padding-bottom: 1rem;
+      margin-top: 2rem;
+    }
   }
   .lead {
     display: inline-block;
@@ -38,10 +53,16 @@
     border-radius: rem-calc(5);
     background: linear-gradient(45deg, #1DE9E2, #89DAEF);
     position: relative;
+    @include media-breakpoint-down(sm) {
+      margin: 0 2rem -1.5rem;
+    }
     &__container {
       display: flex;
       align-items: center;
       padding: 2rem 3rem;
+      @include media-breakpoint-down(sm) {
+        flex-direction: column;
+      }
     }
     &__text {
       font-size: rem-calc(16);
@@ -50,6 +71,13 @@
       text-align: right;
       margin-right: 2rem;
       padding-right: 3rem;
+      @include media-breakpoint-down(sm) {
+        text-align: center;
+        margin-right: 0;
+        padding-right: 0;
+        margin-bottom: 1rem;
+        border: none;
+      }
       p {
         margin: 0.5rem 0;
       }
@@ -60,6 +88,9 @@
       border-width: 2px;
       font-weight: $font-bold;
       margin-left: 1rem;
+      @include media-breakpoint-down(sm) {
+        margin: 0;
+      }
       &:hover {
         color: #1DE9E2;
         background-color: #4B4B4B;

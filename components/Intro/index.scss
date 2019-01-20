@@ -1,6 +1,6 @@
 @import "../Layout/scss/utils/index";
 
-.intro {
+.main-intro {
   padding: 5rem 0;
   color: #fff;
   .container {
@@ -10,10 +10,16 @@
   &__title {
     font-size: rem-calc(50);
     font-weight: $font-bold;
+    @include media-breakpoint-down(sm) {
+      font-size: rem-calc(28);
+    }
   }
   &__subtitle {
     font-size: rem-calc(28);
     font-weight: $font-light;
+    @include media-breakpoint-down(sm) {
+      font-size: rem-calc(24);
+    }
   }
   &__link {
     display: inline-block;

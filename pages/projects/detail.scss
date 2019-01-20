@@ -8,10 +8,13 @@
     align-items: center;
     height: rem-calc(300);
     overflow: hidden;
+    @include media-breakpoint-down(md) {
+      height: rem-calc(150);
+    }
     &::before {
       content: '';
       position: absolute;
-      background-color: rgba($color: #000, $alpha: 0.7);
+      background-color: rgba($color: #000, $alpha: .5);
       left: 0;
       top: 0;
       right: 0;
@@ -26,23 +29,47 @@
       font-weight: $font-bold;
       text-transform: uppercase;
       letter-spacing: rem-calc(3);
+      @include media-breakpoint-down(lg) {
+        font-size: rem-calc(40);
+      }
+      @include media-breakpoint-down(md) {
+        font-size: rem-calc(30);
+        letter-spacing: rem-calc(0);
+      }
     }
     &__bg {
       position: absolute;
       width: 100%;
       top: -50%;
-      filter: blur(10px);
+      // filter: blur(10px) brightness(2);
+      filter: blur(3px);
     }
   }
   .columns {
-    // flex-basis: 100%;
     flex-grow: 1;
     padding: 2rem 0;
+    @include media-breakpoint-down(md) {
+      flex-direction: column;
+      padding: 0;
+    }
   }
   .column {
     flex-basis: 50%;
+    @include media-breakpoint-down(md) {
+      flex-basis: 100%;
+    }
     &--centered {
       text-align: center;
+    }
+    &.is-half {
+      @include media-breakpoint-down(md) {
+        width: 100%;
+      }
+    }
+    &.text {
+      @include media-breakpoint-down(md) {
+        order: 1
+      }
     }
   }
   h2 {
@@ -58,6 +85,11 @@
     text-align: center;
     // perspective: 1000px;
     perspective: rem-calc(1500);
+    @include media-breakpoint-down(md) {
+      width: 80%;
+      margin: 5rem auto 0;
+      padding-bottom: 60%;
+    }
     &__link {
       position: absolute;
       box-shadow: 0 0 rem-calc(30) rgba(0, 0, 0, 0.2);
@@ -100,6 +132,11 @@
     line-height: 1.5rem;
     h2 {
       margin-top: 3rem;
+      &:first-child {
+        @include media-breakpoint-down(md) {
+          margin-top: 0;
+        }
+      }
     }
     .released {
       display: flex;
@@ -112,6 +149,7 @@
   }
   .tags {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
@@ -122,6 +160,9 @@
       align-items: center;
       height: 3rem;
       margin: 0 0.5rem;
+      @include media-breakpoint-down(sm) {
+        margin: 0 0.3rem;
+      }
       .no-svg, svg {
         transition: .3s;
         opacity: 0.2;
@@ -150,13 +191,24 @@
     justify-content: center;
     align-items: center;
     margin-top: 3rem;
+    @include media-breakpoint-down(md) {
+      flex-direction: column;
+      margin-top: 0;
+    }
     & > * {
       padding: 0 2rem;
+      @include media-breakpoint-down(md) {
+        padding: 0;
+      }
     }
     .text {
       position: relative;
       flex-basis: 60%;
       text-align: right;
+      @include media-breakpoint-down(md) {
+        text-align: center;
+        flex-basis: 100%;
+      }
       &::after {
         content: '';
         width: 1px;
@@ -166,6 +218,9 @@
         right: 0;
         top: -.5rem;
         bottom: -.5rem;
+        @include media-breakpoint-down(md) {
+          content: none;
+        }
       }
       &__title {
         font-size: 1.2rem;
@@ -179,8 +234,14 @@
     .buttons {
       flex-basis: 40%;
       text-align: left;
+      @include media-breakpoint-down(md) {
+        margin-top: 1rem;
+      }
       .button + .button {
         margin-top: 0.7rem;
+        @include media-breakpoint-down(md) {
+          margin: 0 0.5rem;
+        }
       }
     }
   }
@@ -193,6 +254,9 @@
     }
   }
   .code-fragments, .screens {
+    @include media-breakpoint-down(xs) {
+      width: 100%;
+    }
     .column {
       margin: 0;
     }
@@ -207,6 +271,10 @@
   }
   .screen {
     flex-basis: 33%;
+    flex-grow: 0;
+    @include media-breakpoint-down(md) {
+      // width: 50%;
+    }
     &__img {
       width: 100%;
     }

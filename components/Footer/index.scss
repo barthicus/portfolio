@@ -12,11 +12,25 @@
       justify-content: center;
       align-items: center;
     }
+    .columns {
+      @include media-breakpoint-only(md) {
+        flex-direction: row;
+      }
+    }
     .logo {
       display: flex;
       align-items: center;
+      @include media-breakpoint-down(md) {
+        display: none;
+      }
       a {
         color: #fff;
+      }
+    }
+    .socials {
+      @include media-breakpoint-only(md) {
+        order: 1;
+        justify-content: flex-end;
       }
     }
   }
@@ -30,4 +44,25 @@
 
 .color-bar + .root-footer__bottom {
   padding-top: 5rem;
+  @include media-breakpoint-down(md) {
+    padding-top: 2rem;
+  }
+}
+
+.root-footer {
+  .nav__trigger {
+    display: none;
+  }
+  .nav__items {
+    @include media-breakpoint-down(sm) {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  .nav__item {
+    @include media-breakpoint-down(sm) {
+      margin: 0.5rem 0;
+    }
+  }
 }

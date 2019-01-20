@@ -5,15 +5,11 @@
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
-  &__text {
-    flex-grow: 1;
-    margin: 1rem 0 1rem -3rem;
-    padding: 1.5rem;
-    background-color: #fff;
-    box-shadow: 0 rem-calc(10) rem-calc(60) rgba(80, 145, 176, 0.1);
-    border-radius: rem-calc(5);
-    z-index: 0;
-    text-align: left;
+  @include media-breakpoint-down(lg) {
+    flex-basis: 100%;
+  }
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
   }
   &__link-img {
     line-height: 0;
@@ -37,14 +33,33 @@
       box-shadow: 0 rem-calc(-2) 1rem rem-calc(6) rgba(0, 0, 0, 0.12);
       left: 1rem;
       right: 1rem;
-      bottom: 0;
+      bottom: rem-calc(-4);
       z-index: -1;
       transition: .2s;
     }
   }
   &__img {
     border-radius: rem-calc(5);
-    width: 245px;
+    width: rem-calc(245);
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+      border-radius: rem-calc(5) rem-calc(5) 0 0;
+    }
+  }
+  &__text {
+    flex-grow: 1;
+    margin: 1rem 0 1rem -3rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    box-shadow: 0 rem-calc(10) rem-calc(60) rgba(80, 145, 176, 0.1);
+    border-radius: rem-calc(5);
+    z-index: 0;
+    text-align: left;
+    @include media-breakpoint-down(sm) {
+      margin: 0;
+      border-radius: 0 0 rem-calc(5) rem-calc(5);
+      text-align: center;
+    }
   }
   &__title {
     font-size: rem-calc(16);
@@ -74,6 +89,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include media-breakpoint-down(sm) {
+      flex-direction: column;
+    }
+    &__links {
+      @include media-breakpoint-down(sm) {
+        order: 1;
+        margin-top: 1rem;
+      }
+    }
     &__link {
       // padding: rem-calc(12) rem-calc(20);
       padding: rem-calc(5) rem-calc(10);
@@ -94,7 +118,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      // margin-top: 2rem;
       text-align: center;
     }
     &__tag {

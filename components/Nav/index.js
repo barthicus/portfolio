@@ -3,14 +3,25 @@ import { withRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import './index.scss';
 
-const Nav = props => (
-  <nav className={props.className}>
-    <ul className="nav__items">
+const Nav = ({ className, isMobileMenuOpen, handleClick, router }) => (
+  <nav className={className}>
+    <button
+      type="button"
+      className={
+        isMobileMenuOpen ? 'nav__trigger nav__trigger--active' : 'nav__trigger'
+      }
+      onClick={handleClick}
+    >
+      <div className="lines">
+        <span className="line line-1" />
+        <span className="line line-2" />
+        <span className="line line-3" />
+      </div>
+    </button>
+    <ul className="nav__items bg-with-pattern">
       <li
         className={
-          props.router.pathname === '/'
-            ? 'nav__item nav__item--active'
-            : 'nav__item'
+          router.pathname === '/' ? 'nav__item nav__item--active' : 'nav__item'
         }
       >
         <Link href="/" prefetch>
@@ -19,8 +30,7 @@ const Nav = props => (
       </li>
       <li
         className={
-          props.router.pathname === '/projects' ||
-          props.router.pathname.startsWith('/projects/')
+          router.pathname === '/projects'
             ? 'nav__item nav__item--active'
             : 'nav__item'
         }
@@ -31,13 +41,13 @@ const Nav = props => (
       </li>
       <li
         className={
-          props.router.pathname === '/contact'
+          router.pathname === '/about-me'
             ? 'nav__item nav__item--active'
             : 'nav__item'
         }
       >
-        <Link href="/contact" prefetch>
-          <a className="nav__link">Contact</a>
+        <Link href="/about-me" prefetch>
+          <a className="nav__link">About me</a>
         </Link>
       </li>
     </ul>
@@ -46,11 +56,15 @@ const Nav = props => (
 
 Nav.propTypes = {
   router: PropTypes.object.isRequired,
+  isMobileMenuOpen: PropTypes.bool,
+  handleClick: PropTypes.func,
   className: PropTypes.string
 };
 
 Nav.defaultProps = {
-  className: 'nav'
+  className: 'nav',
+  handleClick: () => {},
+  isMobileMenuOpen: false
 };
 
 export default withRouter(Nav);

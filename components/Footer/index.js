@@ -27,7 +27,9 @@ const Footer = () => (
       </div>
     </div>
     <div className="root-footer__copyrights">
-      <p>© 2018 Copyrights by Bartosz Podgruszecki. All Rights Reserved.</p>
+      <div className="container">
+        <p>© 2018 Copyrights by Bartosz Podgruszecki. All Rights Reserved.</p>
+      </div>
     </div>
   </footer>
 );

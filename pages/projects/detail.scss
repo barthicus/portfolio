@@ -54,9 +54,9 @@
     }
   }
   .column {
-    flex-basis: 50%;
+    // flex-basis: 50%;
     @include media-breakpoint-down(md) {
-      flex-basis: 100%;
+      // flex-basis: 100%;
     }
     &--centered {
       text-align: center;
@@ -254,7 +254,7 @@
     }
   }
   .code-fragments, .screens {
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(md) {
       width: 100%;
     }
     .column {
@@ -267,6 +267,14 @@
   .code-fragments {
     .columns {
       flex-wrap: wrap;
+    }
+    .column {
+      @include media-breakpoint-up(lg) {
+        width: 50%;
+      }
+      > pre {
+        max-height: 30rem;
+      }
     }
   }
   .screen {

@@ -3,14 +3,14 @@ import Socials from '../Socials';
 import './index.scss';
 
 const Intro = () => (
-  <div className="intro bg-with-pattern">
+  <div className="main-intro bg-with-pattern">
     <div className="container container--column">
-      <h1 className="intro__title">Front-End Developer</h1>
-      <h2 className="intro__subtitle">Bartosz Podgruszecki</h2>
-      <Link href="/">
-        <a className="intro__link button">Contact</a>
+      <h1 className="main-intro__title">Front-End Developer</h1>
+      <h2 className="main-intro__subtitle">Bartosz Podgruszecki</h2>
+      <Link href="/about-me">
+        <a className="main-intro__link button">About me</a>
       </Link>
-      <Socials showLabel />
+      <Socials />
     </div>
   </div>
 );

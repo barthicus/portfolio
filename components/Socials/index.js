@@ -4,7 +4,7 @@ import './index.scss';
 
 const Socials = ({ className, showLabel }) => (
   <div className={className}>
-    {showLabel && <p className="socials__label">znajdziesz mnie także:</p>}
+    {showLabel && <p className="socials__label">my online profiles:</p>}
     <a
       href="https://github.com/barthicus"
       target="_blank"

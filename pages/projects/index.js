@@ -2,11 +2,16 @@ import PropTypes from 'prop-types';
 import StoryblokService from '../../utils/StoryblokService';
 import Layout from '../../components/Layout/index';
 import Projects from '../../components/ProjectsList/index';
+import Head from '../../components/Layout/Head';
 
 const ProjectsPage = ({ projects }) => (
   <Layout>
+    <Head
+      title="Projects list | Bartosz Podgruszecki Portfolio"
+      description="Projects list created by Bartosz Podgruszecki."
+    />
     <section className="section section--projects">
-      <h1 className="section__title">Projekty</h1>
+      <h1 className="section__title">Projects</h1>
       <Projects projects={projects} showFilter />
     </section>
   </Layout>

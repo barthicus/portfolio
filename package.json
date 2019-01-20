@@ -7,7 +7,9 @@
     "dev": "node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
-    "generate": "npm run build && next export"
+    "generate": "rm -rf .next out && npm run build && next export",
+    "serve": "serve out -p 8080",
+    "gs": "npm run generate && npm run serve"
   },
   "repository": {
     "type": "git",

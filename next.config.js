@@ -6,6 +6,7 @@ const { promisify } = require('util');
 const copyFile = promisify(fs.copyFile);
 const withSass = require('@zeit/next-sass');
 const withCss = require('@zeit/next-css');
+const axios = require('axios');
 
 const exportPathMap = async (
   defaultPathMap,
@@ -19,17 +20,24 @@ const exportPathMap = async (
   /* eslint-disable-next-line */
   const { ['/projects/detail']: _, ...fixedRoutes } = defaultPathMap;
 
-  return {
+  const storyBlockContent = await axios.get(
+    'https://api.storyblok.com/v1/cdn/stories?starts_with=projects&version=published&token=Bc7OwWaIz7eCIIF7bN2VgAtt'
+  );
+
+  const projectsRoutes = {};
+  storyBlockContent.data.stories.forEach(project => {
+    projectsRoutes[`/projects/${project.slug}`] = {
+      page: '/projects/detail',
+      query: { slug: project.slug }
+    };
+  });
+
+  const allRoutes = {
     ...fixedRoutes,
-    '/projects/routes-planner': {
-      page: '/projects/detail',
-      query: { slug: 'routes-planner' }
-    },
-    '/projects/3d-garage-builder': {
-      page: '/projects/detail',
-      query: { slug: '3d-garage-builder' }
-    }
+    ...projectsRoutes
   };
+
+  return allRoutes;
 };
 
 const webpack = (config, { dev }) => {

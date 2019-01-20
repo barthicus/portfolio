@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { withRouter } from 'next/router';
+import Router, { withRouter } from 'next/router';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SvgIcon from '../SvgIcon';
@@ -14,10 +14,17 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.navbar = React.createRef();
+    Router.events.on('routeChangeStart', () =>
+      this.setState(state => ({
+        ...state,
+        isMobileMenuOpen: false
+      }))
+    );
   }
 
   state = {
-    isSticky: false
+    isSticky: false,
+    isMobileMenuOpen: false
   };
 
   componentDidMount() {
@@ -28,6 +35,14 @@ class Header extends Component {
   componentWillUnmount() {
     document.removeEventListener('scroll', this.handleScroll, true);
   }
+
+  handleClick = e => {
+    e.preventDefault();
+    this.setState(state => ({
+      ...state,
+      isMobileMenuOpen: !state.isMobileMenuOpen
+    }));
+  };
 
   handleScroll = () => {
     this.setState({
@@ -64,7 +79,11 @@ class Header extends Component {
                 </a>
               </Link>
             </div>
-            <Nav className="navbar__nav nav" />
+            <Nav
+              className="navbar__nav nav"
+              isMobileMenuOpen={this.state.isMobileMenuOpen}
+              handleClick={this.handleClick}
+            />
           </div>
           <SvgIcon icon="colorBar" className="color-bar" />
         </div>

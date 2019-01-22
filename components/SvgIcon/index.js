@@ -18,11 +18,12 @@ const SvgIcon = ({ icon, className, showDefault }) => {
         role="img"
         viewBox={svgIcon.viewBox}
         className={className}
-        aria-labelledby={svgIcon.title}
+        aria-labelledby="svgTitle"
         title={svgIcon.title}
         fillRule={svgIcon.fillRule}
         style={scaleStyle}
       >
+        <title id="svgTitle">{svgIcon.title}</title>
         {svgIcon.content}
       </svg>
     );

@@ -29,6 +29,8 @@
       font-weight: $font-bold;
       text-transform: uppercase;
       letter-spacing: rem-calc(3);
+      text-align: center;
+      margin: 1rem;
       @include media-breakpoint-down(lg) {
         font-size: rem-calc(40);
       }
@@ -242,12 +244,18 @@
         flex-direction: column;
       }
       .button {
-        margin: 0 auto;
+        margin: 0.3rem auto;
         @include media-breakpoint-between(sm, md) {
-          margin: 0 0.7rem;
+          margin: 0 0.3rem;
         }
-        & + .button:not(:last-child) {
-          margin: 0.7rem auto;
+        // & + .button {
+        //   margin: 0.7rem auto;
+        // }
+        &:first-child {
+          margin-top: 0;
+        }
+        &:last-child {
+          margin-bottom: 0;
         }
       }
     }

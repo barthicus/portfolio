@@ -71,6 +71,8 @@ p + p {
 
 button, .button, .button--outlined {
   display: inline-flex;
+  justify-content: center;
+  align-items: center;
   font-size: rem-calc(15);
   font-weight: $font-normal;
   text-transform: uppercase;

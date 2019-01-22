@@ -237,10 +237,17 @@
       @include media-breakpoint-down(md) {
         margin-top: 1rem;
       }
-      .button + .button {
-        margin-top: 0.7rem;
-        @include media-breakpoint-down(md) {
-          margin: 0 0.5rem;
+      @include media-breakpoint-down(xs) {
+        display: flex;
+        flex-direction: column;
+      }
+      .button {
+        margin: 0 auto;
+        @include media-breakpoint-between(sm, md) {
+          margin: 0 0.7rem;
+        }
+        & + .button:not(:last-child) {
+          margin: 0.7rem auto;
         }
       }
     }

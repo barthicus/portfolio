@@ -21,6 +21,7 @@ export default class MyApp extends App {
         <Header />
         <PageTransition
           timeout={150}
+          loadingTimeout={0}
           classNames="page-transition"
           monkeyPatchScrolling
         >

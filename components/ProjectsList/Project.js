@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import SbEditable from 'storyblok-react';
+import LazyLoad from 'react-lazyload';
+import PlaceholderComponent from '../Placeholder';
 import { Link } from '../../routes';
 import SvgIcon from '../SvgIcon';
 
@@ -21,7 +23,12 @@ const Project = ({
       <Link route="projects/detail" params={{ slug }} prefetch>
         <a className="project__link-img">
           <div className="project__img-wrapper">
-            <img src={thumb} className="project__img" alt={title} />
+            <LazyLoad
+              placeholder={<PlaceholderComponent height={245} width={245} />}
+              debounce={500}
+            >
+              <img src={thumb} className="project__img" alt={title} />
+            </LazyLoad>
           </div>
         </a>
       </Link>

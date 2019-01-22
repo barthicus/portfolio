@@ -6,6 +6,8 @@ import animateScrollTo from 'animated-scroll-to';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import marked from 'marked';
 import { PhotoSwipe } from 'react-photoswipe';
+import LazyLoad from 'react-lazyload';
+import PlaceholderComponent from '../../components/Placeholder';
 import StoryblokService from '../../utils/StoryblokService';
 import Layout from '../../components/Layout/index';
 import SvgIcon from '../../components/SvgIcon';
@@ -197,11 +199,17 @@ export default class ProjectDetailsPage extends Component {
                       className="images__link images__link--desktop"
                       title="Desktop View"
                     >
-                      <img
-                        src={this.state.desktopScreen.source}
-                        alt={`${title} desktop view`}
-                        className="images__img"
-                      />
+                      <LazyLoad
+                        height={this.state.desktopScreen.height}
+                        placeholder={<PlaceholderComponent />}
+                        debounce={500}
+                      >
+                        <img
+                          src={this.state.desktopScreen.source}
+                          alt={`${title} desktop view`}
+                          className="images__img"
+                        />
+                      </LazyLoad>
                     </a>
                   )}
                   {this.state.tabletScreen && (
@@ -213,11 +221,17 @@ export default class ProjectDetailsPage extends Component {
                       className="images__link images__link--tablet"
                       title="Tablet View"
                     >
-                      <img
-                        src={this.state.tabletScreen.source}
-                        alt={`${title} tablet view`}
-                        className="images__img"
-                      />
+                      <LazyLoad
+                        height={this.state.tabletScreen.height}
+                        placeholder={<PlaceholderComponent />}
+                        debounce={500}
+                      >
+                        <img
+                          src={this.state.tabletScreen.source}
+                          alt={`${title} tablet view`}
+                          className="images__img"
+                        />
+                      </LazyLoad>
                     </a>
                   )}
                   {this.state.phoneScreen && (
@@ -229,11 +243,17 @@ export default class ProjectDetailsPage extends Component {
                       className="images__link images__link--phone"
                       title="Phone View"
                     >
-                      <img
-                        src={this.state.phoneScreen.source}
-                        alt={`${title} phone view`}
-                        className="images__img"
-                      />
+                      <LazyLoad
+                        height={this.state.phoneScreen.height}
+                        placeholder={<PlaceholderComponent />}
+                        debounce={500}
+                      >
+                        <img
+                          src={this.state.phoneScreen.source}
+                          alt={`${title} phone view`}
+                          className="images__img"
+                        />
+                      </LazyLoad>
                     </a>
                   )}
                 </div>
@@ -337,11 +357,17 @@ export default class ProjectDetailsPage extends Component {
                             onClick={e => this.handleOpen(e, screen._uid)}
                             className="screen__link"
                           >
-                            <img
-                              src={screen.source}
-                              alt={screen.title}
-                              className="screen__img"
-                            />
+                            <LazyLoad
+                              height={screen.height}
+                              placeholder={<PlaceholderComponent />}
+                              debounce={500}
+                            >
+                              <img
+                                src={screen.source}
+                                alt={screen.title}
+                                className="screen__img"
+                              />
+                            </LazyLoad>
                           </a>
                           <figcaption className="screen__title">
                             {screen.title}

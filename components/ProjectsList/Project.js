@@ -21,7 +21,7 @@ const Project = ({
   <SbEditable content={project}>
     <div className="project">
       <Link route="projects/detail" params={{ slug }} prefetch>
-        <a className="project__link-img">
+        <a className="project__link-img" aria-label={title}>
           <div className="project__img-wrapper">
             <LazyLoad
               placeholder={<PlaceholderComponent height={245} width={245} />}

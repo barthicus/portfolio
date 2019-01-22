@@ -10,6 +10,7 @@ const Socials = ({ className, showLabel }) => (
       target="_blank"
       rel="noopener noreferrer"
       className="socials__link"
+      aria-label="GitHub Profile"
     >
       <SvgIcon icon="github" className="socials__svg" />
     </a>
@@ -18,6 +19,7 @@ const Socials = ({ className, showLabel }) => (
       target="_blank"
       rel="noopener noreferrer"
       className="socials__link"
+      aria-label="Linkedin Profile"
     >
       <SvgIcon icon="linkedin" className="socials__svg" />
     </a>

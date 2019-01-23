@@ -12,6 +12,7 @@ const axios = require('axios');
 
 const exportPathMap = async (
   defaultPathMap,
+  // eslint-disable-next-line no-unused-vars
   { dev, dir, outDir, distDir, buildId }
 ) => {
   if (dev) return defaultPathMap;

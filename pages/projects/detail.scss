@@ -99,9 +99,13 @@
       transform-origin: left bottom;
       display: block;
       transition: .3s;
+      // overflow: hidden;
       &:hover {
         transform: rotateY(-30deg) rotateX(5deg) translateY(-1rem);
         box-shadow: 0 0.5rem rem-calc(30) rgba(0, 0, 0, 0.3);
+        .images__img {
+          filter: brightness(.7);
+        }
       }
       &--phone {
         width: 20%;
@@ -127,6 +131,11 @@
     &__img {
       display: block;
       width: 100%;
+      transition: .3s;
+      &--loaded {
+        animation-name: unblur;
+        animation-duration: .5s;
+      }
     }
   }
   .text {
@@ -300,9 +309,23 @@
     }
     &__img {
       width: 100%;
+      transition: .3s;
+      &--loaded {
+        animation-name: unblur;
+        animation-duration: .5s;
+      }
     }
     &__title {
       margin-top: 0.5rem;
+    }
+  }
+
+  @keyframes unblur {
+    0% {
+      filter: blur(5px);
+    }
+    100% {
+      filter: blur(0);
     }
   }
 }

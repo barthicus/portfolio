@@ -1,20 +1,22 @@
 /* eslint no-underscore-dangle: ["error", { "allow": ["_uid"] }] */
-
+/* eslint import/no-dynamic-require: 0 */
+/* eslint global-require: 0 */
+import dynamic from 'next/dynamic';
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import animateScrollTo from 'animated-scroll-to';
-import SyntaxHighlighter from 'react-syntax-highlighter';
 import marked from 'marked';
 import { PhotoSwipe } from 'react-photoswipe';
-import LazyLoad from 'react-lazyload';
-import PlaceholderComponent from '../../components/Placeholder';
+import { LazyImage } from 'react-lazy-images';
 import StoryblokService from '../../utils/StoryblokService';
 import Layout from '../../components/Layout/index';
 import SvgIcon from '../../components/SvgIcon';
 import Head from '../../components/Layout/Head';
 
 import './detail.scss';
-// import 'react-photoswipe/lib/photoswipe.css';
+import 'react-photoswipe/lib/photoswipe.css';
+
+const SyntaxHighlighter = dynamic(() => import('react-syntax-highlighter'));
 
 export default class ProjectDetailsPage extends Component {
   static propTypes = {
@@ -29,7 +31,8 @@ export default class ProjectDetailsPage extends Component {
     github: PropTypes.string,
     tags: PropTypes.array,
     code_fragments: PropTypes.array,
-    screens: PropTypes.array
+    screens: PropTypes.array,
+    slug: PropTypes.string.isRequired
   };
 
   static defaultProps = {
@@ -62,7 +65,10 @@ export default class ProjectDetailsPage extends Component {
       `cdn/stories${asPath}`
     );
 
-    return storyBlockContent.data.story.content;
+    return {
+      ...storyBlockContent.data.story.content,
+      slug: storyBlockContent.data.story.slug
+    };
   }
 
   componentDidMount() {
@@ -140,20 +146,15 @@ export default class ProjectDetailsPage extends Component {
       tags,
       released,
       github,
-      code_fragments: codeFragments
+      code_fragments: codeFragments,
+      slug
     } = this.props;
     return (
       <Layout>
         <Head
           title={`${title} | Bartosz Podgruszecki Portfolio`}
           description={intro}
-        >
-          <link
-            rel="stylesheet"
-            type="text/css"
-            href="/static/photoswipe/photoswipe.css"
-          />
-        </Head>
+        />
         <PhotoSwipe
           isOpen={this.state.isPhotoswipeOpen}
           items={this.convertImagesForPhotoswipe(screens)}
@@ -199,17 +200,30 @@ export default class ProjectDetailsPage extends Component {
                       className="images__link images__link--desktop"
                       title="Desktop View"
                     >
-                      <LazyLoad
-                        height={this.state.desktopScreen.height}
-                        placeholder={<PlaceholderComponent />}
-                        debounce={500}
-                      >
-                        <img
-                          src={this.state.desktopScreen.source}
-                          alt={`${title} desktop view`}
-                          className="images__img"
-                        />
-                      </LazyLoad>
+                      <LazyImage
+                        src={require(`../../static/img/projects/${slug}/desktop.png?size=540`)}
+                        // width={this.state.desktopScreen.width}
+                        width="540"
+                        alt={`${slug} desktop view`}
+                        className="images__img"
+                        placeholder={({ imageProps, ref }) => (
+                          <img
+                            ref={ref}
+                            className="images__img"
+                            width="540"
+                            src={require(`../../static/img/projects/${slug}/desktop.png?lqip`)}
+                            alt={imageProps.alt}
+                          />
+                        )}
+                        actual={({ imageProps }) => (
+                          /* eslint-disable */
+                          <img
+                            {...imageProps}
+                            className="images__img images__img--loaded"
+                          />
+                          /* eslint-enable */
+                        )}
+                      />
                     </a>
                   )}
                   {this.state.tabletScreen && (
@@ -221,17 +235,29 @@ export default class ProjectDetailsPage extends Component {
                       className="images__link images__link--tablet"
                       title="Tablet View"
                     >
-                      <LazyLoad
-                        height={this.state.tabletScreen.height}
-                        placeholder={<PlaceholderComponent />}
-                        debounce={500}
-                      >
-                        <img
-                          src={this.state.tabletScreen.source}
-                          alt={`${title} tablet view`}
-                          className="images__img"
-                        />
-                      </LazyLoad>
+                      <LazyImage
+                        src={require(`../../static/img/projects/${slug}/tablet.png?size=227`)}
+                        width="227"
+                        alt={`${slug} tablet view`}
+                        className="images__img"
+                        placeholder={({ imageProps, ref }) => (
+                          <img
+                            ref={ref}
+                            className="images__img"
+                            width="227"
+                            src={require(`../../static/img/projects/${slug}/tablet.png?lqip`)}
+                            alt={imageProps.alt}
+                          />
+                        )}
+                        actual={({ imageProps }) => (
+                          /* eslint-disable */
+                          <img
+                            {...imageProps}
+                            className="images__img images__img--loaded"
+                          />
+                          /* eslint-enable */
+                        )}
+                      />
                     </a>
                   )}
                   {this.state.phoneScreen && (
@@ -243,17 +269,29 @@ export default class ProjectDetailsPage extends Component {
                       className="images__link images__link--phone"
                       title="Phone View"
                     >
-                      <LazyLoad
-                        height={this.state.phoneScreen.height}
-                        placeholder={<PlaceholderComponent />}
-                        debounce={500}
-                      >
-                        <img
-                          src={this.state.phoneScreen.source}
-                          alt={`${title} phone view`}
-                          className="images__img"
-                        />
-                      </LazyLoad>
+                      <LazyImage
+                        src={require(`../../static/img/projects/${slug}/phone.gif`)}
+                        width={this.state.phoneScreen.width}
+                        alt={`${slug} phone view`}
+                        className="images__img"
+                        placeholder={({ imageProps, ref }) => (
+                          <img
+                            ref={ref}
+                            className="images__img"
+                            width={this.state.phoneScreen.width}
+                            src={require(`../../static/img/projects/${slug}/phone.png?lqip`)}
+                            alt={imageProps.alt}
+                          />
+                        )}
+                        actual={({ imageProps }) => (
+                          /* eslint-disable */
+                          <img
+                            {...imageProps}
+                            className="images__img images__img--loaded"
+                          />
+                          /* eslint-enable */
+                        )}
+                      />
                     </a>
                   )}
                 </div>
@@ -357,17 +395,29 @@ export default class ProjectDetailsPage extends Component {
                             onClick={e => this.handleOpen(e, screen._uid)}
                             className="screen__link"
                           >
-                            <LazyLoad
-                              height={screen.height}
-                              placeholder={<PlaceholderComponent />}
-                              debounce={500}
-                            >
-                              <img
-                                src={screen.source}
-                                alt={screen.title}
-                                className="screen__img"
-                              />
-                            </LazyLoad>
+                            <LazyImage
+                              src={require(`../../static/img/projects/${slug}/phone.png`)}
+                              width={screen.width}
+                              alt={screen.title}
+                              className="screen__img"
+                              placeholder={({ imageProps, ref }) => (
+                                <img
+                                  ref={ref}
+                                  className="screen__img"
+                                  width={screen.width}
+                                  src={require(`../../static/img/projects/${slug}/phone.png?lqip`)}
+                                  alt={imageProps.alt}
+                                />
+                              )}
+                              actual={({ imageProps }) => (
+                                /* eslint-disable */
+                                <img
+                                  {...imageProps}
+                                  className="screen__img screen__img--loaded"
+                                />
+                                /* eslint-enable */
+                              )}
+                            />
                           </a>
                           <figcaption className="screen__title">
                             {screen.title}

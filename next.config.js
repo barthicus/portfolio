@@ -4,8 +4,10 @@ const { join } = require('path');
 const { promisify } = require('util');
 
 const copyFile = promisify(fs.copyFile);
-const withSass = require('@zeit/next-sass');
-const withCss = require('@zeit/next-css');
+const withPlugins = require('next-compose-plugins');
+const sass = require('@zeit/next-sass');
+const css = require('@zeit/next-css');
+const optimizedImages = require('next-optimized-images');
 const axios = require('axios');
 
 const exportPathMap = async (
@@ -51,5 +53,40 @@ const webpack = (config, { dev }) => {
   }
   return config;
 };
+
 /* eslint-enable global-require */
-module.exports = withSass(withCss({ exportPathMap, webpack }));
+module.exports = withPlugins(
+  [
+    [
+      optimizedImages,
+      {
+        // these are the default values so you don't have to provide them if they are good enough for your use-case.
+        // but you can overwrite them here with any valid value you want.
+        inlineImageLimit: 8192,
+        imagesFolder: 'images',
+        imagesName: '[name]-[hash].[ext]',
+        handleImages: ['jpeg', 'png', 'svg', 'webp', 'gif'],
+        optimizeImages: true,
+        optimizeImagesInDev: false,
+        mozjpeg: {
+          quality: 80
+        },
+        optipng: {
+          optimizationLevel: 3
+        },
+        pngquant: false,
+        gifsicle: {
+          interlaced: true,
+          optimizationLevel: 3
+        },
+        webp: {
+          preset: 'default',
+          quality: 75
+        }
+      }
+    ],
+    css,
+    sass
+  ],
+  { exportPathMap, webpack }
+);

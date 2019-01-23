@@ -8,7 +8,7 @@ a {
   text-decoration: none;
 }
 body {
-  font-family: 'Rubik', sans-serif;
+  font-family: sans-serif;
   font-size: rem-calc(15);
   text-rendering: optimizeLegibility;
   // background-color: #303030; // dark bg while transitions
@@ -18,7 +18,12 @@ body {
   }
 }
 button, input, textarea {
-  font-family: 'Rubik', sans-serif;
+  font-family: sans-serif;
+}
+html.wf-active {
+  body, button, input, textarea {
+    font-family: 'Rubik', sans-serif;
+  }
 }
 img {
   image-rendering: crisp-edges;

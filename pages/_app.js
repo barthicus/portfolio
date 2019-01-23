@@ -15,13 +15,15 @@ export default class MyApp extends App {
   }
 
   componentDidMount() {
-    import('webfontloader').then(WebFontLoader => {
-      WebFontLoader.load({
-        google: {
-          families: ['Rubik:300,400,500:latin-ext', 'Armata']
-        }
+    if (!document.documentElement.classList.contains('wf-active')) {
+      import('webfontloader').then(WebFontLoader => {
+        WebFontLoader.load({
+          google: {
+            families: ['Rubik:300,400,500:latin-ext', 'Armata']
+          }
+        });
       });
-    });
+    }
   }
 
   render() {

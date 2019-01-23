@@ -24,7 +24,7 @@
       span {
         display: block;
         text-transform: uppercase;
-        font-family: 'Armata', sans-serif;
+        font-family: sans-serif;
         &:first-child {
           font-size: rem-calc(29);
           letter-spacing: rem-calc(2);
@@ -121,5 +121,11 @@
     bottom: 0;
     left: 0;
     width: 100%;
+  }
+}
+
+html.wf-active {
+  .root-header .navbar__logo span {
+    font-family: 'Armata', sans-serif;
   }
 }

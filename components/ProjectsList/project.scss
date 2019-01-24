@@ -16,6 +16,7 @@
     &:hover {
       .project__img-wrapper {
         box-shadow: 0 0 1rem rem-calc(3) rgba($color-green, 0.3);
+        filter: brightness(.7);
       }
       .project__img-wrapper::after {
         opacity: 0;

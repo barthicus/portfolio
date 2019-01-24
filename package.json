@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js",
+    "start": "cross-env NODE_ENV=production node server.js",
     "generate": "rm -rf .next out && npm run build && next export",
     "serve": "serve out -p 8080",
     "gs": "npm run generate && npm run serve"
@@ -26,6 +26,7 @@
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "animated-scroll-to": "^1.2.2",
+    "cross-env": "^5.2.0",
     "imagemin-gifsicle": "^6.0.1",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-optipng": "^6.0.0",

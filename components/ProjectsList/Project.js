@@ -1,14 +1,14 @@
+/* eslint import/no-dynamic-require: 0 */
+/* eslint global-require: 0 */
 import PropTypes from 'prop-types';
 import SbEditable from 'storyblok-react';
-import LazyLoad from 'react-lazyload';
-import PlaceholderComponent from '../Placeholder';
+import { LazyImage } from 'react-lazy-images';
 import { Link } from '../../routes';
 import SvgIcon from '../SvgIcon';
 
 import './project.scss';
 
 const Project = ({
-  thumb,
   title,
   cat,
   intro,
@@ -23,12 +23,26 @@ const Project = ({
       <Link route="projects/detail" params={{ slug }} prefetch>
         <a className="project__link-img" aria-label={title}>
           <div className="project__img-wrapper">
-            <LazyLoad
-              placeholder={<PlaceholderComponent height={245} width={245} />}
-              debounce={500}
-            >
-              <img src={thumb} className="project__img" alt={title} />
-            </LazyLoad>
+            <LazyImage
+              src={require(`../../static/img/projects/${slug}/thumb.jpg`)}
+              alt={`${slug} desktop view`}
+              className="project__img"
+              placeholder={({ imageProps, ref }) => (
+                <img
+                  ref={ref}
+                  className="project__img"
+                  src={require(`../../static/img/projects/${slug}/thumb.jpg?lqip`)}
+                  alt={imageProps.alt}
+                />
+              )}
+              actual={({ imageProps }) => (
+                /* eslint-disable */
+                <img
+                  {...imageProps}
+                />
+                /* eslint-enable */
+              )}
+            />
           </div>
         </a>
       </Link>
@@ -77,7 +91,6 @@ const Project = ({
 );
 
 Project.propTypes = {
-  thumb: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   cat: PropTypes.string.isRequired,
   intro: PropTypes.string.isRequired,

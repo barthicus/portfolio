@@ -25,7 +25,6 @@ export default class ProjectDetailsPage extends Component {
     cat: PropTypes.string.isRequired,
     desc: PropTypes.string.isRequired,
     stack: PropTypes.string.isRequired,
-    thumb: PropTypes.string.isRequired,
     released: PropTypes.string.isRequired,
     online: PropTypes.string,
     github: PropTypes.string,
@@ -122,7 +121,7 @@ export default class ProjectDetailsPage extends Component {
 
   convertImagesForPhotoswipe(images) {
     return images.map(image => ({
-      src: image.source,
+      src: `../../static/img/projects/${this.props.slug}/${image.filename}`,
       w: image.width,
       h: image.height,
       title: image.title
@@ -138,7 +137,6 @@ export default class ProjectDetailsPage extends Component {
       cat,
       online,
       screens,
-      thumb,
       title,
       intro,
       desc,
@@ -163,7 +161,11 @@ export default class ProjectDetailsPage extends Component {
         />
         <section className="section section--project">
           <div className="header">
-            <img src={thumb} alt="" className="header__bg" />
+            <img
+              src={require(`../../static/img/projects/${slug}/thumb.jpg`)}
+              alt="thumbnail"
+              className="header__bg"
+            />
             <h1 className="header__title">{title}</h1>
           </div>
           <div className="container">
@@ -193,7 +195,9 @@ export default class ProjectDetailsPage extends Component {
                 <div className="images">
                   {this.state.desktopScreen && (
                     <a
-                      href={this.state.desktopScreen.source}
+                      href={`/static/img/projects/${slug}/${
+                        this.state.desktopScreen.filename
+                      }`}
                       onClick={e =>
                         this.handleOpen(e, this.state.desktopScreen._uid)
                       }
@@ -201,9 +205,9 @@ export default class ProjectDetailsPage extends Component {
                       title="Desktop View"
                     >
                       <LazyImage
-                        src={require(`../../static/img/projects/${slug}/desktop.png?size=540`)}
-                        // width={this.state.desktopScreen.width}
-                        width="540"
+                        src={require(`../../static/img/projects/${slug}/${
+                          this.state.desktopScreen.filename
+                        }?size=540`)}
                         alt={`${slug} desktop view`}
                         className="images__img"
                         placeholder={({ imageProps, ref }) => (
@@ -211,7 +215,9 @@ export default class ProjectDetailsPage extends Component {
                             ref={ref}
                             className="images__img"
                             width="540"
-                            src={require(`../../static/img/projects/${slug}/desktop.png?lqip`)}
+                            src={require(`../../static/img/projects/${slug}/${
+                              this.state.desktopScreen.filename
+                            }?lqip`)}
                             alt={imageProps.alt}
                           />
                         )}
@@ -228,7 +234,9 @@ export default class ProjectDetailsPage extends Component {
                   )}
                   {this.state.tabletScreen && (
                     <a
-                      href={this.state.tabletScreen.source}
+                      href={`/static/img/projects/${slug}/${
+                        this.state.tabletScreen.filename
+                      }`}
                       onClick={e =>
                         this.handleOpen(e, this.state.tabletScreen._uid)
                       }
@@ -236,8 +244,9 @@ export default class ProjectDetailsPage extends Component {
                       title="Tablet View"
                     >
                       <LazyImage
-                        src={require(`../../static/img/projects/${slug}/tablet.png?size=227`)}
-                        width="227"
+                        src={require(`../../static/img/projects/${slug}/${
+                          this.state.tabletScreen.filename
+                        }?size=227`)}
                         alt={`${slug} tablet view`}
                         className="images__img"
                         placeholder={({ imageProps, ref }) => (
@@ -245,7 +254,9 @@ export default class ProjectDetailsPage extends Component {
                             ref={ref}
                             className="images__img"
                             width="227"
-                            src={require(`../../static/img/projects/${slug}/tablet.png?lqip`)}
+                            src={require(`../../static/img/projects/${slug}/${
+                              this.state.tabletScreen.filename
+                            }?lqip`)}
                             alt={imageProps.alt}
                           />
                         )}
@@ -262,7 +273,9 @@ export default class ProjectDetailsPage extends Component {
                   )}
                   {this.state.phoneScreen && (
                     <a
-                      href={this.state.phoneScreen.source}
+                      href={`/static/img/projects/${slug}/${
+                        this.state.phoneScreen.filename
+                      }`}
                       onClick={e =>
                         this.handleOpen(e, this.state.phoneScreen._uid)
                       }
@@ -270,7 +283,9 @@ export default class ProjectDetailsPage extends Component {
                       title="Phone View"
                     >
                       <LazyImage
-                        src={require(`../../static/img/projects/${slug}/phone.gif`)}
+                        src={require(`../../static/img/projects/${slug}/${
+                          this.state.phoneScreen.filename
+                        }`)}
                         width={this.state.phoneScreen.width}
                         alt={`${slug} phone view`}
                         className="images__img"
@@ -279,7 +294,9 @@ export default class ProjectDetailsPage extends Component {
                             ref={ref}
                             className="images__img"
                             width={this.state.phoneScreen.width}
-                            src={require(`../../static/img/projects/${slug}/phone.png?lqip`)}
+                            src={require(`../../static/img/projects/${slug}/${
+                              this.state.phoneScreen.filename
+                            }?lqip`)}
                             alt={imageProps.alt}
                           />
                         )}
@@ -391,12 +408,16 @@ export default class ProjectDetailsPage extends Component {
                       {screens.map(screen => (
                         <figure className="column screen" key={screen._uid}>
                           <a
-                            href={screen.source}
+                            href={`/static/img/projects/${slug}/${
+                              screen.filename
+                            }`}
                             onClick={e => this.handleOpen(e, screen._uid)}
                             className="screen__link"
                           >
                             <LazyImage
-                              src={require(`../../static/img/projects/${slug}/phone.png`)}
+                              src={require(`../../static/img/projects/${slug}/${
+                                screen.filename
+                              }`)}
                               width={screen.width}
                               alt={screen.title}
                               className="screen__img"
@@ -405,7 +426,9 @@ export default class ProjectDetailsPage extends Component {
                                   ref={ref}
                                   className="screen__img"
                                   width={screen.width}
-                                  src={require(`../../static/img/projects/${slug}/phone.png?lqip`)}
+                                  src={require(`../../static/img/projects/${slug}/${
+                                    screen.filename
+                                  }?lqip`)}
                                   alt={imageProps.alt}
                                 />
                               )}

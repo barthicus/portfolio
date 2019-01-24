@@ -24,7 +24,7 @@ const exportPathMap = async (
   const { ['/projects/detail']: _, ...fixedRoutes } = defaultPathMap;
 
   const storyBlockContent = await axios.get(
-    'https://api.storyblok.com/v1/cdn/stories?starts_with=projects&version=published&token=Bc7OwWaIz7eCIIF7bN2VgAtt'
+    'https://api.storyblok.com/v1/cdn/stories?filter_query[component][in]=project&version=published&token=Bc7OwWaIz7eCIIF7bN2VgAtt'
   );
 
   const projectsRoutes = {};

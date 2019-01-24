@@ -22,7 +22,8 @@ const AboutPage = () => (
           </div>
           <div className="photo">
             <img
-              src="/static/img/me.jpg"
+              // eslint-disable-next-line import/no-unresolved,global-require
+              src={require('../static/img/me.jpg?size=270')}
               alt="Bartosz Podgruszecki"
               className="photo__img"
             />

@@ -25,6 +25,7 @@ The website layout was designed by me in Adobe XD.
 Other packages can be found in current [package.json](https://github.com/barthicus/portfolio/blob/master/package.json) file.
 
 # TODO
+* Refactor /pages/projects/detail.js (OMG this file is huge)
 * Find a way to generate routes after StoryBlock content change. I know there are webhooks, but this functionality isn't available in "Starter Plan" :disappointed:
 * Add Blog section, I always wanted to start writing it and have some tech posts ideas, but I'm not sure it's good idea yet.
 * Add polish language and language switcher

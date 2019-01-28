@@ -1,8 +1,7 @@
 /* eslint no-underscore-dangle: ["error", { "allow": ["_uid"] }] */
-/* eslint import/no-dynamic-require: 0 */
-/* eslint global-require: 0 */
+// import axios from 'axios';
 import dynamic from 'next/dynamic';
-import { Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import animateScrollTo from 'animated-scroll-to';
 import marked from 'marked';
@@ -18,6 +17,39 @@ import 'react-photoswipe/lib/photoswipe.css';
 
 const SyntaxHighlighter = dynamic(() => import('react-syntax-highlighter'));
 
+// const getImagePlaceholders = async images =>
+//   Promise.all(
+//     images.map(async image => {
+//       const path = image.filename.replace('//a.storyblok.com', '');
+//       const url = `http://img2.storyblok.com/10x0${path}?token=1JC7F3RQROnZQiYukvhW5wtt`;
+//       const response = await axios.get(url, {
+//         responseType: 'arraybuffer'
+//       });
+//       return {
+//         ...image,
+//         base64: Buffer.from(response.data, 'binary').toString('base64')
+//       };
+//     })
+//   );
+
+const getScreenByTitle = (screens, title) =>
+  screens && screens.find(screen => screen.name === title);
+
+const getImagesForPhotoswipe = images =>
+  images &&
+  images.map(image => ({
+    src: image.filename,
+    w: image.filename
+      .match(/\/[0-9]+x[0-9]+\//)[0]
+      .split('x')[0]
+      .replace('/', ''),
+    h: image.filename
+      .match(/\/[0-9]+x[0-9]+\//)[0]
+      .split('x')[1]
+      .replace('/', ''),
+    title: image.name
+  }));
+
 export default class ProjectDetailsPage extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
@@ -30,7 +62,7 @@ export default class ProjectDetailsPage extends Component {
     github: PropTypes.string,
     tags: PropTypes.array,
     code_fragments: PropTypes.array,
-    screens: PropTypes.array,
+    assets: PropTypes.array,
     slug: PropTypes.string.isRequired
   };
 
@@ -39,23 +71,13 @@ export default class ProjectDetailsPage extends Component {
     online: null,
     github: null,
     code_fragments: null,
-    screens: null
+    assets: null
   };
 
-  constructor(props) {
-    super(props);
-
-    const { screens } = this.props;
-
-    this.state = {
-      isPhotoswipeOpen: false,
-      photoswipeIndex: 0,
-      phoneScreen: this.getScreenByTitle(screens, 'phone view'),
-      tabletScreen: this.getScreenByTitle(screens, 'tablet view'),
-      desktopScreen:
-        this.getScreenByTitle(screens, 'desktop view') || screens[0]
-    };
-  }
+  state = {
+    isPhotoswipeOpen: false,
+    photoswipeIndex: 0
+  };
 
   static async getInitialProps({ asPath, query }) {
     StoryblokService.setQuery(query);
@@ -64,9 +86,43 @@ export default class ProjectDetailsPage extends Component {
       `cdn/stories${asPath}`
     );
 
+    const projectData = storyBlockContent.data.story;
+
+    // const imagePlaceholders = await getImagePlaceholders(
+    //   storyBlockContent.data.story.content.assets
+    // );
+
+    const screens =
+      projectData.content.assets &&
+      projectData.content.assets.filter(asset => asset.name !== 'thumb');
+
+    const codeFragments =
+      projectData.content.code_fragments &&
+      projectData.content.code_fragments.length > 0
+        ? projectData.content.code_fragments
+        : null;
+
+    const photoswipeConfig = {
+      history: false,
+      preload: [1, 1],
+      showHideOpacity: true,
+      mouseUsed: true
+    };
+
     return {
-      ...storyBlockContent.data.story.content,
-      slug: storyBlockContent.data.story.slug
+      ...projectData.content,
+      slug: projectData.slug,
+      screens,
+      codeFragments,
+      photoswipeScreens: getImagesForPhotoswipe(screens),
+      photoswipeConfig,
+      thumbnail:
+        getScreenByTitle(projectData.content.assets, 'thumb') ||
+        (screens && screens[0]),
+      phoneScreen: getScreenByTitle(screens, 'phone view'),
+      tabletScreen: getScreenByTitle(screens, 'tablet view'),
+      desktopScreen: getScreenByTitle(screens, 'desktop view')
+      // imagePlaceholders
     };
   }
 
@@ -77,6 +133,7 @@ export default class ProjectDetailsPage extends Component {
   }
 
   getMdContent(mdContent, classname) {
+    if (!mdContent) return;
     return (
       <div
         /* eslint-disable-next-line */
@@ -86,12 +143,36 @@ export default class ProjectDetailsPage extends Component {
     );
   }
 
-  getScreenByTitle(screens, title) {
-    return screens.find(screen => screen.title === title);
+  // Temporary disable dynamic image inlining using base64
+  // due to axios CORS problem on Storyblok.com side
+  // getImagePlaceholder(filename) {
+  //   if (!filename) return;
+
+  //   const { base64 } = this.props.imagePlaceholders.find(
+  //     image => image.filename === filename
+  //   );
+  //   const extension = filename.split('.').pop();
+  //   return `data:image/${extension};base64,${base64}`;
+  // }
+
+  getImagePlaceholder(filename) {
+    if (!filename) return;
+    return this.getResizedImage(filename, '10x0');
   }
 
-  getScreenIndexByUid(screens, uid) {
-    return screens.findIndex(screen => screen._uid === uid);
+  getResizedImage(filename, newSize) {
+    const extension = filename.split('.').pop();
+    if (extension === 'gif') return filename;
+    const path = filename.replace('//a.storyblok.com', '');
+    return `http://img2.storyblok.com/${newSize}${path}`;
+  }
+
+  // getScreenIndexByUid(screens, uid) {
+  //   return screens.findIndex(screen => screen._uid === uid);
+  // }
+
+  getScreenIndexByFilename(screens, filename) {
+    return screens.findIndex(screen => screen.filename === filename);
   }
 
   scrollToSection = (elSelector, speed = 200) => {
@@ -107,7 +188,7 @@ export default class ProjectDetailsPage extends Component {
     }));
   };
 
-  handleOpen = (e, uid) => {
+  handleOpen = (e, filename) => {
     e.preventDefault();
 
     const { screens } = this.props;
@@ -115,20 +196,12 @@ export default class ProjectDetailsPage extends Component {
     this.setState(state => ({
       ...state,
       isPhotoswipeOpen: true,
-      photoswipeIndex: this.getScreenIndexByUid(screens, uid)
+      photoswipeIndex: this.getScreenIndexByFilename(screens, filename)
     }));
   };
 
-  convertImagesForPhotoswipe(images) {
-    return images.map(image => ({
-      src: `../../static/img/projects/${this.props.slug}/${image.filename}`,
-      w: image.width,
-      h: image.height,
-      title: image.title
-    }));
-  }
-
   ucfirst(string) {
+    if (!string) return;
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
@@ -137,6 +210,12 @@ export default class ProjectDetailsPage extends Component {
       cat,
       online,
       screens,
+      photoswipeScreens,
+      photoswipeConfig,
+      thumbnail,
+      phoneScreen,
+      tabletScreen,
+      desktopScreen,
       title,
       intro,
       desc,
@@ -144,7 +223,7 @@ export default class ProjectDetailsPage extends Component {
       tags,
       released,
       github,
-      code_fragments: codeFragments,
+      codeFragments,
       slug
     } = this.props;
     return (
@@ -153,19 +232,37 @@ export default class ProjectDetailsPage extends Component {
           title={`${title} | Bartosz Podgruszecki Portfolio`}
           description={intro}
         />
-        <PhotoSwipe
-          isOpen={this.state.isPhotoswipeOpen}
-          items={this.convertImagesForPhotoswipe(screens)}
-          onClose={this.state.handleClose}
-          options={{ history: false, index: this.state.photoswipeIndex }}
-        />
+        {photoswipeScreens && (
+          <PhotoSwipe
+            isOpen={this.state.isPhotoswipeOpen}
+            items={photoswipeScreens}
+            onClose={this.state.handleClose}
+            options={{ ...photoswipeConfig, index: this.state.photoswipeIndex }}
+          />
+        )}
         <section className="section section--project">
           <div className="header">
-            <img
-              src={require(`../../static/img/projects/${slug}/thumb.jpg`)}
-              alt="thumbnail"
-              className="header__bg"
-            />
+            {thumbnail && (
+              <LazyImage
+                src={thumbnail.filename}
+                alt={`${slug} tablet view`}
+                className="header__bg"
+                placeholder={({ imageProps, ref }) => (
+                  <img
+                    ref={ref}
+                    className="header__bg"
+                    width="227"
+                    src={this.getImagePlaceholder(thumbnail.filename)}
+                    alt={imageProps.alt}
+                  />
+                )}
+                actual={({ imageProps }) => (
+                  /* eslint-disable */
+                  <img {...imageProps} />
+                  /* eslint-enable */
+                )}
+              />
+            )}
             <h1 className="header__title">{title}</h1>
           </div>
           <div className="container">
@@ -178,11 +275,12 @@ export default class ProjectDetailsPage extends Component {
                 {this.getMdContent(stack, 'text__stack')}
 
                 <div className="tags">
-                  {tags.map(tag => (
-                    <span className="tags__tag" title={tag} key={tag}>
-                      <SvgIcon icon={tag} />
-                    </span>
-                  ))}
+                  {tags &&
+                    tags.map(tag => (
+                      <span className="tags__tag" title={tag} key={tag}>
+                        <SvgIcon icon={tag} />
+                      </span>
+                    ))}
                 </div>
 
                 <h2>Released</h2>
@@ -193,21 +291,18 @@ export default class ProjectDetailsPage extends Component {
               </div>
               <div className="column column--centered is-half">
                 <div className="images">
-                  {this.state.desktopScreen && (
+                  {desktopScreen && (
                     <a
-                      href={`/static/img/projects/${slug}/${
-                        this.state.desktopScreen.filename
-                      }`}
-                      onClick={e =>
-                        this.handleOpen(e, this.state.desktopScreen._uid)
-                      }
+                      href={desktopScreen.filename}
+                      onClick={e => this.handleOpen(e, desktopScreen.filename)}
                       className="images__link images__link--desktop"
                       title="Desktop View"
                     >
                       <LazyImage
-                        src={require(`../../static/img/projects/${slug}/${
-                          this.state.desktopScreen.filename
-                        }?size=540`)}
+                        src={this.getResizedImage(
+                          desktopScreen.filename,
+                          '540x0'
+                        )}
                         alt={`${slug} desktop view`}
                         className="images__img"
                         placeholder={({ imageProps, ref }) => (
@@ -215,38 +310,32 @@ export default class ProjectDetailsPage extends Component {
                             ref={ref}
                             className="images__img"
                             width="540"
-                            src={require(`../../static/img/projects/${slug}/${
-                              this.state.desktopScreen.filename
-                            }?lqip`)}
+                            src={this.getImagePlaceholder(
+                              desktopScreen.filename
+                            )}
                             alt={imageProps.alt}
                           />
                         )}
                         actual={({ imageProps }) => (
                           /* eslint-disable */
-                          <img
-                            {...imageProps}
-                            className="images__img images__img--loaded"
-                          />
+                          <img {...imageProps} />
                           /* eslint-enable */
                         )}
                       />
                     </a>
                   )}
-                  {this.state.tabletScreen && (
+                  {tabletScreen && (
                     <a
-                      href={`/static/img/projects/${slug}/${
-                        this.state.tabletScreen.filename
-                      }`}
-                      onClick={e =>
-                        this.handleOpen(e, this.state.tabletScreen._uid)
-                      }
+                      href={tabletScreen.filename}
+                      onClick={e => this.handleOpen(e, tabletScreen.filename)}
                       className="images__link images__link--tablet"
                       title="Tablet View"
                     >
                       <LazyImage
-                        src={require(`../../static/img/projects/${slug}/${
-                          this.state.tabletScreen.filename
-                        }?size=227`)}
+                        src={this.getResizedImage(
+                          tabletScreen.filename,
+                          '227x0'
+                        )}
                         alt={`${slug} tablet view`}
                         className="images__img"
                         placeholder={({ imageProps, ref }) => (
@@ -254,58 +343,47 @@ export default class ProjectDetailsPage extends Component {
                             ref={ref}
                             className="images__img"
                             width="227"
-                            src={require(`../../static/img/projects/${slug}/${
-                              this.state.tabletScreen.filename
-                            }?lqip`)}
+                            src={this.getImagePlaceholder(
+                              tabletScreen.filename
+                            )}
                             alt={imageProps.alt}
                           />
                         )}
                         actual={({ imageProps }) => (
                           /* eslint-disable */
-                          <img
-                            {...imageProps}
-                            className="images__img images__img--loaded"
-                          />
+                          <img {...imageProps} />
                           /* eslint-enable */
                         )}
                       />
                     </a>
                   )}
-                  {this.state.phoneScreen && (
+                  {phoneScreen && (
                     <a
-                      href={`/static/img/projects/${slug}/${
-                        this.state.phoneScreen.filename
-                      }`}
-                      onClick={e =>
-                        this.handleOpen(e, this.state.phoneScreen._uid)
-                      }
+                      href={phoneScreen.filename}
+                      onClick={e => this.handleOpen(e, phoneScreen.filename)}
                       className="images__link images__link--phone"
                       title="Phone View"
                     >
                       <LazyImage
-                        src={require(`../../static/img/projects/${slug}/${
-                          this.state.phoneScreen.filename
-                        }`)}
-                        width={this.state.phoneScreen.width}
+                        src={this.getResizedImage(
+                          phoneScreen.filename,
+                          '107x0'
+                        )}
+                        width={phoneScreen.width}
                         alt={`${slug} phone view`}
                         className="images__img"
                         placeholder={({ imageProps, ref }) => (
                           <img
                             ref={ref}
                             className="images__img"
-                            width={this.state.phoneScreen.width}
-                            src={require(`../../static/img/projects/${slug}/${
-                              this.state.phoneScreen.filename
-                            }?lqip`)}
+                            width={phoneScreen.width}
+                            src={this.getImagePlaceholder(phoneScreen.filename)}
                             alt={imageProps.alt}
                           />
                         )}
                         actual={({ imageProps }) => (
                           /* eslint-disable */
-                          <img
-                            {...imageProps}
-                            className="images__img images__img--loaded"
-                          />
+                          <img {...imageProps} />
                           /* eslint-enable */
                         )}
                       />
@@ -322,14 +400,12 @@ export default class ProjectDetailsPage extends Component {
                           GitHub.
                         </>
                       )}
-                      {!github &&
-                        codeFragments.length > 1 &&
-                        screens.length > 1 && (
-                          <>
-                            <br />
-                            Code fragments and screens are available.
-                          </>
-                        )}
+                      {!github && codeFragments && screens && (
+                        <>
+                          <br />
+                          Code fragments and screens are available.
+                        </>
+                      )}
                     </p>
                   </div>
                   <div className="buttons">
@@ -353,7 +429,7 @@ export default class ProjectDetailsPage extends Component {
                         GitHub
                       </a>
                     )}
-                    {codeFragments.length > 1 && (
+                    {codeFragments && (
                       <a
                         href="#code-fragments"
                         onClick={() => this.scrollToSection('#code-fragments')}
@@ -362,7 +438,7 @@ export default class ProjectDetailsPage extends Component {
                         Code preview
                       </a>
                     )}
-                    {screens.length > 1 && (
+                    {screens && (
                       <a
                         href="#screens"
                         onClick={() => this.scrollToSection('#screens')}
@@ -375,7 +451,7 @@ export default class ProjectDetailsPage extends Component {
                 </div>
               </div>
             </div>
-            {codeFragments.length > 1 && (
+            {codeFragments && (
               <>
                 <SvgIcon icon="colorBar" className="color-bar" />
                 <div className="columns code-fragments">
@@ -398,7 +474,7 @@ export default class ProjectDetailsPage extends Component {
               </>
             )}
 
-            {screens.length > 1 && (
+            {screens && (
               <>
                 <SvgIcon icon="colorBar" className="color-bar" />
                 <div className="columns screens">
@@ -406,18 +482,17 @@ export default class ProjectDetailsPage extends Component {
                     <h2 id="screens">Screens & Screencasts</h2>
                     <div className="columns">
                       {screens.map(screen => (
-                        <figure className="column screen" key={screen._uid}>
+                        <figure className="column screen" key={screen.filename}>
                           <a
-                            href={`/static/img/projects/${slug}/${
-                              screen.filename
-                            }`}
-                            onClick={e => this.handleOpen(e, screen._uid)}
+                            href={screen.filename}
+                            onClick={e => this.handleOpen(e, screen.filename)}
                             className="screen__link"
                           >
                             <LazyImage
-                              src={require(`../../static/img/projects/${slug}/${
-                                screen.filename
-                              }`)}
+                              src={this.getResizedImage(
+                                screen.filename,
+                                '800x0'
+                              )}
                               width={screen.width}
                               alt={screen.title}
                               className="screen__img"
@@ -426,9 +501,9 @@ export default class ProjectDetailsPage extends Component {
                                   ref={ref}
                                   className="screen__img"
                                   width={screen.width}
-                                  src={require(`../../static/img/projects/${slug}/${
+                                  src={this.getImagePlaceholder(
                                     screen.filename
-                                  }?lqip`)}
+                                  )}
                                   alt={imageProps.alt}
                                 />
                               )}

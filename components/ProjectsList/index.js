@@ -32,7 +32,7 @@ export default class Projects extends Component {
     const extension = filename.split('.').pop();
     if (extension === 'gif') return filename;
     const path = filename.replace('//a.storyblok.com', '');
-    return `http://img2.storyblok.com/${newSize}${path}`;
+    return `https://img2.storyblok.com/${newSize}${path}`;
   };
 
   getImagePlaceholder = filename => {

@@ -21,7 +21,7 @@ const SyntaxHighlighter = dynamic(() => import('react-syntax-highlighter'));
 //   Promise.all(
 //     images.map(async image => {
 //       const path = image.filename.replace('//a.storyblok.com', '');
-//       const url = `http://img2.storyblok.com/10x0${path}?token=1JC7F3RQROnZQiYukvhW5wtt`;
+//       const url = `https://img2.storyblok.com/10x0${path}?token=1JC7F3RQROnZQiYukvhW5wtt`;
 //       const response = await axios.get(url, {
 //         responseType: 'arraybuffer'
 //       });
@@ -173,7 +173,7 @@ export default class ProjectDetailsPage extends Component {
     if (getImageDimensions(filename).height <= newHeight) return filename;
     if (extension === 'gif' && skipGif) return filename;
     const path = filename.replace('//a.storyblok.com', '');
-    return `http://img2.storyblok.com/${newSize}${path}`;
+    return `https://img2.storyblok.com/${newSize}${path}`;
   }
 
   // getScreenIndexByUid(screens, uid) {

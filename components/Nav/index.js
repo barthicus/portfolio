@@ -6,6 +6,7 @@ import './index.scss';
 const Nav = ({ className, isMobileMenuOpen, handleClick, router }) => (
   <nav className={className}>
     <button
+      aria-label="trigger menu button"
       type="button"
       className={
         isMobileMenuOpen ? 'nav__trigger nav__trigger--active' : 'nav__trigger'

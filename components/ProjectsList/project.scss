@@ -65,7 +65,7 @@
   &__title {
     font-size: rem-calc(16);
     font-weight: $font-bold;
-    margin: 0 0 0.5rem;
+    margin: 0 0 0.2rem;
     color: #000;
     transition: .3s;
     &:hover {
@@ -75,14 +75,14 @@
   &__cat {
     font-size: rem-calc(13);
     font-weight: $font-light;
-    color: #C9C9C9;
+    color: #393c3d;
     text-transform: uppercase;
   }
   &__intro {
     margin-top: 1rem;
     font-size: rem-calc(14);
     font-weight: $font-normal;
-    color: #7D7D7D;
+    color: #484848;
     line-height: rem-calc(25);
   }
   .footer {

@@ -1,12 +1,11 @@
 /* eslint no-underscore-dangle: ["error", { "allow": ["_uid"] }] */
 import StoryblokClient from 'storyblok-js-client';
+import storyblokTokens from '../storyblok-tokens';
 
 class StoryblokService {
   constructor() {
     this.devMode = process.env.NODE_ENV !== 'production'; // Always loads draft in devMode
-    this.token = this.devMode
-      ? '1JC7F3RQROnZQiYukvhW5wtt'
-      : 'Bc7OwWaIz7eCIIF7bN2VgAtt';
+    this.token = this.devMode ? storyblokTokens.draft : storyblokTokens.public;
     this.client = new StoryblokClient({
       accessToken: this.token,
       cache: {

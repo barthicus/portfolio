@@ -9,6 +9,7 @@ const sass = require('@zeit/next-sass');
 const css = require('@zeit/next-css');
 const images = require('next-images');
 const axios = require('axios');
+const storyblokTokens = require('./storyblok-tokens');
 
 const exportPathMap = async (
   defaultPathMap,
@@ -23,8 +24,10 @@ const exportPathMap = async (
   /* eslint-disable-next-line */
   const { ['/projects/detail']: _, ...fixedRoutes } = defaultPathMap;
 
+  const devMode = process.env.NODE_ENV !== 'production';
+  const token = devMode ? storyblokTokens.draft : storyblokTokens.public;
   const storyBlockContent = await axios.get(
-    'https://api.storyblok.com/v1/cdn/stories?filter_query[component][in]=project&version=published&token=Bc7OwWaIz7eCIIF7bN2VgAtt'
+    `https://api.storyblok.com/v1/cdn/stories?filter_query[component][in]=project&version=published&token=${token}`
   );
 
   const projectsRoutes = {};

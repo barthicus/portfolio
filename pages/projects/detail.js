@@ -35,18 +35,23 @@ const SyntaxHighlighter = dynamic(() => import('react-syntax-highlighter'));
 const getScreenByTitle = (screens, title) =>
   screens && screens.find(screen => screen.name === title);
 
+const getImageDimensions = filename => ({
+  width: filename
+    .match(/\/[0-9]+x[0-9]+\//)[0]
+    .split('x')[0]
+    .replace('/', ''),
+  height: filename
+    .match(/\/[0-9]+x[0-9]+\//)[0]
+    .split('x')[1]
+    .replace('/', '')
+});
+
 const getImagesForPhotoswipe = images =>
   images &&
   images.map(image => ({
     src: image.filename,
-    w: image.filename
-      .match(/\/[0-9]+x[0-9]+\//)[0]
-      .split('x')[0]
-      .replace('/', ''),
-    h: image.filename
-      .match(/\/[0-9]+x[0-9]+\//)[0]
-      .split('x')[1]
-      .replace('/', ''),
+    w: getImageDimensions(image.filename).width,
+    h: getImageDimensions(image.filename).height,
     title: image.name
   }));
 
@@ -157,12 +162,16 @@ export default class ProjectDetailsPage extends Component {
 
   getImagePlaceholder(filename) {
     if (!filename) return;
-    return this.getResizedImage(filename, '10x0');
+    return this.getResizedImage(filename, '10x0', false);
   }
 
-  getResizedImage(filename, newSize) {
+  getResizedImage(filename, newSize, skipGif = true) {
     const extension = filename.split('.').pop();
-    if (extension === 'gif') return filename;
+    const newWidth = newSize.split('x')[0];
+    const newHeight = newSize.split('x')[1];
+    if (getImageDimensions(filename).width <= newWidth) return filename;
+    if (getImageDimensions(filename).height <= newHeight) return filename;
+    if (extension === 'gif' && skipGif) return filename;
     const path = filename.replace('//a.storyblok.com', '');
     return `http://img2.storyblok.com/${newSize}${path}`;
   }
@@ -296,15 +305,15 @@ export default class ProjectDetailsPage extends Component {
                       href={desktopScreen.filename}
                       onClick={e => this.handleOpen(e, desktopScreen.filename)}
                       className="images__link images__link--desktop"
-                      title="Desktop View"
+                      title={`${title} desktop view`}
                     >
                       <LazyImage
                         src={this.getResizedImage(
                           desktopScreen.filename,
                           '540x0'
                         )}
-                        alt={`${slug} desktop view`}
-                        className="images__img"
+                        alt={`${title} desktop view`}
+                        className="images__img images__img--loaded"
                         placeholder={({ imageProps, ref }) => (
                           <img
                             ref={ref}
@@ -329,15 +338,15 @@ export default class ProjectDetailsPage extends Component {
                       href={tabletScreen.filename}
                       onClick={e => this.handleOpen(e, tabletScreen.filename)}
                       className="images__link images__link--tablet"
-                      title="Tablet View"
+                      title={`${title} tablet view`}
                     >
                       <LazyImage
                         src={this.getResizedImage(
                           tabletScreen.filename,
                           '227x0'
                         )}
-                        alt={`${slug} tablet view`}
-                        className="images__img"
+                        alt={`${title} tablet view`}
+                        className="images__img images__img--loaded"
                         placeholder={({ imageProps, ref }) => (
                           <img
                             ref={ref}
@@ -362,7 +371,7 @@ export default class ProjectDetailsPage extends Component {
                       href={phoneScreen.filename}
                       onClick={e => this.handleOpen(e, phoneScreen.filename)}
                       className="images__link images__link--phone"
-                      title="Phone View"
+                      title={`${title} phone view`}
                     >
                       <LazyImage
                         src={this.getResizedImage(
@@ -370,8 +379,8 @@ export default class ProjectDetailsPage extends Component {
                           '107x0'
                         )}
                         width={phoneScreen.width}
-                        alt={`${slug} phone view`}
-                        className="images__img"
+                        alt={`${title} phone view`}
+                        className="images__img images__img--loaded"
                         placeholder={({ imageProps, ref }) => (
                           <img
                             ref={ref}
@@ -487,6 +496,7 @@ export default class ProjectDetailsPage extends Component {
                             href={screen.filename}
                             onClick={e => this.handleOpen(e, screen.filename)}
                             className="screen__link"
+                            title={screen.name}
                           >
                             <LazyImage
                               src={this.getResizedImage(
@@ -494,8 +504,8 @@ export default class ProjectDetailsPage extends Component {
                                 '800x0'
                               )}
                               width={screen.width}
-                              alt={screen.title}
-                              className="screen__img"
+                              alt={screen.name}
+                              className="screen__img screen__img--loaded"
                               placeholder={({ imageProps, ref }) => (
                                 <img
                                   ref={ref}
@@ -509,16 +519,13 @@ export default class ProjectDetailsPage extends Component {
                               )}
                               actual={({ imageProps }) => (
                                 /* eslint-disable */
-                                <img
-                                  {...imageProps}
-                                  className="screen__img screen__img--loaded"
-                                />
+                                <img {...imageProps} />
                                 /* eslint-enable */
                               )}
                             />
                           </a>
                           <figcaption className="screen__title">
-                            {screen.title}
+                            {screen.name}
                           </figcaption>
                         </figure>
                       ))}

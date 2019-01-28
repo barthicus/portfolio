@@ -28,6 +28,37 @@ export default class Projects extends Component {
     }));
   };
 
+  getResizedImage = (filename, newSize) => {
+    const extension = filename.split('.').pop();
+    if (extension === 'gif') return filename;
+    const path = filename.replace('//a.storyblok.com', '');
+    return `http://img2.storyblok.com/${newSize}${path}`;
+  };
+
+  getImagePlaceholder = filename => {
+    if (!filename) return;
+    return this.getResizedImage(filename, '10x0');
+  };
+
+  getScreenByTitle = (screens, name) => {
+    if (!screens) return;
+    return screens.find(screen => screen.name === name);
+  };
+
+  getThumbnail = assets => {
+    const defaultThumbnail = {
+      filename: 'https://via.placeholder.com/800x800',
+      placeholder: 'https://via.placeholder.com/10x10'
+    };
+    const thumbnailScreen = this.getScreenByTitle(assets, 'thumb');
+    if (thumbnailScreen)
+      thumbnailScreen.placeholder = this.getImagePlaceholder(
+        thumbnailScreen.filename
+      );
+
+    return thumbnailScreen || defaultThumbnail;
+  };
+
   render() {
     return (
       <div className="projects container">
@@ -48,7 +79,12 @@ export default class Projects extends Component {
           className="projects__items"
         >
           {this.state.projects.map(({ content, id, slug }) => (
-            <Project slug={slug} {...content} key={id} />
+            <Project
+              slug={slug}
+              {...content}
+              key={id}
+              thumbnail={this.getThumbnail(content.assets)}
+            />
           ))}
         </ReactCSSTransitionGroup>
       </div>

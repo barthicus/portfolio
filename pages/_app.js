@@ -1,6 +1,7 @@
 import React from 'react';
 import App, { Container } from 'next/app';
-import { PageTransition } from 'next-page-transitions';
+// import { PageTransition } from 'next-page-transitions';
+import PageTransition from '../utils/PageTransitions/PageTransition';
 import Header from '../components/Header';
 
 class MyApp extends App {

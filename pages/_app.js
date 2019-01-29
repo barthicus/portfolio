@@ -1,7 +1,5 @@
 import React from 'react';
 import App, { Container } from 'next/app';
-import Router from 'next/router';
-import withGA from 'next-ga';
 import { PageTransition } from 'next-page-transitions';
 import Header from '../components/Header';
 
@@ -35,7 +33,6 @@ class MyApp extends App {
         <Header />
         <PageTransition
           timeout={150}
-          loadingTimeout={0}
           classNames="page-transition"
           monkeyPatchScrolling
         >
@@ -62,4 +59,4 @@ class MyApp extends App {
   }
 }
 
-export default withGA('UA-60021113-3', Router)(MyApp);
+export default MyApp;

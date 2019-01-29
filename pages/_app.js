@@ -1,17 +1,19 @@
-import App, { Container } from 'next/app';
 import React from 'react';
+import App, { Container } from 'next/app';
+import Router from 'next/router';
+import withGA from 'next-ga';
 import { PageTransition } from 'next-page-transitions';
 import Header from '../components/Header';
 
-export default class MyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
+class MyApp extends App {
+  static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {};
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps };
+    return { pageProps, router };
   }
 
   componentDidMount() {
@@ -59,3 +61,5 @@ export default class MyApp extends App {
     );
   }
 }
+
+export default withGA('UA-60021113-3', Router)(MyApp);

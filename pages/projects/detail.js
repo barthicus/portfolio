@@ -7,6 +7,7 @@ import animateScrollTo from 'animated-scroll-to';
 import marked from 'marked';
 import { PhotoSwipe } from 'react-photoswipe';
 import { LazyImage } from 'react-lazy-images';
+import Error from 'next/error';
 import StoryblokService from '../../utils/StoryblokService';
 import Layout from '../../components/Layout/index';
 import SvgIcon from '../../components/SvgIcon';
@@ -66,17 +67,31 @@ export default class ProjectDetailsPage extends Component {
     online: PropTypes.string,
     github: PropTypes.string,
     tags: PropTypes.array,
-    code_fragments: PropTypes.array,
     assets: PropTypes.array,
-    slug: PropTypes.string.isRequired
+    screens: PropTypes.array,
+    photoswipeScreens: PropTypes.array,
+    photoswipeConfig: PropTypes.object.isRequired,
+    thumbnail: PropTypes.object,
+    phoneScreen: PropTypes.object,
+    tabletScreen: PropTypes.object,
+    desktopScreen: PropTypes.object,
+    codeFragments: PropTypes.array,
+    slug: PropTypes.string.isRequired,
+    statusCode: PropTypes.number.isRequired
   };
 
   static defaultProps = {
     tags: null,
     online: null,
     github: null,
-    code_fragments: null,
-    assets: null
+    assets: null,
+    screens: null,
+    photoswipeScreens: null,
+    thumbnail: null,
+    phoneScreen: null,
+    tabletScreen: null,
+    desktopScreen: null,
+    codeFragments: null
   };
 
   state = {
@@ -87,9 +102,13 @@ export default class ProjectDetailsPage extends Component {
   static async getInitialProps({ asPath, query }) {
     StoryblokService.setQuery(query);
 
-    const storyBlockContent = await StoryblokService.get(
-      `cdn/stories${asPath}`
-    );
+    let storyBlockContent;
+    const statusCode = 200;
+    try {
+      storyBlockContent = await StoryblokService.get(`cdn/stories${asPath}`);
+    } catch ({ response }) {
+      return { statusCode: response.status };
+    }
 
     const projectData = storyBlockContent.data.story;
 
@@ -126,8 +145,9 @@ export default class ProjectDetailsPage extends Component {
         (screens && screens[0]),
       phoneScreen: getScreenByTitle(screens, 'phone view'),
       tabletScreen: getScreenByTitle(screens, 'tablet view'),
-      desktopScreen: getScreenByTitle(screens, 'desktop view')
+      desktopScreen: getScreenByTitle(screens, 'desktop view'),
       // imagePlaceholders
+      statusCode
     };
   }
 
@@ -233,8 +253,12 @@ export default class ProjectDetailsPage extends Component {
       released,
       github,
       codeFragments,
-      slug
+      slug,
+      statusCode
     } = this.props;
+    if (statusCode !== 200) {
+      return <Error statusCode={statusCode} />;
+    }
     return (
       <Layout>
         <Head

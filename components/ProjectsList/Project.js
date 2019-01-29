@@ -39,7 +39,7 @@ const Project = ({
               )}
               actual={({ imageProps }) => (
                 /* eslint-disable-next-line */
-                  <img {...imageProps} />
+                <img {...imageProps} />
               )}
             />
           </div>
@@ -98,6 +98,7 @@ Project.propTypes = {
   slug: PropTypes.string.isRequired,
   github: PropTypes.string,
   tags: PropTypes.array,
+  assets: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   thumbnail: PropTypes.shape({
     filename: PropTypes.string,
     name: PropTypes.string
@@ -111,7 +112,8 @@ Project.defaultProps = {
   thumbnail: {
     filename: 'https://via.placeholder.com/800x800',
     name: 'thumb'
-  }
+  },
+  assets: []
 };
 
 export default Project;

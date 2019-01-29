@@ -8,7 +8,7 @@ const AboutPage = () => (
   <Layout>
     <Head
       title="About me | Bartosz Podgruszecki Portfolio"
-      description="A few informations about who I am and what I can do."
+      description="My name is Bartosz Podgruszecki and I'm Polish Front-End Developer who is not afraid of the Back-end."
     />
     <section className="section section--about-me">
       <div className="container">
@@ -23,7 +23,7 @@ const AboutPage = () => (
           <div className="photo">
             <img
               // eslint-disable-next-line import/no-unresolved,global-require
-              src={require('../static/img/me.jpg?size=270')}
+              src={require('../static/img/me.jpg')}
               alt="Bartosz Podgruszecki"
               className="photo__img"
             />

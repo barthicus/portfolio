@@ -16,7 +16,6 @@ const Head = ({ title, description, children }) => (
         rel="apple-touch-icon-precomposed"
         href={require('../../static/img/favicon.png')}
       />
-      <meta name="robots" content="noindex" />
       {children}
     </NextHead>
   </>

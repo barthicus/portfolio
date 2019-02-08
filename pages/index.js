@@ -16,8 +16,8 @@ const HomePage = ({ projects }) => (
     <Intro />
     <SvgIcon icon="colorBar" className="color-bar" />
     <section className="section section--projects">
-      <h2 className="section__subtitle">Projects</h2>
-      <h1 className="section__title">Latest projects</h1>
+      <p className="section__subtitle">Projects</p>
+      <h2 className="section__title">Latest projects</h2>
       <Projects projects={projects} />
       <div className="lead">
         <div className="lead__container">

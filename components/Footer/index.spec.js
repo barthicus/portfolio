@@ -5,24 +5,33 @@ import React from 'react';
 // import renderer from 'react-test-renderer';
 
 import Footer from './index';
+// import Socials from '../Socials';
+// import Nav from '../Nav';
 
-describe('With Enzyme', () => {
-  it('renders footer', () => {
-    const footer = shallow(<Footer />);
-
-    expect(footer.find('.logo .nav__link').text()).toEqual(
-      'Bartosz Podgruszecki'
-    );
-    expect(footer.find('.root-footer__copyrights').text()).toEqual(
-      '© 2018 Copyrights by Bartosz Podgruszecki. All Rights Reserved.'
-    );
-  });
+it('renders without crashing', () => {
+  shallow(<Footer />);
 });
 
-// describe('With Snapshot Testing', () => {
-//   it('renders footer', () => {
-//     const component = renderer.create(<Footer />);
-//     const tree = component.toJSON();
-//     expect(tree).toMatchSnapshot();
-//   });
+// it('includes <Socials />', () => {
+//   const footer = mount(<Footer />);
+//   expect(footer.containsMatchingElement(<Socials />)).toEqual(true);
 // });
+
+// it('includes <Nav />', () => {
+//   const footer = mount(<Footer />);
+//   expect(footer.containsMatchingElement(<Nav />)).toEqual(true);
+// });
+
+it('includes home nav link', () => {
+  const footer = shallow(<Footer />);
+  expect(footer.find('.logo .nav__link').text()).toEqual(
+    'Bartosz Podgruszecki'
+  );
+});
+
+it('includes copyrights', () => {
+  const footer = shallow(<Footer />);
+  expect(footer.find('.root-footer__copyrights').text()).toEqual(
+    '© 2018 Copyrights by Bartosz Podgruszecki. All Rights Reserved.'
+  );
+});

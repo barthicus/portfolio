@@ -20,6 +20,8 @@ export default class ScrollToTop extends Component {
   handleScroll() {
     const scrollToTopBtn = document.querySelector('.scrolltop');
 
+    if (!scrollToTopBtn) return;
+
     if (window.pageYOffset >= 100) {
       scrollToTopBtn.classList.add('scrolltop--visible');
     } else {

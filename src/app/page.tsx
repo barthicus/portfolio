@@ -22,7 +22,7 @@ export default function Home() {
       <section className="px-2 pb-12 sm:px-5 md:px-10 lg:px-14 ">
         <h3 className="pb-5 text-[35px] font-medium dark:text-white">What I do!</h3>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-2 ">
-          <div className="about-box dark:bg-transparent">
+          <div className="p-10 dark:bg-transparent">
             {/* <img
               alt="icon"
               src="/images/icons/icon-1.svg"
@@ -40,7 +40,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="about-box dark:bg-transparent">
+          <div className="p-10 dark:bg-transparent">
             {/* <img
               alt="icon"
               src="/images/icons/icon-2.svg"
@@ -58,7 +58,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="about-box dark:bg-transparent">
+          <div className="p-10 dark:bg-transparent">
             {/* <img
               alt="icon"
               src="/images/icons/icon-3.svg"
@@ -76,7 +76,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="about-box dark:bg-transparent">
+          <div className="p-10 dark:bg-transparent">
             {/* <img
               alt="icon"
               src="/images/icons/icon-4.svg"

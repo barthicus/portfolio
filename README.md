@@ -1,39 +1,34 @@
-# Bartosz Podgruszecki - Portfolio
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-[![Build Status](https://travis-ci.org/barthicus/portfolio.svg?branch=master)](https://travis-ci.org/barthicus/portfolio)
+## Getting Started
 
-Hello everyone! I'm Bartosz Podgruszecki and this is my website where I can show my projects and present my current developer skills.
+First, run the development server:
 
-I wanted to create website that could be as fast as possible and also easy to maintain so I chose static generated website combained with headless cms.
-My last requirement was to build a final product using React. Having in mind these facts I had 2 choices: Gatsby and Next.js. 
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
 
-Gatsby was looking pretty nice but I needed framework with a lot of configuration possibilities that isn't forcing developer to anything. This is why I went with Next.js (+ some other smaller libraries). Website the content is fetched from [Storyblok](https://storyblok.com).
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-I really recommend this stack - it's very convinient during development proccess (all configs ready, HMR, Scss) and also very easy to deploy (generate and uplaod files). I was missing some prettier and eslint hints so I added it and finally whole dev stage is really smooth and fast.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Next.js comes with built-in SSR, so all necessary data are being fetched from CMS API only during generating proccess. After deploy there is no single API request executed during website browsing because every page that user can vitit is just static HTML (and I really believe Google Search Engine like it).
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-The website layout was designed by me in Adobe XD.
+## Learn More
 
-# Stack
-* [Next.js](https://nextjs.org)
-* PageTransition
-* prettier
-* Storyblok (Headless CMS)
-* Adobe XD
+To learn more about Next.js, take a look at the following resources:
 
-Other packages can be found in current [package.json](https://github.com/barthicus/portfolio/blob/master/package.json) file.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-# TODO
-* Refactor /pages/projects/detail.js (OMG this file is huge)
-* Find a way to generate routes after StoryBlock content change. I know there are webhooks, but this functionality isn't available in "Starter Plan" :disappointed:
-* Add Blog section, I always wanted to start writing it and have some tech posts ideas, but I'm not sure it's good idea yet.
-* Add polish language and language switcher
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-# Contact
+## Deploy on Vercel
 
-I can be found here:
-* Email: bartosz.podgruszecki@gmail.com
-* Portfolio: [https://barthicus.github.io](https://barthicus.github.io)
-* Github: [github.com/barthicus](https://github.com/barthicus)
-* [LinkedIn](https://www.linkedin.com/in/bartosz-podgruszecki)
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

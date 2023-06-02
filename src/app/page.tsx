@@ -2,18 +2,19 @@ export default function Home() {
   return (
     <>
       <div className="px-2 pt-12 sm:px-5 md:px-10 md:py-12 lg:px-14">
-        <h2 className="after-effect font-sans text-xl after:left-52">Hi!</h2>
+        <h2 className="after-effect font-sans text-4xl font-bold after:left-80">
+          Hello, I’m Bartek!
+        </h2>
         <div className="grid-cols-12 items-center pt-4 md:gap-10 md:pt-[30px] lg:grid ">
           <div className="col-span-12 space-y-2.5">
             <div className="lg:mr-16">
-              <p className="leading-7 text-gray-500 dark:text-gray-100">
-                Im Creative Director and UI/UX Designer from Sydney, Australia, working in web
-                development and print media. I enjoy turning complex problems into simple, beautiful
-                and intuitive designs.
+              <p className="leading-7 text-zinc-500 dark:text-zinc-400">
+                I&apos;m Frontend Developer from Krotoszyn, Poland, working mostly in web
+                development. I enjoy turning complex problems into simple, beautiful and intuitive
+                designs.
               </p>
-              <p className="mt-2.5 leading-7 text-gray-500 dark:text-gray-100">
-                My aim is to bring across your message and identity in the most creative way. I
-                created web design for many famous brand companies.
+              <p className="mt-2.5 leading-7 text-zinc-500 dark:text-zinc-400">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.
               </p>
             </div>
           </div>

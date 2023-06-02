@@ -5,11 +5,11 @@ export const Header = () => {
   return (
     <header className="relative mb-10 ml-auto hidden items-center justify-end gap-3 lg:flex">
       <ThemeToggler />
-      <div className="h-[144px] rounded-[16px] bg-white p-[30px] dark:bg-[#111111] lg:w-[526px]">
+      <div className="h-[144px] rounded-[16px] bg-white p-[30px] dark:bg-[#111111]">
         <nav className="hidden lg:block">
           <ul className="flex ">
             <MenuLink href="/">
-              <span className="mb-1 text-xl">
+              <span className="mb-1 text-lg">
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
@@ -25,7 +25,7 @@ export const Header = () => {
               Home
             </MenuLink>
             <MenuLink href="/about-me">
-              <span className="mb-1 text-xl">
+              <span className="mb-1 text-lg">
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
@@ -44,7 +44,7 @@ export const Header = () => {
               About Me
             </MenuLink>
             <MenuLink href="/portfolio">
-              <span className="mb-1 text-xl">
+              <span className="mb-1 text-lg">
                 <svg
                   stroke="currentColor"
                   fill="none"
@@ -67,7 +67,7 @@ export const Header = () => {
               Portfolio
             </MenuLink>
             <MenuLink href="/blog">
-              <span className="mb-1 text-xl">
+              <span className="mb-1 text-lg">
                 <svg
                   stroke="currentColor"
                   fill="currentColor"

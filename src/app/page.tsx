@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export default function Home() {
   return (
     <>
@@ -11,7 +13,11 @@ export default function Home() {
               <p className="leading-7 text-zinc-500 dark:text-zinc-400">
                 I&apos;m Frontend Developer from Krotoszyn, Poland, working mostly in web
                 development. I enjoy turning complex problems into simple, beautiful and intuitive
-                designs.
+                designs. [{" "}
+                <Link href="/about-me" className="text-red-400 hover:text-red-500">
+                  More about me...
+                </Link>{" "}
+                ]
               </p>
               <p className="mt-2.5 leading-7 text-zinc-500 dark:text-zinc-400">
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.

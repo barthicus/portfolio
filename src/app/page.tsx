@@ -2,6 +2,8 @@ import Link from "next/link"
 
 import { PageTitle } from "./_components/PageTitle"
 
+export const runtime = "edge"
+
 export default function Home() {
   return (
     <>

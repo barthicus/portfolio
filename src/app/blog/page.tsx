@@ -1,6 +1,8 @@
 import { PageTitle } from "../_components/PageTitle"
 import { WipInfo } from "../_components/WipInfo"
 
+export const runtime = "edge"
+
 export default function Blog() {
   return (
     <div className="px-2 pt-12 sm:px-5 md:px-10 md:py-12 lg:px-14">

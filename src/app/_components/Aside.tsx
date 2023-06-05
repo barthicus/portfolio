@@ -30,10 +30,10 @@ export const Aside = () => {
         )}
       >
         <div className="pb-8 pt-[100px]">
-          <h1 className="mb-1 mt-6 text-2xl font-semibold dark:text-white">Bartosz Podgruszecki</h1>
-          <h3 className="mb-4 inline-block rounded-lg px-5 py-1.5 text-[#7B7B7B] dark:bg-[#1D1D1D] dark:text-[#A6A6A6]">
+          <p className="mb-1 mt-6 text-2xl font-semibold dark:text-white">Bartosz Podgruszecki</p>
+          <p className="mb-4 inline-block rounded-lg px-5 py-1.5 text-[#7B7B7B] dark:bg-[#1D1D1D] dark:text-[#A6A6A6]">
             web developer
-          </h3>
+          </p>
 
           <div className="flex justify-center space-x-3">
             <SocialIconLink href="https://github.com/barthicus">

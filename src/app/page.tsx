@@ -1,12 +1,12 @@
 import Link from "next/link"
 
+import { PageTitle } from "./_components/PageTitle"
+
 export default function Home() {
   return (
     <>
       <div className="px-2 pt-12 sm:px-5 md:px-10 md:py-12 lg:px-14">
-        <h2 className="after-effect font-sans text-4xl font-bold after:left-80">
-          Hello, I’m Bartek!
-        </h2>
+        <PageTitle>Hello, I&apos;m Bartek!</PageTitle>
         <div className="grid-cols-12 items-center pt-4 md:gap-10 md:pt-[30px] lg:grid ">
           <div className="col-span-12 space-y-2.5">
             <div className="lg:mr-16">
@@ -27,7 +27,7 @@ export default function Home() {
         </div>
       </div>
       <section className="px-2 pb-12 sm:px-5 md:px-10 lg:px-14 ">
-        <h3 className="pb-5 text-[35px] font-medium dark:text-white">What I do!</h3>
+        <h2 className="pb-5 text-[35px] font-medium dark:text-white">What I do!</h2>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-2 ">
           <div className="p-10 dark:bg-transparent">
             {/* <img

@@ -1,15 +1,31 @@
+"use client"
+
+import { useState } from "react"
+import clsx from "clsx"
+
 import { MenuLink } from "./MenuLink"
+import { MobileMenuTrigger } from "./MobileMenuTrigger"
 import { ThemeToggler } from "./ThemeToggler"
 
 export const Header = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
-    <header className="relative mb-10 ml-auto hidden items-center justify-end gap-3 lg:flex">
-      <ThemeToggler />
-      <div className="h-[144px] rounded-[16px] bg-white p-[30px] dark:bg-[#111111]">
-        <nav className="hidden lg:block">
-          <ul className="flex ">
-            <MenuLink href="/">
-              <span className="mb-1 text-lg">
+    <header className="ml-auto flex flex-col items-end justify-end lg:relative lg:mb-10 lg:bg-transparent">
+      <div className="flex items-center gap-4">
+        <ThemeToggler />
+        <MobileMenuTrigger isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
+      </div>
+      <nav
+        className={clsx(
+          "self-stretch p-[30px] lg:block lg:h-[144px] lg:rounded-[16px] lg:bg-white lg:dark:bg-[#111111]",
+          { hidden: !isOpen },
+        )}
+      >
+        <ul className="flex flex-col lg:flex-row">
+          <li>
+            <MenuLink href="/" onClick={() => setIsOpen(false)}>
+              <span className="mb-1 hidden text-lg lg:block">
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
@@ -24,8 +40,10 @@ export const Header = () => {
               </span>
               Home
             </MenuLink>
-            <MenuLink href="/about-me">
-              <span className="mb-1 text-lg">
+          </li>
+          <li>
+            <MenuLink href="/about-me" onClick={() => setIsOpen(false)}>
+              <span className="mb-1 hidden text-lg lg:block">
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
@@ -43,8 +61,10 @@ export const Header = () => {
               </span>
               About Me
             </MenuLink>
-            <MenuLink href="/portfolio">
-              <span className="mb-1 text-lg">
+          </li>
+          <li>
+            <MenuLink href="/portfolio" onClick={() => setIsOpen(false)}>
+              <span className="mb-1 hidden text-lg lg:block">
                 <svg
                   stroke="currentColor"
                   fill="none"
@@ -66,8 +86,10 @@ export const Header = () => {
               </span>
               Portfolio
             </MenuLink>
-            <MenuLink href="/blog">
-              <span className="mb-1 text-lg">
+          </li>
+          <li>
+            <MenuLink href="/blog" onClick={() => setIsOpen(false)}>
+              <span className="mb-1 hidden text-lg lg:block">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -85,9 +107,9 @@ export const Header = () => {
               </span>
               Blog
             </MenuLink>
-          </ul>
-        </nav>
-      </div>
+          </li>
+        </ul>
+      </nav>
     </header>
   )
 }

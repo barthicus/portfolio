@@ -1,5 +1,6 @@
 "use client"
 
+import clsx from "clsx"
 import { useTheme } from "next-themes"
 
 const sunIcon = (
@@ -10,7 +11,7 @@ const sunIcon = (
     viewBox="0 0 24 24"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="text-3xl dark:hidden"
+    className="dark:hidden"
     height="1em"
     width="1em"
     xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +28,7 @@ const moonIcon = (
     viewBox="0 0 24 24"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="hidden text-2xl group-hover:fill-white group-focus:fill-white dark:block dark:fill-white "
+    className="hidden group-hover:fill-white group-focus:fill-white dark:block dark:fill-white "
     height="1em"
     width="1em"
     xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +53,10 @@ export const ThemeToggler = () => {
   return (
     <button
       onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
-      className="absolute right-5 top-[-40px] hidden h-[40px] w-[40px] items-center justify-center rounded-t-full bg-gray-700 text-white transition-all duration-300 ease-in-out hover:bg-[#ef4060] hover:text-white dark:bg-white dark:text-black lg:flex"
+      className={clsx(
+        "top-[-40px] flex h-[40px] w-[40px] items-center justify-center rounded-full bg-gray-700 text-xl text-white transition-all duration-300 ease-in-out hover:bg-[#ef4060] hover:text-white dark:bg-white dark:text-black",
+        "lg:absolute lg:right-5 lg:rounded-none lg:rounded-t-full",
+      )}
     >
       {sunIcon}
       {moonIcon}

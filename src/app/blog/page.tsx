@@ -5,7 +5,7 @@ export const runtime = "edge"
 
 export default function Blog() {
   return (
-    <div className="px-2 pt-12 sm:px-5 md:px-10 md:py-12 lg:px-14">
+    <div className="px-6 pt-12 sm:px-5 md:px-10 md:py-12 lg:px-14">
       <PageTitle>Blog</PageTitle>
       <div className="grid-cols-12 items-center pt-4 md:gap-10 md:pt-[30px] lg:grid ">
         <div className="col-span-12 space-y-2.5">

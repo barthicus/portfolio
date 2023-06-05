@@ -42,16 +42,21 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         )}
       >
         <Providers>
-          <section className="relative min-h-screen w-full bg-cover bg-fixed bg-center bg-no-repeat font-mono md:pb-16">
-            <div className="container grid grid-cols-12 justify-between md:gap-10 lg:mt-[220px]">
+          <div className="sticky top-0 z-30 block bg-[#C8C6C5]/80 p-4 dark:bg-[#2E3131]/80 lg:hidden lg:p-0">
+            <Header />
+          </div>
+          <section className="relative min-h-screen w-full p-4 font-mono md:p-0">
+            <div className="container grid grid-cols-12 justify-between md:gap-10 lg:mt-[200px]">
               <div className="top-44 col-span-12 lg:sticky lg:col-span-4 lg:h-screen">
                 <Aside />
               </div>
               <div className="relative col-span-12 lg:col-span-8">
-                <Header />
+                <div className="hidden lg:flex">
+                  <Header />
+                </div>
                 <main
                   className={clsx(
-                    "relative overflow-hidden bg-white dark:bg-[#111111] lg:rounded-2xl",
+                    "relative overflow-hidden rounded-2xl bg-white dark:bg-[#111111]",
                     "after:absolute after:bottom-0 after:left-0 after:h-[5px] after:w-full after:bg-[linear-gradient(90deg,_#05bf85_0%,_#05bf85_10%,_#159f85_10%,_#159f85_20%,_#15709f_20%,_#15709f_30%,_#15569f_30%,_#15569f_40%,_#152c9f_40%,_#152c9f_50%,_#6038c5_50%,_#6038c5_60%,_#ae4add_60%,_#ae4add_70%,_#dd4a96_70%,_#dd4a96_80%,_#dd4a54_80%,_#dd4a54_90%,_#dd814a_90%,_#dd814a_100%)] after:content-['']",
                   )}
                 >

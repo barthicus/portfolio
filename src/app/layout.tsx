@@ -47,9 +47,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <div className="top-44 col-span-12 lg:sticky lg:col-span-4 lg:h-screen">
                 <Aside />
               </div>
-              <div className="col-span-12 lg:col-span-8">
+              <div className="relative col-span-12 lg:col-span-8">
                 <Header />
-                <main className="bg-white dark:bg-[#111111] lg:rounded-2xl">
+                <main
+                  className={clsx(
+                    "relative overflow-hidden bg-white dark:bg-[#111111] lg:rounded-2xl",
+                    "after:absolute after:bottom-0 after:left-0 after:h-[5px] after:w-full after:bg-[linear-gradient(90deg,_#05bf85_0%,_#05bf85_10%,_#159f85_10%,_#159f85_20%,_#15709f_20%,_#15709f_30%,_#15569f_30%,_#15569f_40%,_#152c9f_40%,_#152c9f_50%,_#6038c5_50%,_#6038c5_60%,_#ae4add_60%,_#ae4add_70%,_#dd4a96_70%,_#dd4a96_80%,_#dd4a54_80%,_#dd4a54_90%,_#dd814a_90%,_#dd814a_100%)] after:content-['']",
+                  )}
+                >
                   <div>
                     {children}
                     <footer className="overflow-hidden rounded-b-2xl bg-slate-50 dark:bg-zinc-800">

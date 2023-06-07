@@ -41,7 +41,7 @@ export const Aside = () => {
         <div className="pb-8 pt-[100px]">
           <p className="mb-1 mt-6 text-2xl font-semibold dark:text-white">Bartosz Podgruszecki</p>
           <p className="mb-4 inline-block rounded-lg px-5 py-1.5 text-[#7B7B7B] dark:bg-[#1D1D1D] dark:text-[#A6A6A6]">
-            web developer
+            frontend developer
           </p>
 
           <div className="flex justify-center space-x-3">
@@ -95,6 +95,25 @@ export const Aside = () => {
                 <p className="break-all text-sm dark:text-white">Freelance contractor</p>
               </div>
             </div>
+            <div className="flex py-2.5">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-[#C17CEB] transition-colors duration-300 ease-out">
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  strokeWidth="0"
+                  viewBox="0 0 448 512"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm320-196c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM192 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM64 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z"></path>
+                </svg>
+              </span>
+              <div className="ml-2.5 text-left">
+                <p className="text-xs text-gray-500 dark:text-[#A6A6A6]">Tech stack</p>
+                <p className="break-all text-sm dark:text-white">React, Typescript, Serverless</p>
+              </div>
+            </div>
             <div className="flex border-b border-[#E3E3E3] py-2.5 dark:border-[#3D3A3A]">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center text-[#6AB5B9] transition-colors duration-300 ease-out">
                 <svg
@@ -138,25 +157,6 @@ export const Aside = () => {
                     bartosz.podgruszecki@mail.com
                   </a>
                 </p>
-              </div>
-            </div>
-            <div className="flex py-2.5">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-[#C17CEB] transition-colors duration-300 ease-out">
-                <svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  strokeWidth="0"
-                  viewBox="0 0 448 512"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm320-196c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM192 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM64 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z"></path>
-                </svg>
-              </span>
-              <div className="ml-2.5 text-left">
-                <p className="text-xs text-gray-500 dark:text-[#A6A6A6]">Tech stack</p>
-                <p className="break-all text-sm dark:text-white">React, Typescript, Serverless</p>
               </div>
             </div>
           </div>

@@ -5,6 +5,11 @@ import { PageWrapper } from "./_components/PageWrapper"
 
 export const runtime = "edge"
 
+export const metadata = {
+  title: "Bartosz Podgruszecki FrontEnd Developer",
+  description: "Hi! I'm Bartosz Podgruszecki, FrontEnd Developer from Poland.",
+}
+
 export default function Home() {
   return (
     <PageWrapper>

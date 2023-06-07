@@ -4,6 +4,11 @@ import { WipInfo } from "../_components/WipInfo"
 
 export const runtime = "edge"
 
+export const metadata = {
+  title: "Blog - Bartosz Podgruszecki",
+  description: "This is my blog.",
+}
+
 export default function Blog() {
   return (
     <PageWrapper>

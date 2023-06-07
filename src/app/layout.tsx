@@ -20,11 +20,6 @@ const poppins = Poppins({
   variable: "--font-poppins",
 })
 
-export const metadata = {
-  title: "Bartosz Podgruszecki",
-  description: "Hi! I'm Bartosz Podgruszecki, FrontEnd Developer from Poland.",
-}
-
 const year = new Date().getFullYear()
 
 export default function RootLayout({ children }: { children: ReactNode }) {

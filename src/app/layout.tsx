@@ -56,7 +56,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   )}
                 >
                   {children}
-                  <footer className="overflow-hidden rounded-b-2xl bg-slate-50 dark:bg-zinc-800">
+                  <footer className="overflow-hidden rounded-b-2xl bg-slate-50 dark:bg-zinc-900">
                     <div className="container">
                       <p className="py-6 text-center text-sm text-gray-400 dark:text-gray-500">
                         © {year} All Rights Reserved by{" "}

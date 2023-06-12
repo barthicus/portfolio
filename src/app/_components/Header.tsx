@@ -18,7 +18,7 @@ export const Header = () => {
       </div>
       <nav
         className={clsx(
-          "self-stretch p-[30px] lg:block lg:h-[144px] lg:rounded-[16px] lg:bg-white lg:dark:bg-[#111111]",
+          "self-stretch p-[30px] lg:block lg:h-[144px] lg:rounded-[16px] lg:bg-white lg:dark:bg-zinc-900",
           { hidden: !isOpen },
         )}
       >

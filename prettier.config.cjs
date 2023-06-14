@@ -1,4 +1,6 @@
-/** @type {import("prettier").Config & { [key:string]: any }} */
+// @ts-check
+
+/** @type {import("@ianvs/prettier-plugin-sort-imports").PrettierConfig} */
 const config = {
   arrowParens: "always",
   printWidth: 100,
@@ -25,12 +27,7 @@ const config = {
     "",
     "^(.css*)",
   ],
-  importOrderSeparation: false,
-  importOrderSortSpecifiers: true,
-  importOrderBuiltinModulesToTop: true,
   importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
-  importOrderMergeDuplicateImports: true,
-  importOrderCombineTypeAndValueImports: true,
 }
 
 module.exports = config

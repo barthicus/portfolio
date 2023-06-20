@@ -25,98 +25,494 @@ const careerSteps = [
   {
     title: "Front-End Developer",
     time: "2022 - Present",
-    description: (
-      <>
-        <p className="mb-2">
-          Building webapps in TypeScript. Support currently running webapps by adding features and
-          updating vendor APIs. Maintaining mobile app written in Expo/TS.
-        </p>
-        <p className="mb-2">Tools and technologies I use:</p>
-        <ul className="list-inside list-disc space-y-2">
-          <li>Web: Next.js 13, TypeScript, TailwindCSS</li>
-          <li>Mobile: Expo</li>
-          <li>Design/UI: Figma</li>
-          <li>Cms: Sanity.io</li>
-          <li>Favourite libs: Zustand, DrizzleORM, Radix ui</li>
-        </ul>
-      </>
-    ),
+    description:
+      "Building fast webapps in React with TypeScript. Support currently running applications and adding features. Maintaining mobile apps written in Expo/TS. Doing mostly Front-End but thanks to the Next.js framework I can build complete fullstack apps.",
+    // description: (
+    //   <>
+    //     <p className="mb-2">
+    //       Building fast webapps in React with TypeScript. Support currently running applications and
+    //       adding features. Maintaining mobile apps written in Expo/TS. Doing mostly Front-End but
+    //       thanks to the Next.js framework I can build complete fullstack apps.
+    //     </p>
+    //     <p className="mb-2 text-white">Featured projects:</p>
+    //     <ul className="ml-3 list-inside list-disc space-y-2">
+    //       <li>
+    //         <a
+    //           href="https://bpodgruszecki.vercel.app"
+    //           target="_blank"
+    //           rel="noopener noreferrer"
+    //           className="text-teal-500 hover:underline dark:text-teal-400"
+    //         >
+    //           Portfolio (v2 - current)
+    //         </a>{" "}
+    //         - this website, my latest portfolio (Next.js, TailwindCSS, Framer Motion, TypeScript)
+    //       </li>
+    //       <li>
+    //         <a
+    //           href="https://yt-without-spoilers.vercel.app"
+    //           target="_blank"
+    //           rel="noopener noreferrer"
+    //           className="text-cyan-500 hover:underline dark:text-cyan-400"
+    //         >
+    //           YT without spoilers
+    //         </a>{" "}
+    //         - simple web app that allows you to watch YouTube videos without player controls
+    //         (Next.js, TailwindCSS, TypeScript)
+    //       </li>
+    //       <li>
+    //         <a
+    //           href="https://perfektgaraze.pl"
+    //           target="_blank"
+    //           rel="noopener noreferrer"
+    //           className="text-cyan-500 hover:underline dark:text-cyan-400"
+    //         >
+    //           Perfektgaraze.pl
+    //         </a>{" "}
+    //         - website for a company that sells metal constructions (Next.js, Sanity.io, TypeScript)
+    //       </li>
+    //       <li>
+    //         <a
+    //           href="https://vmi-website.vercel.app"
+    //           target="_blank"
+    //           rel="noopener noreferrer"
+    //           className="text-cyan-500 hover:underline dark:text-cyan-400"
+    //         >
+    //           VMI
+    //         </a>{" "}
+    //         - website for interactive agency (Next.js, Sanity.io, Three.js, TypeScript)
+    //       </li>
+    //     </ul>
+    //     {/* <p className="mb-2">Tools and technologies I use:</p>
+    //     <ul className="list-inside list-disc space-y-2">
+    //       <li>Web: Next.js 13, TypeScript, TailwindCSS</li>
+    //       <li>Mobile: Expo</li>
+    //       <li>Design/UI: Figma</li>
+    //       <li>Cms: Sanity.io</li>
+    //       <li>Favourite libs: Zustand, DrizzleORM, Radix ui</li>
+    //     </ul> */}
+    //   </>
+    // ),
+    projects: [
+      {
+        title: "Portfolio (v2 - current)",
+        description: "this website, my latest portfolio",
+        link: "https://bpodgruszecki.vercel.app",
+        tags: ["Next.js", "TailwindCSS", "Framer Motion", "TypeScript"],
+      },
+      {
+        title: "YT without spoilers",
+        description:
+          "simple web app that allows you to watch YouTube videos without player controls",
+        link: "https://yt-without-spoilers.vercel.app",
+        tags: ["Next.js", "TailwindCSS", "TypeScript"],
+      },
+      {
+        title: "Perfektgaraze.pl",
+        description: "website for a company that sells metal constructions",
+        link: "https://perfektgaraze.pl",
+        tags: ["Next.js", "Sanity.io", "TypeScript"],
+      },
+      {
+        title: "VMI",
+        description: "website for interactive agency",
+        link: "https://vmi-website.vercel.app",
+        tags: ["Next.js", "Sanity.io", "Three.js", "TypeScript"],
+      },
+    ],
   },
   {
     title: "Front-End Developer (Next.js, Gatsby, Firebase)",
     time: "2019 - 2022",
-    description: (
-      <ul className="list-inside list-disc space-y-2">
-        <li>
-          Developing React.js based Web apps (CRA, Next,js, Gatsby, MaterialUI, AntDesign, Redux -
-          RTK)
-        </li>
-        <li>React Native Mobile Apps (RN, Expo, WebRTC, Stripe, QRCode, UIKitten)</li>
-        <li>Firebase (React, AWS)</li>
-        <li>NodeJS (Express, Sockets)</li>
-        <li>Headless CSM: Sanity, StoryBlok, WordPress API, Strapi</li>
-        <li>Other: PHP 7, SCSS, Three.js</li>
-      </ul>
-    ),
+    projects: [
+      {
+        title: "Live Events",
+        description: "web app for live events",
+        link: "https://live-events.vercel.app",
+        tags: ["Next.js", "Firebase", "TypeScript"],
+      },
+      {
+        title: "Covid Entrance Ticket",
+        description: "web app for generating entrance tickets",
+        link: "https://google.pl",
+        tags: ["Next.js", "Firebase", "TypeScript"],
+      },
+      {
+        title: "Pain Tracker",
+        description: "mobile and web app for tracking pain",
+        link: "https://google.pl",
+        tags: ["Expo", "React.js", "Firebase"],
+      },
+      {
+        title: "Old Portfolio",
+        description: "my old portfolio",
+        link: "https://barthicus.github.io",
+        tags: ["Next.js", "SCSS", "StoryBlok"],
+      },
+    ],
+    description:
+      "Developing React.js based Web apps using Next.js, Gatsby and Firebase. Integrating video-call solutions (WebRTC) and payment systems (Stripe). Building mobile apps with Expo.",
+    // description: (
+    //   <>
+    //     <p className="mb-2">
+    //       Developing React.js based Web apps using Next.js, Gatsby and Firebase. Integrating
+    //       video-call solutions (WebRTC) and payment systems (Stripe). Building mobile apps with
+    //       Expo.
+    //     </p>
+    //     {/* <ul className="list-inside list-disc space-y-2">
+    //       <li>React Native Mobile Apps (RN, Expo, WebRTC, Stripe, QRCode, UIKitten)</li>
+    //       <li>Firebase (React, AWS)</li>
+    //       <li>NodeJS (Express, Sockets)</li>
+    //       <li>Headless CSM: Sanity, StoryBlok, WordPress API, Strapi</li>
+    //       <li>Other: PHP 7, SCSS, Three.js</li>
+    //     </ul> */}
+    //     <p className="mb-2 text-white">Featured projects:</p>
+    //     <ul className="ml-3 list-inside list-disc space-y-2">
+    //       <li>
+    //         <a
+    //           href="https://google.pl"
+    //           target="_blank"
+    //           rel="noopener noreferrer"
+    //           className="text-cyan-500 hover:underline dark:text-cyan-400"
+    //         >
+    //           Live Events
+    //         </a>{" "}
+    //         - web app for managing live events (Next.js, Firebase, TypeScript)
+    //       </li>
+    //       <li>
+    //         <a
+    //           href="https://google.pl"
+    //           target="_blank"
+    //           rel="noopener noreferrer"
+    //           className="text-cyan-500 hover:underline dark:text-cyan-400"
+    //         >
+    //           Covid Entrance Ticket
+    //         </a>{" "}
+    //         - web app for clinics to manage personel and patients (Next.js, Firebase, TypeScript)
+    //       </li>
+    //       <li>
+    //         <a
+    //           href="https://google.pl"
+    //           target="_blank"
+    //           rel="noopener noreferrer"
+    //           className="text-cyan-500 hover:underline dark:text-cyan-400"
+    //         >
+    //           Pain Tracker
+    //         </a>{" "}
+    //         - mobile and web app for tracking pain (Expo, Next.js, Firebase)
+    //       </li>
+    //       <li>
+    //         <a
+    //           href="https://google.pl"
+    //           target="_blank"
+    //           rel="noopener noreferrer"
+    //           className="text-cyan-500 hover:underline dark:text-cyan-400"
+    //         >
+    //           Old portfolio
+    //         </a>{" "}
+    //         - my previous portfolio (Next.js, SCSS, StoryBlok)
+    //       </li>
+    //     </ul>
+    //   </>
+    // ),
   },
   {
     title: "Front-End Developer (PHP, Vue.js, React, Three.js)",
     time: "2017 - 2019",
     description: (
-      <ul className="list-inside list-disc space-y-2">
-        <li>
-          Building web applications with ES6+ JavaScript: Vue.js/React, Three.js and state managment
-          libraries (vuex, redux).
-        </li>
-        <li>Designing responsive and optimized websites based on Bolt.CM.</li>
-        <li>Creating backend solutions with ApiPlatform, Laravel and JWT.</li>
-        <li>Integrating websites and apps with with backend REST services.</li>
-      </ul>
+      <>
+        <p className="mb-2">
+          Building web applications using Vue.js/React and designing responsive and optimized
+          websites using Bolt.CM.
+        </p>
+        <p className="mb-2">
+          On the backend, I worked with technologies like ApiPlatform, Laravel, and JWT for creating
+          fast API for my frontend apps.
+        </p>
+      </>
     ),
+    projects: [
+      {
+        title: "Taurustal",
+        description: "website for construction company",
+        link: "https://pl.taurustal.com",
+        tags: ["Vue.js", "Bolt.CM", "Three.js"],
+      },
+      {
+        title: "Routes planner",
+        description: "web app for planning orders and grouping them into routes",
+        link: "https://google.pl",
+        tags: ["Vue.js", "Mapbox", "PHP"],
+      },
+      {
+        title: "Curly Weddings",
+        description: "website for Polish wedding organizer",
+        link: "https://curlyweddings.pl",
+        tags: ["Bolt.CM", "logo/layout design"],
+      },
+      {
+        title: "Compensation Claims CRM",
+        description: "CRM for managing compensation claims",
+        link: "https://google.pl",
+        tags: ["Laravel", "PHP", "JS"],
+      },
+      {
+        title: "Accounting ARTAX",
+        description: "website for accounting company",
+        link: "https://artax.com.pl",
+        tags: ["Bolt.CM", "JS"],
+      },
+      {
+        title: "3D reconstruction viewer",
+        description: "web app for viewing 3D reconstruction of a building",
+        link: "https://google.pl",
+        tags: ["React", "Three.js", "JS", "AWS"],
+      },
+    ],
+    // description: (
+    //   <>
+    //     <p className="mb-2">
+    //       Building web applications using Vue.js/React and designing responsive and optimized
+    //       websites using Bolt.CM.
+    //     </p>
+    //     <p className="mb-2">
+    //       On the backend, I worked with technologies like ApiPlatform, Laravel, and JWT for creating
+    //       fast API for my frontend apps.
+    //     </p>
+    //     <p className="mb-2 text-white">Featured projects:</p>
+    //     <ul className="ml-3 list-inside list-disc space-y-2">
+    //       <li>
+    //         <a
+    //           href="https://pl.taurustal.com"
+    //           target="_blank"
+    //           rel="noopener noreferrer"
+    //           className="text-cyan-500 hover:underline dark:text-cyan-400"
+    //         >
+    //           Taurustal
+    //         </a>{" "}
+    //         - ecommerce website for Polish company Taurustal including interactive form with 3D
+    //         product preview (WordPress, Vue.js, Three.js)
+    //       </li>
+    //       <li>
+    //         <a
+    //           href="https://google.pl"
+    //           target="_blank"
+    //           rel="noopener noreferrer"
+    //           className="text-cyan-500 hover:underline dark:text-cyan-400"
+    //         >
+    //           Routes planner
+    //         </a>{" "}
+    //         - web app for planning orders and grouping them into routes (Vue.js, Mapbox, PHP)
+    //       </li>
+    //       <li>
+    //         <a
+    //           href="https://google.pl"
+    //           target="_blank"
+    //           rel="noopener noreferrer"
+    //           className="text-cyan-500 hover:underline dark:text-cyan-400"
+    //         >
+    //           Curly Weddings
+    //         </a>{" "}
+    //         - website for Polish wedding organizer (WordPress, logo/layout design)
+    //       </li>
+
+    //       <li>
+    //         <a
+    //           href="https://google.pl"
+    //           target="_blank"
+    //           rel="noopener noreferrer"
+    //           className="text-cyan-500 hover:underline dark:text-cyan-400"
+    //         >
+    //           Compensation Claims CRM
+    //         </a>{" "}
+    //         - CRM for managing compensation claims (Laravel PHP, JS)
+    //       </li>
+    //       <li>
+    //         <a
+    //           href="https://google.pl"
+    //           target="_blank"
+    //           rel="noopener noreferrer"
+    //           className="text-cyan-500 hover:underline dark:text-cyan-400"
+    //         >
+    //           Accounting ARTAX
+    //         </a>{" "}
+    //         - website for accounting company (WordPress, JS)
+    //       </li>
+    //       <li>
+    //         <a
+    //           href="https://google.pl"
+    //           target="_blank"
+    //           rel="noopener noreferrer"
+    //           className="text-cyan-500 hover:underline dark:text-cyan-400"
+    //         >
+    //           3D reconstruction viewer
+    //         </a>{" "}
+    //         - web app for viewing 3D reconstruction of a building (React, Three.js, JS, AWS)
+    //       </li>
+    //     </ul>
+    //   </>
+    // ),
   },
   {
     title: "Webdeveloper (WordPress, Laravel, JS)",
     time: "2014 - 2017",
-    description: (
-      <ul className="list-inside list-disc space-y-2">
-        <li>
-          Creating company websites custom themes in Wordpress: SPA, shops and portals using
-          Grunt/Gulp, SCSS, rollup, BrowserSync.
-        </li>
-        <li>Developing custom WordPress plugins and integrating in websites.</li>
-        <li>Designing logos and RWD layouts.</li>
-        <li>Writing JS scripts using ES5, jQuery, AngularJS.</li>
-        <li>
-          Writing PHP custom applications with Laravel:
-          <ul className="mt-2 list-inside list-disc space-y-1 pl-5">
-            <li>Cases Managment and PDF documents Generator for Polish Law Firm</li>
-            <li>Orders Managment with map markers for Polish Steel Constructions Company</li>
-          </ul>
-        </li>
-      </ul>
-    ),
+    description:
+      "I developed many company websites/stores and designed layouts. I wrote WordPress plugins and custom PHP platforms. I also started building my first SPAs using Angular.js, Grunt/Gulp, SCSS, Rollup, and BrowserSync.",
+    projects: [
+      {
+        title: "Perfekt-Blach",
+        description: "Wordpress based website for Polish company Perfekt-Blach.",
+        link: "https://perfekt-blach.pl",
+        tags: ["WordPress", "JS"],
+      },
+      {
+        title: "TaxiBus Kraków",
+        description:
+          "Multilanguage portal created for Polish Tours and Travels company - TaxiBus Kraków",
+        link: "https://perfekt-blach.pl",
+        tags: ["WordPress", "jQuery", "SCSS"],
+      },
+      {
+        title: "Suwała Studio Bruku",
+        description: "Wordpress based website for Polish company",
+        link: "https://perfekt-blach.pl",
+        tags: ["WordPress", "jQuery", "SCSS"],
+      },
+    ],
+    // description: (
+    //   <>
+    //     <p className="mb-2">
+    //       I developed many company websites/stores and designed layouts. I wrote WordPress plugins
+    //       and custom PHP platforms. I also started building my first SPAs using Angular.js,
+    //       Grunt/Gulp, SCSS, Rollup, and BrowserSync.
+    //     </p>
+    //     <ul className="list-inside list-disc space-y-2">
+    //       <p className="mb-2 text-white">Featured projects:</p>
+    //       <ul className="ml-3 list-inside list-disc space-y-2">
+    //         <li>
+    //           <a
+    //             href="http://garazeblaszane.com"
+    //             target="_blank"
+    //             rel="noopener noreferrer"
+    //             className="text-cyan-500 hover:underline dark:text-cyan-400"
+    //           >
+    //             Perfekt-Blach
+    //           </a>{" "}
+    //           - Wordpress based website for Polish company Perfekt-Blach.
+    //         </li>
+    //         <li>
+    //           <a
+    //             href="https://taxibuskrakow.com"
+    //             target="_blank"
+    //             rel="noopener noreferrer"
+    //             className="text-cyan-500 hover:underline dark:text-cyan-400"
+    //           >
+    //             TaxiBus Kraków
+    //           </a>{" "}
+    //           - Multilanguage portal created for Polish Tours and Travels company - TaxiBus Kraków
+    //           (jQuery, WordPress, SCSS)
+    //         </li>
+    //         <li>
+    //           <a
+    //             href="https://studiobruku.pl/"
+    //             target="_blank"
+    //             rel="noopener noreferrer"
+    //             className="text-cyan-500 hover:underline dark:text-cyan-400"
+    //           >
+    //             Suwała Studio Bruku
+    //           </a>{" "}
+    //           - Wordpress based website for Polish company (jQuery, WordPress, SCSS)
+    //         </li>
+    //       </ul>
+    //     </ul>
+    //   </>
+    // ),
   },
   {
     title: "Beginner Webdeveloper",
     time: "2009 - 2014",
-    description: (
-      <ul className="list-inside list-disc space-y-2">
-        <li>Designing and coding landing pages with simple interactivy.</li>
-        <li>Implementing simple JavaScript jQuery scripts.</li>
-        <li>Optimizing websites to improve SEO and initial speed loading.</li>
-        <li>Developing and maintaining self-written PHP 5 applications.</li>
-        <li>Trying and implementing different frontend and backend technologies.</li>
-      </ul>
-    ),
+    description:
+      "As a beginner developer I tried to learn as much as I can by creating websites and applications. I designed and coded many company websites, implemented JS scripts with jQuery, and optimized websites for SEO and speed. I also developed and maintained PHP 5 applications.",
+    projects: [
+      {
+        title: "BluePear.pl",
+        description: "website for a BluePear company",
+        link: "https://bluepear.pl",
+        tags: ["Joomla", "jQuery"],
+      },
+      {
+        title: "PDF documents generator",
+        description: "web application (CRM) for managing and generating PDF documents",
+        link: "https://bluepear.pl",
+        tags: ["WordPress", "jQuery"],
+      },
+      {
+        title: "Instytut Piękna - Guinot",
+        description: "website for a beauty salon",
+        link: "https://bluepear.pl",
+        tags: ["WordPress", "jQuery"],
+      },
+    ],
+    // description: (
+    //   <>
+    //     <p className="mb-2">
+    //       As a beginner developer I tried to learn as much as I can by creating websites and
+    //       applications. I designed and coded many company websites, implemented JS scripts with
+    //       jQuery, and optimized websites for SEO and speed. I also developed and maintained PHP 5
+    //       applications.
+    //     </p>
+    //     {/* <ul className="list-inside list-disc space-y-2">
+    //       <li>Designing and coding landing pages with simple interactivy.</li>
+    //       <li>Implementing simple JavaScript jQuery scripts.</li>
+    //       <li>Optimizing websites to improve SEO and initial speed loading.</li>
+    //       <li>Developing and maintaining self-written PHP 5 applications.</li>
+    //     </ul> */}
+    //     <p className="mb-2 text-white">Featured projects:</p>
+    //     <ul className="ml-3 list-inside list-disc space-y-2">
+    //       <li>
+    //         <a
+    //           href="https://bluepear.pl"
+    //           target="_blank"
+    //           rel="noopener noreferrer"
+    //           className="text-cyan-500 hover:underline dark:text-cyan-400"
+    //         >
+    //           BluePear.pl
+    //         </a>{" "}
+    //         - website for a BluePear company (Joomla, jQuery)
+    //       </li>
+    //       <li>
+    //         <a
+    //           href="https://google.pl"
+    //           target="_blank"
+    //           rel="noopener noreferrer"
+    //           className="text-cyan-500 hover:underline dark:text-cyan-400"
+    //         >
+    //           PDF documents generator
+    //         </a>{" "}
+    //         - web application (CRM) for managing and generating PDF documents (PHP, jQuery)
+    //       </li>
+    //       <li>
+    //         <a
+    //           href="http://instytutpiekna.krakow.pl"
+    //           target="_blank"
+    //           rel="noopener noreferrer"
+    //           className="text-cyan-500 hover:underline dark:text-cyan-400"
+    //         >
+    //           Instytut Piękna - Guinot
+    //         </a>{" "}
+    //         - website for a beauty salon (WordPress, jQuery)
+    //       </li>
+    //     </ul>
+    //   </>
+    // ),
   },
 ]
 
 export const TimeLine = () => {
-  const [isTimelineVisible, setIsTimelineVisible] = useState(false)
+  const [isTimelineVisible, setIsTimelineVisible] = useState(true)
 
   return (
     <>
-      <button
+      {/* <button
         className="mt-4 inline-flex items-center rounded-[35px] bg-gradient-to-r from-[#05dfc6] to-[#29d9f7] px-8 py-3 text-gray-800 transition duration-200 ease-linear hover:bg-gradient-to-l"
         onClick={() => setIsTimelineVisible((isTimelineVisible) => !isTimelineVisible)}
       >
@@ -136,8 +532,8 @@ export const TimeLine = () => {
             <path d="M18 15L12 9L6 15" stroke="currentColor" strokeWidth="2" />
           </svg>
         </motion.div>
-        {isTimelineVisible ? "Hide" : "Show"} carrer timeline
-      </button>
+        {isTimelineVisible ? "Hide" : "Show"} dev timeline
+      </button> */}
       <AnimatePresence initial={false}>
         {isTimelineVisible && (
           <motion.div
@@ -162,8 +558,34 @@ export const TimeLine = () => {
                   <time className="mb-2 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                     {step.time}
                   </time>
-                  <div className="font-normal text-gray-500 dark:text-gray-400">
-                    {step.description}
+                  <div className="text-sm font-normal text-gray-500 dark:text-gray-400">
+                    <p className="mb-2">{step.description}</p>
+                    <p className="mb-2 text-white">Featured projects:</p>
+                    <ul className="ml-3 list-inside list-disc space-y-2">
+                      {step.projects.map((project, index) => (
+                        <li key={index}>
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-cyan-500 hover:underline dark:text-cyan-400"
+                          >
+                            {project.title}
+                          </a>{" "}
+                          - {project.description}
+                          {/* (
+                          {project.tags.map((tag, index) => (
+                            <span
+                              key={index}
+                              className="mr-1 inline-block rounded bg-gray-100 px-2 py-0.5 text-gray-800 dark:bg-gray-800 dark:text-gray-100"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                          ) */}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </li>
               ))}

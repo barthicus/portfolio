@@ -161,8 +161,8 @@ export const Aside = () => {
             </div>
           </div>
           <a
-            href="/images/cv.pdf"
-            download=""
+            // href="/images/cv.pdf"
+            // download=""
             className="mx-auto mt-6 inline-flex items-center rounded-[35px] bg-gradient-to-r from-[#05dfc6] to-[#29d9f7] px-8 py-3 text-gray-800 transition duration-200 ease-linear hover:bg-gradient-to-l"
           >
             <svg
@@ -183,7 +183,7 @@ export const Aside = () => {
                 strokeWidth="2"
               />
             </svg>
-            Download CV
+            Show CV
           </a>
         </div>
       </div>

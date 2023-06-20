@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import clsx from "clsx"
 
 import avatarImg from "../../../public/img/avatar.jpeg"
+import { ButtonLink } from "./ButtonLink"
 
 const SocialIconLink = ({ href, children }: { href: string; children: ReactNode }) => {
   return (
@@ -160,7 +161,10 @@ export const Aside = () => {
               </div>
             </div>
           </div>
-          <a
+          <ButtonLink href="/cv" className="mt-6" icon="cv">
+            Show CV
+          </ButtonLink>
+          {/* <a
             // href="/images/cv.pdf"
             // download=""
             className="mx-auto mt-6 inline-flex items-center rounded-[35px] bg-gradient-to-r from-[#05dfc6] to-[#29d9f7] px-8 py-3 text-gray-800 transition duration-200 ease-linear hover:bg-gradient-to-l"
@@ -168,8 +172,8 @@ export const Aside = () => {
             <svg
               width="24"
               height="24"
-              viewBox="0 0 24 24"
               fill="none"
+              viewBox="0 0 24 24"
               className="mr-2 text-gray-800"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -184,7 +188,7 @@ export const Aside = () => {
               />
             </svg>
             Show CV
-          </a>
+          </a> */}
         </div>
       </div>
     </aside>

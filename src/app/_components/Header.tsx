@@ -1,7 +1,10 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 import clsx from "clsx"
+import { FaArrowLeft } from "react-icons/fa"
 
 import { MenuLink } from "./MenuLink"
 import { MobileMenuTrigger } from "./MobileMenuTrigger"
@@ -72,12 +75,24 @@ const blogSvg = (
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
 
   return (
-    <header className="ml-auto flex flex-col items-end justify-end lg:relative lg:mb-10 lg:bg-transparent">
-      <div className="flex items-center gap-4">
-        <ThemeToggler />
-        <MobileMenuTrigger isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
+    <header className="ml-auto flex flex-col items-end justify-end lg:relative lg:mb-10">
+      <div className="flex items-center justify-between gap-4 self-stretch">
+        {pathname !== "/" && (
+          <Link
+            href="/"
+            className="flex items-center gap-2 text-zinc-800 hover:text-teal-500 dark:text-zinc-300 dark:hover:text-teal-500 md:hidden"
+          >
+            <FaArrowLeft />
+            <span>Back to Home</span>
+          </Link>
+        )}
+        <div className="flex grow items-center justify-end gap-4">
+          <ThemeToggler />
+          <MobileMenuTrigger isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
+        </div>
       </div>
       <nav
         className={clsx(

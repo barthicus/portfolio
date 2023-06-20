@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" suppressHydrationWarning>
       <body
         className={clsx(
-          "relative bg-[url('/img/triangle-bg.svg')]",
+          "relative bg-[url('/img/triangle-bg.svg')] font-mono",
           "before:content:[''] before:fixed before:inset-0 ",
           "before:bg-white before:mix-blend-difference",
           "dark:before:bg-transparent dark:before:bg-gradient-to-bl dark:before:from-[#00000047] dark:before:to-transparent dark:before:mix-blend-normal",
@@ -37,10 +37,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         )}
       >
         <Providers>
-          <section className="relative min-h-screen w-full p-4 font-mono md:p-0 md:pb-10">
-            <div className="sticky top-0 z-30 block bg-[#C8C6C5]/80 p-4 dark:bg-[#2E3131]/80 lg:hidden lg:p-0">
-              <Header />
-            </div>
+          <div
+            className={clsx(
+              "sticky top-0 z-30 block p-4 lg:hidden lg:p-0",
+              "before:absolute before:inset-0 before:z-[-1] before:bg-zinc-200/70 before:shadow-sm before:blur-none before:content-[''] before:dark:bg-zinc-900/70",
+            )}
+          >
+            <Header />
+          </div>
+          <section className="relative min-h-screen w-full p-4 md:p-0 md:pb-10">
             <div className="container grid grid-cols-12 justify-between md:gap-10 lg:mt-[200px]">
               <div className="top-44 col-span-12 lg:sticky lg:col-span-4 lg:h-screen">
                 <Aside />

@@ -12,7 +12,8 @@ export const MobileMenuTrigger = ({
   return (
     <button
       className={clsx(
-        "top-[-40px] flex h-[40px] w-[40px] items-center justify-center rounded-full bg-gray-700 text-xl text-white transition-all duration-300 ease-in-out hover:bg-[#ef4060] hover:text-white dark:bg-white dark:text-black",
+        "top-[-40px] flex h-[40px] w-[40px] items-center justify-center rounded-full bg-gray-700 text-xl text-white transition-all duration-300 ease-in-out hover:bg-teal-500 hover:text-white",
+        "dark:bg-white dark:text-black dark:hover:bg-teal-500 dark:hover:text-white",
         "lg:absolute lg:right-5 lg:hidden lg:rounded-t-full",
       )}
       onClick={onClick}

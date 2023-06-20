@@ -54,16 +54,6 @@ export default function Home() {
             </div>
           </div>
           <div className="p-10 dark:bg-transparent">
-            {/* <img
-              alt="icon"
-              src="/images/icons/icon-3.svg"
-              width="40"
-              height="40"
-              decoding="async"
-              data-nimg="1"
-              className="w-10 h-10 object-contain block"
-              loading="lazy"
-            /> */}
             <div className="space-y-2 break-all">
               <h3 className="text-xl font-semibold dark:text-white">Photography</h3>
               <p className=" leading-8 text-gray-500 dark:text-[#A6A6A6]">

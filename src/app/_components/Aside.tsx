@@ -23,7 +23,7 @@ export const Aside = () => {
 
   return (
     <aside
-      className={clsx("relative mx-auto mb-6 mt-[140px] w-full md:mt-[220px] lg:my-0", {
+      className={clsx("relative mx-auto mb-6 mt-[160px] w-full md:mt-[220px] lg:my-0", {
         "hidden md:block": pathname !== "/",
       })}
     >
@@ -96,7 +96,7 @@ export const Aside = () => {
                 <p className="break-all text-sm dark:text-white">Freelance contractor</p>
               </div>
             </div>
-            <div className="flex py-2.5">
+            <div className="flex  border-b border-[#E3E3E3] py-2.5 dark:border-[#3D3A3A]">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-[#C17CEB] transition-colors duration-300 ease-out">
                 <svg
                   stroke="currentColor"
@@ -134,7 +134,7 @@ export const Aside = () => {
                 <p className="break-all text-sm dark:text-white">Krotoszyn, Poland (Remote)</p>
               </div>
             </div>
-            <div className="flex border-b border-[#E3E3E3] py-2.5 dark:border-[#3D3A3A]">
+            <div className="flex py-2.5">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center text-[#FD7590] transition-colors duration-300 ease-out">
                 <svg
                   stroke="currentColor"

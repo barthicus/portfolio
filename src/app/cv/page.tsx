@@ -2,7 +2,7 @@ import Link from "next/link"
 
 import { PageTitle } from "../_components/PageTitle"
 import { PageWrapper } from "../_components/PageWrapper"
-import { TimeLine } from "../about-me/TimeLine"
+import { TimeLine } from "./TimeLine"
 
 export const runtime = "edge"
 

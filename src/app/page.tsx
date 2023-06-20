@@ -16,7 +16,7 @@ export default function Home() {
         <PageTitle>Hello, I&apos;m Bartek!</PageTitle>
         <div className="grid-cols-12 items-center pt-4 md:gap-10 md:pt-[30px] lg:grid ">
           <div className="col-span-12 space-y-2.5">
-            <div className="lg:mr-16">
+            <div>
               <p className="leading-7 text-zinc-500 dark:text-zinc-400">
                 I&apos;m Frontend Developer from Krotoszyn, Poland, working mostly in web
                 development. I enjoy turning complex problems into simple, beautiful and intuitive

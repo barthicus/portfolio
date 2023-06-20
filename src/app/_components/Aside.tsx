@@ -155,7 +155,7 @@ export const Aside = () => {
                     className="text-sm transition duration-300 hover:text-[#FA5252]"
                     href="mailto:bartosz.podgruszecki@gmail.com"
                   >
-                    bartosz.podgruszecki@mail.com
+                    bartosz.podgruszecki@gmail.com
                   </a>
                 </p>
               </div>

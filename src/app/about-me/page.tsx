@@ -2,10 +2,10 @@ import { FaCode } from "react-icons/fa"
 import { GiRun } from "react-icons/gi"
 import { MdTimeline } from "react-icons/md"
 
+import { ButtonLink } from "../_components/ButtonLink"
 import { PageTitle } from "../_components/PageTitle"
 import { PageWrapper } from "../_components/PageWrapper"
 import { figmaLogo, nextjsLogo, planetscaleLogo, tailwindLogo } from "./stackLogos"
-import { TimeLine } from "./TimeLine"
 
 export const runtime = "edge"
 
@@ -96,17 +96,17 @@ export default function AboutMe() {
                     </strong>
                     .
                   </p>
-                  {/* <p className="mt-4 text-zinc-500 dark:text-zinc-400">
-                    If you are interested in my developer history please check the timeline below.
-                  </p>
-                  <TimeLine /> */}
-                  <p>Please check: </p>
-                  <button className="mt-4 inline-flex items-center rounded-[35px] bg-gradient-to-r from-[#05dfc6] to-[#29d9f7] px-8 py-3 text-gray-800 transition duration-200 ease-linear hover:bg-gradient-to-l">
-                    CV
-                  </button>
-                  <button className="mt-4 inline-flex items-center rounded-[35px] bg-gradient-to-r from-[#05dfc6] to-[#29d9f7] px-8 py-3 text-gray-800 transition duration-200 ease-linear hover:bg-gradient-to-l">
-                    Projects
-                  </button>
+                  <div className="mt-6 flex items-center gap-4">
+                    <p className=" text-zinc-500 dark:text-zinc-400">You can also check: </p>
+                    <div className="flex items-center gap-2">
+                      <ButtonLink href="/cv" icon="cv">
+                        Show CV
+                      </ButtonLink>
+                      <ButtonLink href="/portfolio" icon="portfolio">
+                        Projects
+                      </ButtonLink>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="mt-10 flex gap-3">

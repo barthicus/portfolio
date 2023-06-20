@@ -164,31 +164,6 @@ export const Aside = () => {
           <ButtonLink href="/cv" className="mt-6" icon="cv">
             Show CV
           </ButtonLink>
-          {/* <a
-            // href="/images/cv.pdf"
-            // download=""
-            className="mx-auto mt-6 inline-flex items-center rounded-[35px] bg-gradient-to-r from-[#05dfc6] to-[#29d9f7] px-8 py-3 text-gray-800 transition duration-200 ease-linear hover:bg-gradient-to-l"
-          >
-            <svg
-              width="24"
-              height="24"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="mr-2 text-gray-800"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 14L11.2929 14.7071L12 15.4142L12.7071 14.7071L12 14ZM13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5L13 5ZM6.29289 9.70711L11.2929 14.7071L12.7071 13.2929L7.70711 8.29289L6.29289 9.70711ZM12.7071 14.7071L17.7071 9.70711L16.2929 8.29289L11.2929 13.2929L12.7071 14.7071ZM13 14L13 5L11 5L11 14L13 14Z"
-                fill="currentColor"
-              />
-              <path
-                d="M5 16L5 17C5 18.1046 5.89543 19 7 19L17 19C18.1046 19 19 18.1046 19 17V16"
-                stroke="currentColor"
-                strokeWidth="2"
-              />
-            </svg>
-            Show CV
-          </a> */}
         </div>
       </div>
     </aside>

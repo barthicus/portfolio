@@ -1,7 +1,7 @@
-"use client"
+// "use client"
 
-import { useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
+// import { useState } from "react"
+// import { AnimatePresence, motion } from "framer-motion"
 
 const calendarIcon = (
   <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-100 ring-8 ring-white dark:bg-blue-900 dark:ring-gray-900">
@@ -25,8 +25,13 @@ const careerSteps = [
   {
     title: "Front-End Developer",
     time: "2022 - Present",
-    description:
-      "Building fast webapps in React with TypeScript. Support currently running applications and adding features. Maintaining mobile apps written in Expo/TS. Doing mostly Front-End but thanks to the Next.js framework I can build complete fullstack apps.",
+    description: (
+      <p>
+        Building fast webapps in React with TypeScript. Support currently running applications and
+        adding features. Maintaining mobile apps written in Expo/TS. Doing mostly Front-End but
+        thanks to the Next.js framework I can build complete fullstack apps.
+      </p>
+    ),
     // description: (
     //   <>
     //     <p className="mb-2">
@@ -149,8 +154,12 @@ const careerSteps = [
         tags: ["Next.js", "SCSS", "StoryBlok"],
       },
     ],
-    description:
-      "Developing React.js based Web apps using Next.js, Gatsby and Firebase. Integrating video-call solutions (WebRTC) and payment systems (Stripe). Building mobile apps with Expo.",
+    description: (
+      <p>
+        Developing React.js based Web apps using Next.js, Gatsby and Firebase. Integrating
+        video-call solutions (WebRTC) and payment systems (Stripe). Building mobile apps with Expo.
+      </p>
+    ),
     // description: (
     //   <>
     //     <p className="mb-2">
@@ -224,7 +233,7 @@ const careerSteps = [
           Building web applications using Vue.js/React and designing responsive and optimized
           websites using Bolt.CM.
         </p>
-        <p className="mb-2">
+        <p>
           On the backend, I worked with technologies like ApiPlatform, Laravel, and JWT for creating
           fast API for my frontend apps.
         </p>
@@ -355,8 +364,13 @@ const careerSteps = [
   {
     title: "Webdeveloper (WordPress, Laravel, JS)",
     time: "2014 - 2017",
-    description:
-      "I developed many company websites/stores and designed layouts. I wrote WordPress plugins and custom PHP platforms. I also started building my first SPAs using Angular.js, Grunt/Gulp, SCSS, Rollup, and BrowserSync.",
+    description: (
+      <p>
+        I developed many company websites/stores and designed layouts. I wrote WordPress plugins and
+        custom PHP platforms. I also started building my first SPAs using Angular.js, Grunt/Gulp,
+        SCSS, Rollup, and BrowserSync.
+      </p>
+    ),
     projects: [
       {
         title: "Perfekt-Blach",
@@ -430,8 +444,14 @@ const careerSteps = [
   {
     title: "Beginner Webdeveloper",
     time: "2009 - 2014",
-    description:
-      "As a beginner developer I tried to learn as much as I can by creating websites and applications. I designed and coded many company websites, implemented JS scripts with jQuery, and optimized websites for SEO and speed. I also developed and maintained PHP 5 applications.",
+    description: (
+      <p>
+        As a beginner developer I tried to learn as much as I can by creating websites and
+        applications. I designed and coded many company websites, implemented JS scripts with
+        jQuery, and optimized websites for SEO and speed. I also developed and maintained PHP 5
+        applications.
+      </p>
+    ),
     projects: [
       {
         title: "BluePear.pl",
@@ -508,91 +528,55 @@ const careerSteps = [
 ]
 
 export const TimeLine = () => {
-  const [isTimelineVisible, setIsTimelineVisible] = useState(true)
+  // const [isTimelineVisible, setIsTimelineVisible] = useState(true)
 
   return (
-    <>
-      {/* <button
-        className="mt-4 inline-flex items-center rounded-[35px] bg-gradient-to-r from-[#05dfc6] to-[#29d9f7] px-8 py-3 text-gray-800 transition duration-200 ease-linear hover:bg-gradient-to-l"
-        onClick={() => setIsTimelineVisible((isTimelineVisible) => !isTimelineVisible)}
-      >
-        <motion.div
-          initial={{ rotateX: 0 }}
-          animate={{ rotateX: isTimelineVisible ? 0 : 180 }}
-          transition={{ duration: 0.2 }}
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            className="mr-2 text-gray-800"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M18 15L12 9L6 15" stroke="currentColor" strokeWidth="2" />
-          </svg>
-        </motion.div>
-        {isTimelineVisible ? "Hide" : "Show"} dev timeline
-      </button> */}
-      <AnimatePresence initial={false}>
-        {isTimelineVisible && (
-          <motion.div
-            className="mt-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: Number(isTimelineVisible), y: 0 }}
-            transition={{ delay: 0.2 }}
-            exit={{ opacity: 0 }}
-          >
-            <ol className="relative mt-10 border-l border-gray-200 dark:border-gray-700">
-              {careerSteps.map((step, index) => (
-                <li key={index} className="mb-10 ml-6">
-                  {calendarIcon}
-                  <h3 className="mb-1 flex items-center text-lg font-semibold text-gray-900 dark:text-white">
-                    {step.title}
-                    {index === 0 && (
-                      <span className="ml-3 mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">
-                        Current
-                      </span>
-                    )}
-                  </h3>
-                  <time className="mb-2 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                    {step.time}
-                  </time>
-                  <div className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                    <p className="mb-2">{step.description}</p>
-                    <p className="mb-2 text-white">Featured projects:</p>
-                    <ul className="ml-3 list-inside list-disc space-y-2">
-                      {step.projects.map((project, index) => (
-                        <li key={index}>
-                          <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-cyan-500 hover:underline dark:text-cyan-400"
-                          >
-                            {project.title}
-                          </a>{" "}
-                          - {project.description}
-                          {/* (
-                          {project.tags.map((tag, index) => (
-                            <span
-                              key={index}
-                              className="mr-1 inline-block rounded bg-gray-100 px-2 py-0.5 text-gray-800 dark:bg-gray-800 dark:text-gray-100"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                          ) */}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+    <ol className="relative mt-10 border-l border-gray-200 dark:border-gray-700">
+      {careerSteps.map((step, index) => (
+        <li key={index} className="mb-10 ml-6">
+          {calendarIcon}
+          <h3 className="mb-1 flex items-center text-lg font-semibold text-gray-900 dark:text-white">
+            {step.title}
+            {index === 0 && (
+              <span className="ml-3 mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">
+                Current
+              </span>
+            )}
+          </h3>
+          <time className="mb-2 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+            {step.time}
+          </time>
+          <div className="text-sm font-normal text-gray-500 dark:text-gray-400">
+            <div className="mb-2">{step.description}</div>
+            <p className="mb-2 text-white">Featured projects:</p>
+            <ul className="ml-3 list-inside list-disc space-y-2">
+              {step.projects.map((project, index) => (
+                <li key={index}>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-cyan-500 hover:underline dark:text-cyan-400"
+                  >
+                    {project.title}
+                  </a>{" "}
+                  - {project.description}
+                  {/* (
+                {project.tags.map((tag, index) => (
+                  <span
+                    key={index}
+                    className="mr-1 inline-block rounded bg-gray-100 px-2 py-0.5 text-gray-800 dark:bg-gray-800 dark:text-gray-100"
+                  >
+                    {tag}
+                  </span>
+                ))}
+                ) */}
                 </li>
               ))}
-            </ol>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+            </ul>
+          </div>
+        </li>
+      ))}
+    </ol>
   )
 }

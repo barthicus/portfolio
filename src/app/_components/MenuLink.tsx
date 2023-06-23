@@ -1,8 +1,8 @@
 "use client"
 
 import { ReactNode } from "react"
-import { RouteType } from "next/dist/lib/load-custom-routes"
-import Link, { LinkProps } from "next/link"
+import { Route } from "next"
+import Link from "next/link"
 import { usePathname } from "next/navigation"
 import clsx from "clsx"
 
@@ -11,7 +11,7 @@ export const MenuLink = ({
   children,
   onClick,
 }: {
-  href: LinkProps<RouteType>["href"]
+  href: Route
   children: ReactNode
   onClick: () => void
 }) => {

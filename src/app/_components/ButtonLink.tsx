@@ -1,6 +1,6 @@
 import { ReactNode } from "react"
-import { RouteType } from "next/dist/lib/load-custom-routes"
-import Link, { LinkProps } from "next/link"
+import { Route } from "next"
+import Link from "next/link"
 import clsx from "clsx"
 import { BsFillFileEarmarkPersonFill } from "react-icons/bs"
 import { FaExternalLinkAlt } from "react-icons/fa"
@@ -28,7 +28,7 @@ export const ButtonLink = ({
   className,
   icon,
 }: {
-  href: LinkProps<RouteType>["href"]
+  href: Route
   children: ReactNode
   className?: string
   icon?: "cv" | "external" | "portfolio" | "about-me"

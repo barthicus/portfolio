@@ -41,7 +41,7 @@ export const Aside = () => {
       >
         <div className="pb-8 pt-[100px]">
           <p className="mb-1 mt-6 text-2xl font-semibold dark:text-white">Bartosz Podgruszecki</p>
-          <p className="mb-4 inline-block rounded-lg px-5 py-1.5 text-[#7B7B7B] dark:bg-[#1D1D1D] dark:text-[#A6A6A6]">
+          <p className="mb-4 inline-block rounded-lg bg-gray-100/70 px-5 py-1.5 text-gray-500 dark:bg-zinc-800/70 dark:text-zinc-400">
             frontend developer
           </p>
 

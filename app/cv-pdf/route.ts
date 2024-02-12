@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer'
 
-import { projects } from '../../data/projects'
+import { projects } from '@/data/projects'
 
 export const GET = async (request: Request) => {
   // Create a browser instance

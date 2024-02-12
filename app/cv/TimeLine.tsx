@@ -4,10 +4,10 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { BiHide, BiShow } from 'react-icons/bi'
 
-import { careerSteps } from '../../data/projects'
+import { careerSteps } from '@/data/careerSteps'
 
 const calendarIcon = (
-  <span className="size-6 absolute -left-3 flex items-center justify-center rounded-full bg-blue-100 ring-8 ring-white dark:bg-blue-900 dark:ring-gray-900">
+  <span className="absolute -left-3 flex size-6 items-center justify-center rounded-full bg-blue-100 ring-8 ring-white dark:bg-blue-900 dark:ring-gray-900">
     <svg
       aria-hidden="true"
       className="size-3 text-blue-800 dark:text-blue-300"

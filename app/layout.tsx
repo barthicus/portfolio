@@ -1,10 +1,10 @@
 import { ReactNode } from 'react'
 import { Poppins, Roboto_Slab } from 'next/font/google'
-import clsx from 'clsx'
 
 import { Aside } from '@/components/Aside/Aside'
 import { Header } from '@/components/Header'
 import { Providers } from '@/components/providers'
+import { cn } from '@/lib/utils'
 
 import './globals.css'
 
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     // https://github.com/pacocoursey/next-themes/issues/152
     <html lang="en" suppressHydrationWarning>
       <body
-        className={clsx(
+        className={cn(
           "relative bg-[url('/img/triangle-bg.svg')] font-mono",
           "before:content:[''] before:fixed before:inset-0 ",
           'before:bg-white before:mix-blend-difference',
@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       >
         <Providers>
           <div
-            className={clsx(
+            className={cn(
               'sticky top-0 z-30 block p-4 lg:hidden lg:p-0',
               "before:absolute before:inset-0 before:z-[-1] before:bg-zinc-200/70 before:shadow-sm before:blur-none before:content-[''] before:dark:bg-zinc-900/70"
             )}
@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   <Header />
                 </div>
                 <main
-                  className={clsx(
+                  className={cn(
                     'relative overflow-hidden rounded-2xl bg-white dark:bg-zinc-900',
                     "after:absolute after:bottom-0 after:left-0 after:h-[5px] after:w-full after:bg-[linear-gradient(90deg,_#05bf85_0%,_#05bf85_10%,_#159f85_10%,_#159f85_20%,_#15709f_20%,_#15709f_30%,_#15569f_30%,_#15569f_40%,_#152c9f_40%,_#152c9f_50%,_#6038c5_50%,_#6038c5_60%,_#ae4add_60%,_#ae4add_70%,_#dd4a96_70%,_#dd4a96_80%,_#dd4a54_80%,_#dd4a54_90%,_#dd814a_90%,_#dd814a_100%)] after:content-['']"
                   )}

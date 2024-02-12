@@ -1,11 +1,11 @@
 'use client'
 
-import clsx from 'clsx'
+import { cn } from '@/lib/utils'
 
 export const MobileMenuTrigger = ({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) => {
   return (
     <button
-      className={clsx(
+      className={cn(
         'top-[-40px] flex size-[40px] items-center justify-center rounded-full bg-gray-700 text-xl text-white transition-all duration-300 ease-in-out hover:bg-teal-500 hover:text-white',
         'dark:bg-white dark:text-black dark:hover:bg-teal-500 dark:hover:text-white',
         'lg:absolute lg:right-5 lg:hidden lg:rounded-t-full'

@@ -3,8 +3,9 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import clsx from 'clsx'
 import { FaArrowLeft } from 'react-icons/fa'
+
+import { cn } from '@/lib/utils'
 
 import { MenuLink } from './MenuLink'
 import { MobileMenuTrigger } from './MobileMenuTrigger'
@@ -95,10 +96,9 @@ export const Header = () => {
         </div>
       </div>
       <nav
-        className={clsx(
-          'self-stretch p-[30px] lg:block lg:h-[144px] lg:rounded-[16px] lg:bg-white lg:dark:bg-zinc-900',
-          { hidden: !isOpen }
-        )}
+        className={cn('self-stretch p-[30px] lg:block lg:h-[144px] lg:rounded-[16px] lg:bg-white lg:dark:bg-zinc-900', {
+          hidden: !isOpen
+        })}
       >
         <ul className="flex flex-col lg:flex-row">
           <li>

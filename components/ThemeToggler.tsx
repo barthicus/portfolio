@@ -1,7 +1,8 @@
 'use client'
 
-import clsx from 'clsx'
 import { useTheme } from 'next-themes'
+
+import { cn } from '@/lib/utils'
 
 const sunIcon = (
   <svg
@@ -53,7 +54,7 @@ export const ThemeToggler = () => {
   return (
     <button
       onClick={() => setTheme(currentTheme === 'dark' ? 'light' : 'dark')}
-      className={clsx(
+      className={cn(
         'top-[-40px] flex size-[40px] items-center justify-center rounded-full bg-gray-700 text-xl text-white transition-all duration-300 ease-in-out hover:bg-teal-500',
         'dark:bg-white dark:text-black dark:hover:bg-teal-500 dark:hover:text-white',
         'lg:absolute lg:right-5 lg:rounded-none lg:rounded-t-full'

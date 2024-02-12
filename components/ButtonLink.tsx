@@ -1,9 +1,10 @@
 import { ReactNode } from 'react'
 import { RouteType } from 'next/dist/lib/load-custom-routes'
 import Link, { LinkProps } from 'next/link'
-import clsx from 'clsx'
 import { BsFillFileEarmarkPersonFill } from 'react-icons/bs'
 import { FaExternalLinkAlt } from 'react-icons/fa'
+
+import { cn } from '@/lib/utils'
 
 import { aboutMeSvg, portfolioSvg } from './Header'
 
@@ -47,13 +48,13 @@ export const ButtonLink = ({
   return (
     <Link
       href={href}
-      className={clsx(
+      className={cn(
         'inline-flex items-center rounded-[35px] bg-gradient-to-r from-[#05dfc6] to-[#29d9f7] px-8 py-3 text-gray-800 transition duration-200 ease-linear hover:bg-gradient-to-l',
         className
       )}
     >
       {iconSvg}
-      <span className={clsx({ 'ml-2': icon !== null })}>{children}</span>
+      <span className={cn({ 'ml-2': icon !== null })}>{children}</span>
     </Link>
   )
 }

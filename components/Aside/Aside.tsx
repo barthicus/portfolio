@@ -3,8 +3,9 @@
 import { ReactNode } from 'react'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import clsx from 'clsx'
 import { FaKeyboard } from 'react-icons/fa'
+
+import { cn } from '@/lib/utils'
 
 import { ButtonLink } from '../ButtonLink'
 import meImg from './me.png'
@@ -24,7 +25,7 @@ export const Aside = () => {
 
   return (
     <aside
-      className={clsx('relative mx-auto mb-6 mt-[160px] w-full md:mt-[220px] lg:my-0', {
+      className={cn('relative mx-auto mb-6 mt-[160px] w-full md:mt-[220px] lg:my-0', {
         'hidden md:block': pathname !== '/'
       })}
     >
@@ -40,7 +41,7 @@ export const Aside = () => {
         />
       </div>
       <div
-        className={clsx(
+        className={cn(
           'relative mx-auto mb-6 mt-[140px] w-full overflow-hidden rounded-2xl bg-white px-6 text-center dark:bg-zinc-900 md:mt-[220px] lg:my-0',
           "after:absolute after:bottom-0 after:left-0 after:h-[5px] after:w-full after:bg-[linear-gradient(90deg,_#05bf85_0%,_#05bf85_10%,_#159f85_10%,_#159f85_20%,_#15709f_20%,_#15709f_30%,_#15569f_30%,_#15569f_40%,_#152c9f_40%,_#152c9f_50%,_#6038c5_50%,_#6038c5_60%,_#ae4add_60%,_#ae4add_70%,_#dd4a96_70%,_#dd4a96_80%,_#dd4a54_80%,_#dd4a54_90%,_#dd814a_90%,_#dd814a_100%)] after:content-['']"
         )}

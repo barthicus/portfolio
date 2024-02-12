@@ -4,7 +4,8 @@ import { ReactNode } from 'react'
 import { RouteType } from 'next/dist/lib/load-custom-routes'
 import Link, { LinkProps } from 'next/link'
 import { usePathname } from 'next/navigation'
-import clsx from 'clsx'
+
+import { cn } from '@/lib/utils'
 
 export const MenuLink = ({
   href,
@@ -22,7 +23,7 @@ export const MenuLink = ({
     <Link
       href={href}
       onClick={onClick}
-      className={clsx(
+      className={cn(
         'flex cursor-pointer flex-col items-center justify-center bg-[#F3F6F6] py-6 text-sm font-medium transition-all duration-300 ease-in-out lg:mx-2.5 lg:size-20 lg:rounded-[10px] lg:py-0',
         'text-gray-800 lg:text-gray-500',
         'dark:bg-[#212425] dark:text-gray-300',

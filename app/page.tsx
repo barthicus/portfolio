@@ -1,12 +1,12 @@
-import { ButtonLink } from "./_components/ButtonLink"
-import { PageTitle } from "./_components/PageTitle"
-import { PageWrapper } from "./_components/PageWrapper"
+import { ButtonLink } from './_components/ButtonLink'
+import { PageTitle } from './_components/PageTitle'
+import { PageWrapper } from './_components/PageWrapper'
 
-export const runtime = "edge"
+export const runtime = 'edge'
 
 export const metadata = {
-  title: "Bartosz Podgruszecki FrontEnd Developer",
-  description: "Hi! I'm Bartosz Podgruszecki, FrontEnd Developer from Poland.",
+  title: 'Bartosz Podgruszecki FrontEnd Developer',
+  description: "Hi! I'm Bartosz Podgruszecki, FrontEnd Developer from Poland."
 }
 
 export default function Home() {
@@ -18,9 +18,8 @@ export default function Home() {
           <div className="col-span-12 space-y-2.5">
             <div>
               <p className="leading-7 text-zinc-500 dark:text-zinc-400">
-                I&apos;m Frontend Developer from Krotoszyn, Poland, working mostly in web
-                development. I enjoy turning complex problems into simple, beautiful and intuitive
-                designs.
+                I&apos;m Frontend Developer from Krotoszyn, Poland, working mostly in web development. I enjoy turning
+                complex problems into simple, beautiful and intuitive designs.
                 {/* [{" "}
                 <Link href="/about-me" className="text-red-400 hover:text-red-500">
                   More about me...

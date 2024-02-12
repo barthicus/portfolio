@@ -1,14 +1,14 @@
-"use client"
+'use client'
 
-import { useState } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import clsx from "clsx"
-import { FaArrowLeft } from "react-icons/fa"
+import { useState } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import clsx from 'clsx'
+import { FaArrowLeft } from 'react-icons/fa'
 
-import { MenuLink } from "./MenuLink"
-import { MobileMenuTrigger } from "./MobileMenuTrigger"
-import { ThemeToggler } from "./ThemeToggler"
+import { MenuLink } from './MenuLink'
+import { MobileMenuTrigger } from './MobileMenuTrigger'
+import { ThemeToggler } from './ThemeToggler'
 
 const homeSvg = (
   <svg
@@ -80,7 +80,7 @@ export const Header = () => {
   return (
     <header className="ml-auto flex flex-col items-end justify-end lg:relative lg:mb-10">
       <div className="flex items-center justify-between gap-4 self-stretch">
-        {pathname !== "/" && (
+        {pathname !== '/' && (
           <Link
             href="/"
             className="flex items-center gap-2 text-zinc-800 hover:text-teal-500 dark:text-zinc-300 dark:hover:text-teal-500 md:hidden"
@@ -96,8 +96,8 @@ export const Header = () => {
       </div>
       <nav
         className={clsx(
-          "self-stretch p-[30px] lg:block lg:h-[144px] lg:rounded-[16px] lg:bg-white lg:dark:bg-zinc-900",
-          { hidden: !isOpen },
+          'self-stretch p-[30px] lg:block lg:h-[144px] lg:rounded-[16px] lg:bg-white lg:dark:bg-zinc-900',
+          { hidden: !isOpen }
         )}
       >
         <ul className="flex flex-col lg:flex-row">

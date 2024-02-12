@@ -1,16 +1,16 @@
-"use client"
+'use client'
 
-import { useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
-import { BiHide, BiShow } from "react-icons/bi"
+import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { BiHide, BiShow } from 'react-icons/bi'
 
-import { careerSteps } from "../projects"
+import { careerSteps } from '../projects'
 
 const calendarIcon = (
-  <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-100 ring-8 ring-white dark:bg-blue-900 dark:ring-gray-900">
+  <span className="absolute -left-3 flex size-6 items-center justify-center rounded-full bg-blue-100 ring-8 ring-white dark:bg-blue-900 dark:ring-gray-900">
     <svg
       aria-hidden="true"
-      className="h-3 w-3 text-blue-800 dark:text-blue-300"
+      className="size-3 text-blue-800 dark:text-blue-300"
       fill="currentColor"
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
@@ -30,11 +30,11 @@ export const TimeLine = () => {
   return (
     <div className="mt-4 flex flex-col">
       <button
-        onClick={() => setAreProjectsVisible((prev) => !prev)}
+        onClick={() => setAreProjectsVisible(prev => !prev)}
         className="mb-4 inline-flex items-center place-self-center rounded-[35px] bg-gradient-to-r from-[#05dfc6] to-[#29d9f7] px-8 py-3 text-gray-800 transition duration-200 ease-linear hover:bg-gradient-to-l"
       >
         {areProjectsVisible ? <BiHide /> : <BiShow />}
-        <span className="ml-2">{areProjectsVisible ? "Hide" : "Reveal"} projects</span>
+        <span className="ml-2">{areProjectsVisible ? 'Hide' : 'Reveal'} projects</span>
       </button>
       <ol className="relative mt-10 border-l border-gray-200 dark:border-gray-700">
         {careerSteps.map((step, index) => (
@@ -72,7 +72,7 @@ export const TimeLine = () => {
                             className="text-cyan-500 hover:underline dark:text-cyan-400"
                           >
                             {project.title}
-                          </a>{" "}
+                          </a>{' '}
                           - {project.description}
                         </li>
                       ))}
@@ -81,9 +81,7 @@ export const TimeLine = () => {
                 )}
               </AnimatePresence>
               {!areProjectsVisible && (
-                <p className="mt-3 text-sm text-zinc-300 dark:text-zinc-700">
-                  Projects are hidden.
-                </p>
+                <p className="mt-3 text-sm text-zinc-300 dark:text-zinc-700">Projects are hidden.</p>
               )}
             </div>
           </li>

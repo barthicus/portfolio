@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { ReactNode } from "react"
-import { motion } from "framer-motion"
+import { ReactNode } from 'react'
+import { motion } from 'framer-motion'
 
 /**
  * This component is a wrapper that applies a fade-in and fade-out animation to its children using the Framer Motion library.

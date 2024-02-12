@@ -1,12 +1,12 @@
-import { PageTitle } from "../_components/PageTitle"
-import { PageWrapper } from "../_components/PageWrapper"
-import { WipInfo } from "../_components/WipInfo"
+import { PageTitle } from '../_components/PageTitle'
+import { PageWrapper } from '../_components/PageWrapper'
+import { WipInfo } from '../_components/WipInfo'
 
-export const runtime = "edge"
+export const runtime = 'edge'
 
 export const metadata = {
-  title: "Portfolio - Bartosz Podgruszecki",
-  description: "My portfolio.",
+  title: 'Portfolio - Bartosz Podgruszecki',
+  description: 'My portfolio.'
 }
 
 export default function Portfolio() {

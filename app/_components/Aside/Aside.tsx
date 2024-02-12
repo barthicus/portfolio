@@ -11,7 +11,7 @@ import meImg from './me.png'
 const SocialIconLink = ({ href, children }: { href: string; children: ReactNode }) => {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer">
-      <span className="flex h-10 w-10 items-center justify-center rounded-md bg-gray-100 text-gray-500 transition-colors duration-300 ease-out hover:bg-gradient-to-l hover:from-red-600 hover:via-red-600 hover:to-pink-500 hover:text-white dark:bg-zinc-800 dark:text-zinc-400 dark:hover:text-white">
+      <span className="flex size-10 items-center justify-center rounded-md bg-gray-100 text-gray-500 transition-colors duration-300 ease-out hover:bg-gradient-to-l hover:from-red-600 hover:via-red-600 hover:to-pink-500 hover:text-white dark:bg-zinc-800 dark:text-zinc-400 dark:hover:text-white">
         {children}
       </span>
     </a>
@@ -31,7 +31,7 @@ export const Aside = () => {
         alt="Bartosz Podgruszecki avatar"
         src={meImg}
         priority
-        className="absolute left-[50%] z-10 mx-auto mt-[-140px] h-[240px] w-[240px] translate-x-[-50%] rounded-2xl drop-shadow-xl"
+        className="absolute left-[50%] z-10 mx-auto mt-[-140px] size-[240px] translate-x-[-50%] rounded-2xl drop-shadow-xl"
       />
       <div
         className={clsx(
@@ -78,7 +78,7 @@ export const Aside = () => {
           </div>
           <div className="mt-7 rounded-2xl bg-[#F3F6F6] p-7 dark:bg-[#1D1D1D]">
             <div className="flex border-b border-[#E3E3E3] py-2.5 dark:border-[#3D3A3A]">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center text-[#E93B81] transition-colors duration-300 ease-out">
+              <span className="flex size-10 shrink-0 items-center justify-center text-[#E93B81] transition-colors duration-300 ease-out">
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
@@ -97,7 +97,7 @@ export const Aside = () => {
               </div>
             </div>
             <div className="flex  border-b border-[#E3E3E3] py-2.5 dark:border-[#3D3A3A]">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-[#C17CEB] transition-colors duration-300 ease-out">
+              <span className="flex size-10 shrink-0 items-center justify-center rounded-md text-[#C17CEB] transition-colors duration-300 ease-out">
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
@@ -116,7 +116,7 @@ export const Aside = () => {
               </div>
             </div>
             <div className="flex border-b border-[#E3E3E3] py-2.5 dark:border-[#3D3A3A]">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center text-[#6AB5B9] transition-colors duration-300 ease-out">
+              <span className="flex size-10 shrink-0 items-center justify-center text-[#6AB5B9] transition-colors duration-300 ease-out">
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
@@ -135,7 +135,7 @@ export const Aside = () => {
               </div>
             </div>
             <div className="flex py-2.5">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center text-[#FD7590] transition-colors duration-300 ease-out">
+              <span className="flex size-10 shrink-0 items-center justify-center text-[#FD7590] transition-colors duration-300 ease-out">
                 <svg
                   stroke="currentColor"
                   fill="currentColor"

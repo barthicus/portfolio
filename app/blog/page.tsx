@@ -1,12 +1,12 @@
-import { PageTitle } from "../_components/PageTitle"
-import { PageWrapper } from "../_components/PageWrapper"
-import { WipInfo } from "../_components/WipInfo"
+import { PageTitle } from '../_components/PageTitle'
+import { PageWrapper } from '../_components/PageWrapper'
+import { WipInfo } from '../_components/WipInfo'
 
-export const runtime = "edge"
+export const runtime = 'edge'
 
 export const metadata = {
-  title: "Blog - Bartosz Podgruszecki",
-  description: "This is my blog.",
+  title: 'Blog - Bartosz Podgruszecki',
+  description: 'This is my blog.'
 }
 
 export default function Blog() {
@@ -17,9 +17,7 @@ export default function Blog() {
         <div className="grid-cols-12 items-center pt-4 md:gap-10 md:pt-[30px] lg:grid ">
           <div className="col-span-12 space-y-2.5">
             <div>
-              <p className="text-gray-500 dark:text-gray-100">
-                Hopefully some blog posts will be here soon (tm).
-              </p>
+              <p className="text-gray-500 dark:text-gray-100">Hopefully some blog posts will be here soon (tm).</p>
             </div>
             <WipInfo />
           </div>

@@ -1,11 +1,11 @@
-import { ReactNode } from "react"
-import { RouteType } from "next/dist/lib/load-custom-routes"
-import Link, { LinkProps } from "next/link"
-import clsx from "clsx"
-import { BsFillFileEarmarkPersonFill } from "react-icons/bs"
-import { FaExternalLinkAlt } from "react-icons/fa"
+import { ReactNode } from 'react'
+import { RouteType } from 'next/dist/lib/load-custom-routes'
+import Link, { LinkProps } from 'next/link'
+import clsx from 'clsx'
+import { BsFillFileEarmarkPersonFill } from 'react-icons/bs'
+import { FaExternalLinkAlt } from 'react-icons/fa'
 
-import { aboutMeSvg, portfolioSvg } from "./Header"
+import { aboutMeSvg, portfolioSvg } from './Header'
 
 export const cvSvg = (
   <svg
@@ -26,21 +26,21 @@ export const ButtonLink = ({
   href,
   children,
   className,
-  icon,
+  icon
 }: {
-  href: LinkProps<RouteType>["href"]
+  href: LinkProps<RouteType>['href']
   children: ReactNode
   className?: string
-  icon?: "cv" | "external" | "portfolio" | "about-me"
+  icon?: 'cv' | 'external' | 'portfolio' | 'about-me'
 }) => {
   let iconSvg: ReactNode = null
-  if (icon === "cv") {
-    iconSvg = <BsFillFileEarmarkPersonFill className="h-4 w-4" />
-  } else if (icon === "external") {
-    iconSvg = <FaExternalLinkAlt className="h-4 w-4" />
-  } else if (icon === "portfolio") {
+  if (icon === 'cv') {
+    iconSvg = <BsFillFileEarmarkPersonFill className="size-4" />
+  } else if (icon === 'external') {
+    iconSvg = <FaExternalLinkAlt className="size-4" />
+  } else if (icon === 'portfolio') {
     iconSvg = portfolioSvg
-  } else if (icon === "about-me") {
+  } else if (icon === 'about-me') {
     iconSvg = aboutMeSvg
   }
 
@@ -48,12 +48,12 @@ export const ButtonLink = ({
     <Link
       href={href}
       className={clsx(
-        "inline-flex items-center rounded-[35px] bg-gradient-to-r from-[#05dfc6] to-[#29d9f7] px-8 py-3 text-gray-800 transition duration-200 ease-linear hover:bg-gradient-to-l",
-        className,
+        'inline-flex items-center rounded-[35px] bg-gradient-to-r from-[#05dfc6] to-[#29d9f7] px-8 py-3 text-gray-800 transition duration-200 ease-linear hover:bg-gradient-to-l',
+        className
       )}
     >
       {iconSvg}
-      <span className={clsx({ "ml-2": icon !== null })}>{children}</span>
+      <span className={clsx({ 'ml-2': icon !== null })}>{children}</span>
     </Link>
   )
 }

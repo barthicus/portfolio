@@ -13,10 +13,7 @@ export const nextjsLogo = (
         d="M183.32 0.0661486H165.506L229.312 79.3721H247.178L215.271 39.7464L247.127 0.126654L229.312 0.154184L206.352 28.6697L183.32 0.0661486Z"
         fill="currentColor"
       ></path>
-      <path
-        d="M201.6 56.7148L192.679 45.6229L165.455 79.4326H183.32L201.6 56.7148Z"
-        fill="currentColor"
-      ></path>
+      <path d="M201.6 56.7148L192.679 45.6229L165.455 79.4326H183.32L201.6 56.7148Z" fill="currentColor"></path>
       <path
         clipRule="evenodd"
         d="M80.907 79.339L17.0151 0H0V79.3059H13.6121V16.9516L63.8067 79.339H80.907Z"
@@ -82,12 +79,7 @@ export const planetscaleLogo = (
 
 export const figmaLogo = (
   <span title="Figma">
-    <svg
-      className="h-5 w-auto"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 38 57"
-      aria-label="Figma logotype"
-    >
+    <svg className="h-5 w-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 57" aria-label="Figma logotype">
       <path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z"></path>
       <path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z"></path>
       <path fill="#ff7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z"></path>

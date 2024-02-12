@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import { MdFilterAlt, MdFilterAltOff } from 'react-icons/md'
@@ -53,8 +54,52 @@ const industryTags = projects.reduce((acc, project) => {
 
 export default function Portfolio() {
   const [areFiltersVisible, setAreFiltersVisible] = useState(false)
-  const [selectedTechTags, setSelectedTechTags] = useState<string[]>([])
-  const [selectedIndustryTags, setSelectedIndustryTags] = useState<string[]>([])
+  const searchParams = useSearchParams()
+  const pathname = usePathname()
+  const { push } = useRouter()
+
+  const params = new URLSearchParams(searchParams.toString())
+  const selectedTechTags = searchParams.getAll('tech')
+  const selectedIndustryTags = searchParams.getAll('industry')
+
+  // example url including many tech and industry tags:
+  // /portfolio?tech=react&tech=next&industry=web%20development&industry=design
+
+  const handleSelectTech = (tech: string) => {
+    // append tech to URL
+    if (!selectedTechTags.includes(tech)) {
+      params.append('tech', tech)
+    } else {
+      const values = params.getAll('tech')
+      const filteredValues = values.filter(value => value !== tech)
+      if (filteredValues.length) {
+        params.set('tech', filteredValues.join(','))
+      } else {
+        params.delete('tech')
+      }
+    }
+
+    // navigate to new URL
+    push(`${pathname}?${params.toString()}`)
+  }
+
+  const handleSelectIndustry = (industry: string) => {
+    // append industry to URL
+    if (!selectedIndustryTags.includes(industry)) {
+      params.append('industry', industry)
+    } else {
+      const values = params.getAll('industry')
+      const filteredValues = values.filter(value => value !== industry)
+      if (filteredValues.length) {
+        params.set('industry', filteredValues.join(','))
+      } else {
+        params.delete('industry')
+      }
+    }
+
+    // navigate to new URL
+    push(`${pathname}?${searchParams.toString()}`)
+  }
 
   return (
     <PageWrapper>
@@ -85,15 +130,7 @@ export default function Portfolio() {
                         className={clsx('rounded-md bg-zinc-100 p-2 text-xs text-zinc-200 dark:bg-zinc-800', {
                           'bg-teal-500 text-black dark:bg-teal-500 dark:text-white': selectedTechTags.includes(tag)
                         })}
-                        onClick={() =>
-                          setSelectedTechTags(tags => {
-                            if (tags.includes(tag)) {
-                              return tags.filter(t => t !== tag)
-                            } else {
-                              return [...tags, tag]
-                            }
-                          })
-                        }
+                        onClick={() => handleSelectTech(tag)}
                       >
                         {tag} ({count})
                       </button>
@@ -109,15 +146,7 @@ export default function Portfolio() {
                         className={clsx('rounded-md bg-zinc-100 p-2 text-xs text-zinc-200 dark:bg-zinc-800', {
                           'bg-teal-500 text-black dark:bg-teal-500 dark:text-white': selectedIndustryTags.includes(tag)
                         })}
-                        onClick={() =>
-                          setSelectedIndustryTags(tags => {
-                            if (tags.includes(tag)) {
-                              return tags.filter(t => t !== tag)
-                            } else {
-                              return [...tags, tag]
-                            }
-                          })
-                        }
+                        onClick={() => handleSelectIndustry(tag)}
                       >
                         {tag} ({count})
                       </button>

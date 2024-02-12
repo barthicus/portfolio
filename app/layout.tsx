@@ -45,7 +45,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           >
             <Header />
           </div>
-          <section className="relative min-h-screen w-full p-4 md:p-0 md:pb-10">
+          <section className="relative min-h-screen w-full p-4 md:pb-10 xl:p-0">
             <div className="container grid grid-cols-12 justify-between md:gap-10 lg:mt-[200px]">
               <div className="top-44 col-span-12 lg:sticky lg:col-span-4 lg:h-screen">
                 <Aside />

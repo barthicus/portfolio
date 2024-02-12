@@ -2,9 +2,10 @@ import { FaCode } from 'react-icons/fa'
 import { GiRun } from 'react-icons/gi'
 import { MdTimeline } from 'react-icons/md'
 
-import { ButtonLink } from '../_components/ButtonLink'
-import { PageTitle } from '../_components/PageTitle'
-import { PageWrapper } from '../_components/PageWrapper'
+import { ButtonLink } from '@/components/ButtonLink'
+import { PageTitle } from '@/components/PageTitle'
+import { PageWrapper } from '@/components/PageWrapper'
+
 import { figmaLogo, nextjsLogo, planetscaleLogo, tailwindLogo } from './stackLogos'
 
 export const runtime = 'edge'

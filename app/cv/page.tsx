@@ -1,7 +1,8 @@
 import Link from 'next/link'
 
-import { PageTitle } from '../_components/PageTitle'
-import { PageWrapper } from '../_components/PageWrapper'
+import { PageTitle } from '@/components/PageTitle'
+import { PageWrapper } from '@/components/PageWrapper'
+
 import { TimeLine } from './TimeLine'
 
 export const runtime = 'edge'

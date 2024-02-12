@@ -2,9 +2,9 @@ import { ReactNode } from 'react'
 import { Poppins, Roboto_Slab } from 'next/font/google'
 import clsx from 'clsx'
 
-import { Aside } from './_components/Aside/Aside'
-import { Header } from './_components/Header'
-import { Providers } from './_components/providers'
+import { Aside } from '@/components/Aside/Aside'
+import { Header } from '@/components/Header'
+import { Providers } from '@/components/providers'
 
 import './globals.css'
 

@@ -1,6 +1,6 @@
-import { ButtonLink } from './_components/ButtonLink'
-import { PageTitle } from './_components/PageTitle'
-import { PageWrapper } from './_components/PageWrapper'
+import { ButtonLink } from '@/components/ButtonLink'
+import { PageTitle } from '@/components/PageTitle'
+import { PageWrapper } from '@/components/PageWrapper'
 
 export const runtime = 'edge'
 

@@ -5,7 +5,7 @@ import { projects } from '../projects'
 export const GET = async (request: Request) => {
   // Create a browser instance
   const browser = await puppeteer.launch({
-    headless: 'new',
+    headless: true,
     args: ['--no-sandbox'] // required for Vercel: https://github.com/puppeteer/puppeteer/issues/3698#issuecomment-504648941
   })
 

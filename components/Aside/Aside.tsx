@@ -27,12 +27,17 @@ export const Aside = () => {
         'hidden md:block': pathname !== '/'
       })}
     >
-      <Image
-        alt="Bartosz Podgruszecki avatar"
-        src={meImg}
-        priority
-        className="absolute left-[50%] z-10 mx-auto mt-[-140px] size-[240px] translate-x-[-50%] rounded-2xl drop-shadow-xl"
-      />
+      <div className="absolute left-[50%] z-10 mx-auto mt-[-140px] size-[240px] translate-x-[-50%] overflow-hidden rounded-2xl drop-shadow-xl">
+        <Image
+          alt="Bartosz Podgruszecki avatar"
+          src={meImg}
+          priority
+          height={240}
+          width={240}
+          className="absolute -top-4 h-auto"
+          quality={100}
+        />
+      </div>
       <div
         className={clsx(
           'relative mx-auto mb-6 mt-[140px] w-full overflow-hidden rounded-2xl bg-white px-6 text-center dark:bg-zinc-900 md:mt-[220px] lg:my-0',

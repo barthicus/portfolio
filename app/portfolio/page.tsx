@@ -1,6 +1,6 @@
-import { PageTitle } from '../_components/PageTitle'
-import { PageWrapper } from '../_components/PageWrapper'
-import { WipInfo } from '../_components/WipInfo'
+import { PageTitle } from '@/components/PageTitle'
+import { PageWrapper } from '@/components/PageWrapper'
+import { WipInfo } from '@/components/WipInfo'
 
 export const runtime = 'edge'
 

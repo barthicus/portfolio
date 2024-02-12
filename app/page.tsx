@@ -16,24 +16,26 @@ export default function Home() {
         <PageTitle>Hello, I&apos;m Bartek!</PageTitle>
         <div className="grid-cols-12 items-center pt-4 md:gap-10 md:pt-[30px] lg:grid ">
           <div className="col-span-12 space-y-2.5">
-            <div>
+            <div className="space-y-6">
               <p className="leading-7 text-zinc-500 dark:text-zinc-400">
-                I&apos;m Frontend Developer from Krotoszyn, Poland, working mostly in web development. I enjoy turning
-                complex problems into simple, beautiful and intuitive designs.
-                {/* [{" "}
-                <Link href="/about-me" className="text-red-400 hover:text-red-500">
-                  More about me...
-                </Link>{" "}
-                ] */}
+                I&apos;m <strong>Software Engineer</strong> from Krotoszyn, Poland, working mostly in web development. I
+                enjoy turning complex problems into performant and beautiful applications.
               </p>
-              <ButtonLink href="/about-me" icon="about-me" className="mt-4">
+              <p className="text-zinc-500 dark:text-zinc-400">
+                Lately I was working on web applications for medical clinics from United States like video-call
+                solutions, virtual tradeshow CRMs and covid pass applications.
+              </p>
+              <p className="text-zinc-500 dark:text-zinc-400">
+                That&apos;s about it from me. Feel free to browse through the other pages to get to know me better!
+              </p>
+              <ButtonLink href="/about-me" icon="about-me">
                 More about me
               </ButtonLink>
             </div>
           </div>
         </div>
       </div>
-      <section className="px-6 pb-12 sm:px-5 md:px-10 lg:px-14 ">
+      {/* <section className="px-6 pb-12 sm:px-5 md:px-10 lg:px-14 ">
         <h2 className="pb-5 text-[35px] font-medium dark:text-white">What I do!</h2>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-2 ">
           <div className="p-10 dark:bg-transparent">
@@ -69,7 +71,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </PageWrapper>
   )
 }

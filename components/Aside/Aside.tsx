@@ -4,6 +4,7 @@ import { ReactNode } from 'react'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
+import { FaKeyboard } from 'react-icons/fa'
 
 import { ButtonLink } from '../ButtonLink'
 import meImg from './me.png'
@@ -83,8 +84,8 @@ export const Aside = () => {
           </div>
           <div className="mt-7 rounded-2xl bg-[#F3F6F6] p-7 dark:bg-[#1D1D1D]">
             <div className="flex border-b border-[#E3E3E3] py-2.5 dark:border-[#3D3A3A]">
-              <span className="flex size-10 shrink-0 items-center justify-center text-[#E93B81] transition-colors duration-300 ease-out">
-                <svg
+              <span className="flex size-10 shrink-0 items-center justify-center text-[#5d9ea1] transition-colors duration-300 ease-out">
+                {/* <svg
                   stroke="currentColor"
                   fill="currentColor"
                   strokeWidth="0"
@@ -94,7 +95,8 @@ export const Aside = () => {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path d="M272 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h224c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zM160 480c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm112-108c0 6.6-5.4 12-12 12H60c-6.6 0-12-5.4-12-12V60c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v312z"></path>
-                </svg>
+                </svg> */}
+                <FaKeyboard />
               </span>
               <div className="ml-2.5 text-left">
                 <p className="text-xs text-gray-500 dark:text-[#A6A6A6]">Work status</p>
@@ -102,7 +104,7 @@ export const Aside = () => {
               </div>
             </div>
             <div className="flex  border-b border-[#E3E3E3] py-2.5 dark:border-[#3D3A3A]">
-              <span className="flex size-10 shrink-0 items-center justify-center rounded-md text-[#C17CEB] transition-colors duration-300 ease-out">
+              <span className="flex size-10 shrink-0 items-center justify-center rounded-md text-[#5d9ea1] transition-colors duration-300 ease-out">
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
@@ -121,7 +123,7 @@ export const Aside = () => {
               </div>
             </div>
             <div className="flex border-b border-[#E3E3E3] py-2.5 dark:border-[#3D3A3A]">
-              <span className="flex size-10 shrink-0 items-center justify-center text-[#6AB5B9] transition-colors duration-300 ease-out">
+              <span className="flex size-10 shrink-0 items-center justify-center text-[#5d9ea1] transition-colors duration-300 ease-out">
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
@@ -140,7 +142,7 @@ export const Aside = () => {
               </div>
             </div>
             <div className="flex py-2.5">
-              <span className="flex size-10 shrink-0 items-center justify-center text-[#FD7590] transition-colors duration-300 ease-out">
+              <span className="flex size-10 shrink-0 items-center justify-center text-[#5d9ea1] transition-colors duration-300 ease-out">
                 <svg
                   stroke="currentColor"
                   fill="currentColor"

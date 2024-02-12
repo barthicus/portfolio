@@ -6,7 +6,7 @@ import { ButtonLink } from '@/components/ButtonLink'
 import { PageTitle } from '@/components/PageTitle'
 import { PageWrapper } from '@/components/PageWrapper'
 
-import { figmaLogo, nextjsLogo, planetscaleLogo, tailwindLogo } from './stackLogos'
+// import { figmaLogo, nextjsLogo, planetscaleLogo, tailwindLogo } from './stackLogos'
 
 export const runtime = 'edge'
 
@@ -28,10 +28,6 @@ export default function AboutMe() {
                 maintain web applications using <strong className="text-zinc-600 dark:text-zinc-300">React</strong> and{' '}
                 <strong className="text-zinc-600 dark:text-zinc-300">TypeScript</strong>.
               </p>
-              <p className="mt-4 text-zinc-500 dark:text-zinc-400">
-                Lately I was working on web applications for medical clinics from United States like video-call
-                solutions, virtual tradeshow CRMs and covid pass applications.
-              </p>
             </div>
 
             <div className="mt-10 flex gap-3">
@@ -43,20 +39,20 @@ export default function AboutMe() {
                 <p className="mt-4 text-zinc-500 dark:text-zinc-400">
                   For my next projects, I prefer to choose (if applicable){' '}
                   <strong className="text-zinc-600 dark:text-zinc-300">Next.js</strong> with{' '}
-                  <strong className="text-zinc-600 dark:text-zinc-300">TypeScript</strong>
-                  and <strong className="text-zinc-600 dark:text-zinc-300">TailwindCSS</strong>. I&apos;m also using
-                  Vercel for hosting and Planetscale for the database.
+                  <strong className="text-zinc-600 dark:text-zinc-300">TypeScript</strong> and{' '}
+                  <strong className="text-zinc-600 dark:text-zinc-300">TailwindCSS</strong>. I&apos;m also using Vercel
+                  for hosting and Planetscale for the database.
                 </p>
                 <p className="mt-4 text-zinc-500 dark:text-zinc-400">
                   When it comes to the <strong className="text-zinc-600 dark:text-zinc-300">UI</strong>, I&apos;m using{' '}
                   <strong className="text-zinc-600 dark:text-zinc-300">Figma</strong> for designing and prototyping.
                 </p>
-                <div className="mt-5 flex items-center justify-center gap-10 opacity-30">
+                {/* <div className="mt-5 flex items-center justify-center gap-10 opacity-30">
                   {nextjsLogo}
                   {planetscaleLogo}
                   {tailwindLogo}
                   {figmaLogo}
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="mt-10 flex gap-3">
@@ -70,7 +66,7 @@ export default function AboutMe() {
                   <strong className="text-zinc-600 dark:text-zinc-300">WordPress</strong> and basic scripts like product
                   price calculators in JavaScript - <strong className="text-zinc-600 dark:text-zinc-300">jQuery</strong>
                   . I even created few websites in <strong className="text-zinc-600 dark:text-zinc-300">Flash</strong>{' '}
-                  (AS3) which is considered as a history relic now 🦕
+                  (AS3) which is considered as a history relic now.
                 </p>
                 <p className="mt-4 text-zinc-500 dark:text-zinc-400">
                   Then I continueed to develop my skills by reating custom web layouts, building more complex websites
@@ -84,8 +80,15 @@ export default function AboutMe() {
                   frameworks/libs (jQuery, Gatsby, Vue.js), but most of the time I was interested the most in the{' '}
                   <strong className="text-zinc-600 dark:text-zinc-300">Frontend Development</strong>.
                 </p>
+                <p className="mt-4 text-zinc-500 dark:text-zinc-400">
+                  Fortunately, nowadays frameworks like{' '}
+                  <strong className="text-zinc-600 dark:text-zinc-300">Next.js</strong> not only facilitate the creation
+                  of the frontend layer but also enable the development of the backend. This makes it easy to become a{' '}
+                  <strong className="text-zinc-600 dark:text-zinc-300">FullStack Developer</strong> who can effortlessly
+                  build the backend for their applications.
+                </p>
                 <div className="mt-6 flex items-center gap-4">
-                  <p className=" text-zinc-500 dark:text-zinc-400">You can also check: </p>
+                  <p className=" text-zinc-500 dark:text-zinc-400">Feel free to check: </p>
                   <div className="flex items-center gap-2">
                     <ButtonLink href="/cv" icon="cv">
                       My CV
@@ -112,7 +115,8 @@ export default function AboutMe() {
                   If I can I really like watching esports matches while cheering for my favorite teams.
                 </p>
                 <p className="mt-4 text-zinc-300 dark:text-zinc-600">
-                  When everyone is sleeping I definitely don&apos;t slain any demons in Diablo 2. Nope. Not at all.
+                  When everyone is sleeping I definitely don&apos;t slain any 😈 in Diablo 2 or Path of Exile. Nope. Not
+                  at all.
                 </p>
               </div>
             </div>

@@ -1,8 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    typedRoutes: true,
+    // Typoed routes don't work with Turbopack yet (next dev --turbo)
+    typedRoutes: false,
+    ppr: true
   },
+  logging: {
+    fetches: {
+      fullUrl: true
+    }
+  }
 }
 
 module.exports = nextConfig

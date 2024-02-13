@@ -4,6 +4,8 @@
 import { NextResponse } from 'next/server'
 import { Document, Page, renderToBuffer, Text, View } from '@react-pdf/renderer'
 
+export const dynamic = 'force-dynamic'
+
 export const GET = async (request: Request) => {
   // // Create a browser instance
   // const browser = await puppeteer.launch({

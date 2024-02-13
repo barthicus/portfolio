@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "app/cv-pdf/route.tsx": {
+      "runtime": "20.x"
+    }
+  }
+}

@@ -103,7 +103,7 @@ export default function Projects() {
           {areFiltersVisible ? 'Hide' : 'Show'} filters {areFiltersVisible ? <MdFilterAltOff /> : <MdFilterAlt />}
         </Button>
         {areFiltersVisibleInitial && (
-          <Button isGhost onClick={() => push(pathname)}>
+          <Button isGhost onClick={() => replace(pathname)}>
             Reset filters
           </Button>
         )}

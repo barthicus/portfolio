@@ -13,12 +13,12 @@
     "upg": "bunx npm-check-updates -u"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^3.3.8",
     "autoprefixer": "10.4.17",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.3",
     "next": "canary",
     "next-themes": "^0.2.1",
-    "puppeteer": "^22.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^5.0.1",

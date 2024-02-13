@@ -34,7 +34,7 @@ export const Aside = () => {
           alt="Bartosz Podgruszecki avatar"
           src={meImg}
           priority
-          height={240}
+          // height={240}
           width={240}
           className="absolute -top-4 h-auto"
           quality={100}

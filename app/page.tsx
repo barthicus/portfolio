@@ -1,8 +1,5 @@
 import { ButtonLink } from '@/components/ButtonLink'
 import { PageTitle } from '@/components/PageTitle'
-import { PageWrapper } from '@/components/PageWrapper'
-
-export const runtime = 'edge'
 
 export const metadata = {
   title: 'Bartosz Podgruszecki FrontEnd Developer',
@@ -11,7 +8,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <PageWrapper>
+    <>
       <div className="px-6 py-12 sm:px-5 md:px-10 lg:px-14">
         <PageTitle>Hello, I&apos;m Bartek!</PageTitle>
         <div className="grid-cols-12 items-center pt-4 md:gap-10 md:pt-[30px] lg:grid ">
@@ -72,6 +69,6 @@ export default function Home() {
           </div>
         </div>
       </section> */}
-    </PageWrapper>
+    </>
   )
 }

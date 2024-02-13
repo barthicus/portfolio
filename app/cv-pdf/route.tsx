@@ -1,6 +1,8 @@
 // import puppeteer from 'puppeteer'
 
 // import { projects } from '@/data/projects'
+import { NextResponse } from 'next/server'
+import { Document, Page, renderToBuffer, Text, View } from '@react-pdf/renderer'
 
 export const GET = async (request: Request) => {
   // // Create a browser instance
@@ -33,5 +35,21 @@ export const GET = async (request: Request) => {
   // await browser.close()
   // // Return the PDF file
   // return new Response(pdf, { headers })
-  return new Response('Not implemented', { status: 501 })
+  // return new Response('Not implemented', { status: 501 })
+  const buffer = await renderToBuffer(
+    <Document producer="foo" creator="foo" title="App">
+      <Page size="A4">
+        <View>
+          <Text>Please work!</Text>
+        </View>
+      </Page>
+    </Document>
+  )
+
+  return new NextResponse(buffer, {
+    headers: {
+      'Content-Type': 'application/pdf'
+      // 'Content-Disposition': `attachment; filename="app.pdf"`
+    }
+  })
 }

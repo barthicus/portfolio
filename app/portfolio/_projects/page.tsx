@@ -51,7 +51,7 @@ const industryTags = projects.reduce(
 export default function Projects() {
   const searchParams = useSearchParams()
   const pathname = usePathname()
-  const { push } = useRouter()
+  const { replace } = useRouter()
 
   // example url including many tech and industry tags:
   // /portfolio?tech=react&tech=next&industry=web%20development&industry=design
@@ -76,7 +76,7 @@ export default function Projects() {
     }
 
     // navigate to new URL
-    push(`${pathname}?${params.toString()}`)
+    replace(`${pathname}?${params.toString()}`)
   }
 
   const handleSelectIndustry = (industry: string) => {
@@ -93,7 +93,7 @@ export default function Projects() {
     }
 
     // navigate to new URL
-    push(`${pathname}?${params.toString()}`)
+    replace(`${pathname}?${params.toString()}`)
   }
 
   return (

@@ -1,6 +1,6 @@
 // import puppeteer from 'puppeteer'
 
-import { projects } from '@/data/projects'
+// import { projects } from '@/data/projects'
 
 export const GET = async (request: Request) => {
   // // Create a browser instance
@@ -33,4 +33,5 @@ export const GET = async (request: Request) => {
   // await browser.close()
   // // Return the PDF file
   // return new Response(pdf, { headers })
+  return new Response('Not implemented', { status: 501 })
 }

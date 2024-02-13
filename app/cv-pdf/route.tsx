@@ -4,8 +4,6 @@
 import { NextResponse } from 'next/server'
 import { Document, Page, renderToBuffer, Text, View } from '@react-pdf/renderer'
 
-export const dynamic = 'force-dynamic'
-
 export const GET = async (request: Request) => {
   // // Create a browser instance
   // const browser = await puppeteer.launch({
@@ -38,6 +36,9 @@ export const GET = async (request: Request) => {
   // // Return the PDF file
   // return new Response(pdf, { headers })
   // return new Response('Not implemented', { status: 501 })
+
+  const shouldDownload = request.headers.get('download') === 'true'
+
   const buffer = await renderToBuffer(
     <Document producer="foo" creator="foo" title="App">
       <Page size="A4">
@@ -48,10 +49,12 @@ export const GET = async (request: Request) => {
     </Document>
   )
 
-  return new NextResponse(buffer, {
-    headers: {
-      'Content-Type': 'application/pdf'
-      // 'Content-Disposition': `attachment; filename="app.pdf"`
-    }
-  })
+  const headers = new Headers()
+  headers.set('Content-Type', 'application/pdf')
+
+  if (shouldDownload) {
+    headers.set('Content-Disposition', `attachment; filename="cv.pdf"`)
+  }
+
+  return new NextResponse(buffer, { headers })
 }

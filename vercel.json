@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "app/cv-pdf/route.tsx": {
-      "runtime": "nodejs20.x"
-    }
-  }
-}

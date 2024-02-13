@@ -1,3 +1,5 @@
+import { Suspense } from 'react'
+
 import { PageTitle } from '@/components/PageTitle'
 
 import Projects from './_projects/page'
@@ -16,7 +18,9 @@ export default function Portfolio() {
           List of my latest projects. Feel free to use filters to find something quickly.
         </p>
 
-        <Projects />
+        <Suspense fallback={<p className="mt-5 text-zinc-500 dark:text-zinc-400">Loading projects...</p>}>
+          <Projects />
+        </Suspense>
       </div>
     </div>
   )

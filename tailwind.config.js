@@ -8,14 +8,7 @@ module.exports = {
   darkMode: 'class',
   theme: {
     fontFamily: {
-      sans: 'var(--font-roboto-slab)',
-      mono: 'var(--font-poppins)'
-    },
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
-      }
+      sans: 'var(--font-inter)'
     }
   },
   plugins: []

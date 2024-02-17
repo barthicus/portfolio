@@ -10,7 +10,8 @@ const projectsByYear = {
 
 export const careerSteps = [
   {
-    title: 'Front-End Developer',
+    title: 'Senior Front-End Developer',
+    subtitle: 'React, TypeScript, Next.js, Expo, Firebase, Gatsby, WebRTC, Stripe',
     time: '2022 - Present',
     description: (
       <p>
@@ -19,10 +20,12 @@ export const careerSteps = [
         build complete fullstack apps.
       </p>
     ),
-    projects: projectsByYear['2022 - Present']
+    projects: projectsByYear['2022 - Present'],
+    tags: ['React', 'TypeScript', 'Next.js', 'Expo', 'Firebase', 'Gatsby', 'WebRTC', 'Stripe']
   },
   {
-    title: 'Front-End Developer (Next.js, Gatsby, Firebase)',
+    title: 'Front-End Developer',
+    subtitle: 'Next.js, Gatsby, Firebase',
     time: '2020 - 2022',
     projects: projectsByYear['2020 - 2022'],
     description: (
@@ -30,10 +33,11 @@ export const careerSteps = [
         Developing React.js based Web apps using Next.js, Gatsby and Firebase. Integrating video-call solutions (WebRTC)
         and payment systems (Stripe). Building mobile apps with Expo.
       </p>
-    )
+    ),
+    tags: ['Next.js', 'Gatsby', 'Firebase', 'Stripe', 'SendGrid', 'Twilio']
   },
   {
-    title: 'Front-End Developer (PHP, Vue.js, React, Three.js)',
+    title: 'Front-End Developer',
     time: '2018 - 2019',
     description: (
       <>
@@ -46,10 +50,11 @@ export const careerSteps = [
         </p>
       </>
     ),
-    projects: projectsByYear['2018 - 2019']
+    projects: projectsByYear['2018 - 2019'],
+    tags: ['PHP', 'Vue.js', 'React', 'Three.js']
   },
   {
-    title: 'Webdeveloper (WordPress, Laravel, JS)',
+    title: 'Webdeveloper',
     time: '2015 - 2017',
     description: (
       <p>
@@ -57,7 +62,8 @@ export const careerSteps = [
         platforms. I also started building my first SPAs using Angular.js, Grunt/Gulp, SCSS, Rollup, and BrowserSync.
       </p>
     ),
-    projects: projectsByYear['2015 - 2017']
+    projects: projectsByYear['2015 - 2017'],
+    tags: ['WordPress', 'Laravel', 'Angular.js', 'Grunt', 'Gulp', 'SCSS', 'Rollup', 'BrowserSync']
   },
   {
     title: 'Beginner Webdeveloper',
@@ -69,6 +75,7 @@ export const careerSteps = [
         also developed and maintained PHP 5 applications.
       </p>
     ),
-    projects: projectsByYear['2022 - Present']
+    projects: projectsByYear['2022 - Present'],
+    tags: ['jQuery', 'PHP', 'MySQL', 'SEO']
   }
 ]

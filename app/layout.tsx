@@ -1,79 +1,38 @@
 import { ReactNode } from 'react'
-import { Poppins, Roboto_Slab } from 'next/font/google'
+import { Inter } from 'next/font/google'
 
-import { Aside } from '@/components/Aside/Aside'
-import { Header } from '@/components/Header'
-import { Providers } from '@/components/providers'
+import { Footer } from '@/components/Footer'
+import { Header } from '@/components/Header/Header'
 import { cn } from '@/lib/utils'
 
 import './globals.css'
 
-const robotSlab = Roboto_Slab({
+const inter = Inter({
   subsets: ['latin'],
+  weight: ['400', '500', '700'],
   display: 'swap',
-  variable: '--font-roboto-slab'
+  variable: '--font-inter'
 })
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  display: 'swap',
-  variable: '--font-poppins'
-})
-
-const year = new Date().getFullYear()
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    // Uncomment this line when the issue with next-themes is fixed
-    // https://github.com/pacocoursey/next-themes/issues/152
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="scroll-smooth">
       <body
         className={cn(
-          "relative bg-[url('/img/triangle-bg.svg')] font-mono",
-          "before:content:[''] before:fixed before:inset-0 ",
-          'before:bg-white before:mix-blend-difference',
-          'dark:before:bg-transparent dark:before:bg-gradient-to-bl dark:before:from-[#00000047] dark:before:to-transparent dark:before:mix-blend-normal',
-          [robotSlab.variable, poppins.variable]
+          'bg-gray-900 leading-relaxed text-slate-400 font-sans antialiased relative',
+          'selection:bg-teal-300 selection:text-teal-900',
+          [inter.variable]
         )}
       >
-        <Providers>
-          <div
-            className={cn(
-              'sticky top-0 z-30 block p-4 lg:hidden lg:p-0',
-              "before:absolute before:inset-0 before:z-[-1] before:bg-zinc-200/70 before:shadow-sm before:blur-none before:content-[''] before:dark:bg-zinc-900/70"
-            )}
-          >
+        <div className="pointer-events-none fixed inset-0 z-30 bg-[radial-gradient(600px_at_10%_100px,_rgba(29,78,216,0.15),_transparent_80%)] transition duration-300" />
+        <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
+          <div className="lg:flex lg:justify-between lg:gap-4">
             <Header />
+            <main className="pt-24 lg:w-1/2 lg:py-24">
+              {children} <Footer />
+            </main>
           </div>
-          <section className="relative min-h-screen w-full p-4 md:pb-10 xl:p-0">
-            <div className="container grid grid-cols-12 justify-between md:gap-10 lg:mt-[200px]">
-              <div className="top-44 col-span-12 lg:sticky lg:col-span-4 lg:h-screen">
-                <Aside />
-              </div>
-              <div className="relative col-span-12 lg:col-span-8">
-                <div className="hidden lg:flex">
-                  <Header />
-                </div>
-                <main
-                  className={cn(
-                    'relative overflow-hidden rounded-2xl bg-white dark:bg-zinc-900',
-                    "after:absolute after:bottom-0 after:left-0 after:h-[5px] after:w-full after:bg-[linear-gradient(90deg,_#05bf85_0%,_#05bf85_10%,_#159f85_10%,_#159f85_20%,_#15709f_20%,_#15709f_30%,_#15569f_30%,_#15569f_40%,_#152c9f_40%,_#152c9f_50%,_#6038c5_50%,_#6038c5_60%,_#ae4add_60%,_#ae4add_70%,_#dd4a96_70%,_#dd4a96_80%,_#dd4a54_80%,_#dd4a54_90%,_#dd814a_90%,_#dd814a_100%)] after:content-['']"
-                  )}
-                >
-                  {children}
-                  <footer className="overflow-hidden rounded-b-2xl bg-slate-50 dark:bg-zinc-950">
-                    <div className="container">
-                      <p className="py-6 text-center text-sm text-gray-400 dark:text-gray-500">
-                        © {year} All Rights Reserved by{' '}
-                        <span className="text-gray-500 dark:text-gray-400">Bartosz Podgruszecki</span>
-                      </p>
-                    </div>
-                  </footer>
-                </main>
-              </div>
-            </div>
-          </section>
-        </Providers>
+        </div>
       </body>
     </html>
   )

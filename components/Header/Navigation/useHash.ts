@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation'
 
 export const useHash = () => {
   const params = useParams()
-  const [hash, setHash] = useState(window.location.hash)
+  const [hash, setHash] = useState('')
 
   useEffect(() => {
     const currentHash = window.location.hash.replace('#', '')

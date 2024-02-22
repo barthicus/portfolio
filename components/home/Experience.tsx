@@ -6,8 +6,8 @@ export const Experience = () => {
       <h2 className="text-2xl font-bold tracking-tight text-slate-200 sm:text-4xl">
         Experience<span className="text-teal-400">.</span>
       </h2>
-      {careerSteps.map(({ time, description, tags, title }) => (
-        <div className="relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4" key={title}>
+      {careerSteps.map(({ time, description, tags, title, subtitle }) => (
+        <div className="relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4" key={time}>
           <div className="absolute -inset-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block"></div>
           <header
             className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2"
@@ -23,7 +23,7 @@ export const Experience = () => {
               </div>
               <div>
                 <div className="text-slate-500" aria-hidden="true">
-                  Senior Engineer
+                  {subtitle}
                 </div>
               </div>
               {/* <div>
@@ -32,7 +32,7 @@ export const Experience = () => {
             </div>
           </div> */}
             </h3>
-            <p className="mt-2 text-sm leading-normal">{description}</p>
+            <div className="mt-2 text-sm leading-normal">{description}</div>
             <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
               {tags.map(tag => (
                 <li className="mr-1.5 mt-2" key={tag}>

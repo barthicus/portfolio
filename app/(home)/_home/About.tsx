@@ -1,13 +1,7 @@
-import Link from 'next/link'
-
 const ExternalLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <Link
-    href={href}
-    target="_blank"
-    className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
-  >
+  <a href={href} target="_blank" className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300">
     {children}
-  </Link>
+  </a>
 )
 
 export const About = () => {

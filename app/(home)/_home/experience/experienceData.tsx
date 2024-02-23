@@ -1,4 +1,4 @@
-import { projects } from './projects'
+import { projects } from '../projects/projectsData'
 
 const projectsByYear = {
   '2022 - Present': projects.filter(project => project.year >= 2022),

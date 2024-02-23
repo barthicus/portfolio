@@ -1,4 +1,4 @@
-import { careerSteps } from '@/data/careerSteps'
+import { careerSteps } from './experienceData'
 
 export const Experience = () => {
   return (
@@ -26,11 +26,6 @@ export const Experience = () => {
                   {subtitle}
                 </div>
               </div>
-              {/* <div>
-            <div className="text-slate-500" aria-hidden="true">
-              Engineer
-            </div>
-          </div> */}
             </h3>
             <div className="mt-2 text-sm leading-normal">{description}</div>
             <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">

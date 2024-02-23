@@ -1,5 +1,7 @@
 import { StaticImageData } from 'next/image'
 
+import portfolioImg from './img/portfolio.png'
+
 type Tag =
   | 'Next.js'
   | 'TailwindCSS'
@@ -29,7 +31,7 @@ type Project = {
   slug: string
   intro: string
   description: string
-  link: string
+  link?: string
   industry:
     | 'Software'
     | 'Healthcare'
@@ -45,7 +47,9 @@ type Project = {
     | 'Beauty'
   tags: Tag[]
   year: number
+  image?: StaticImageData
   images?: StaticImageData[]
+  isFeatured: boolean
 }
 
 export const projects: Project[] = [
@@ -57,7 +61,9 @@ export const projects: Project[] = [
     link: 'https://bpodgruszecki.vercel.app',
     industry: 'Software',
     tags: ['Next.js', 'TailwindCSS', 'Framer Motion', 'TypeScript'],
-    year: 2023
+    year: 2023,
+    image: portfolioImg,
+    isFeatured: false
   },
   {
     title: 'YT without spoilers',
@@ -67,17 +73,19 @@ export const projects: Project[] = [
     description: 'simple web app that allows you to watch YouTube videos without player controls',
     link: 'https://yt-without-spoilers.vercel.app',
     tags: ['Next.js', 'TailwindCSS', 'TypeScript'],
-    year: 2023
+    year: 2023,
+    isFeatured: true
   },
   {
     title: 'Perfektgaraze.pl',
     slug: 'perfektgaraze',
     intro: 'website for a company that sells metal constructions',
     description: 'website for a company that sells metal constructions',
-    link: 'https://perfektgaraze.pl',
+    // link: 'https://perfektgaraze.pl',
     industry: 'Steel industry',
     tags: ['Next.js', 'Sanity.io', 'TypeScript'],
-    year: 2022
+    year: 2022,
+    isFeatured: false
   },
   {
     title: 'VMI',
@@ -87,7 +95,8 @@ export const projects: Project[] = [
     description: 'website for interactive agency',
     link: 'https://vmi-website.vercel.app',
     tags: ['Next.js', 'Sanity.io', 'Three.js', 'TypeScript'],
-    year: 2023
+    year: 2023,
+    isFeatured: true
   },
   {
     title: 'Live Events',
@@ -97,7 +106,8 @@ export const projects: Project[] = [
     description: 'web app for live events',
     link: 'https://live-events.vercel.app',
     tags: ['Next.js', 'Firebase', 'TypeScript'],
-    year: 2020
+    year: 2020,
+    isFeatured: false
   },
   {
     title: 'Covid Entrance Ticket',
@@ -105,9 +115,10 @@ export const projects: Project[] = [
     industry: 'Healthcare',
     intro: 'web app for generating entrance tickets',
     description: 'web app for generating entrance tickets',
-    link: 'https://google.pl',
+    // link: '',
     tags: ['Next.js', 'Firebase', 'TypeScript'],
-    year: 2020
+    year: 2020,
+    isFeatured: true
   },
   {
     title: 'Pain Tracker',
@@ -115,9 +126,10 @@ export const projects: Project[] = [
     intro: 'mobile and web app for tracking pain',
     industry: 'Healthcare',
     description: 'mobile and web app for tracking pain',
-    link: 'https://google.pl',
+    // link: '',
     tags: ['Expo', 'React.js', 'Firebase'],
-    year: 2019
+    year: 2019,
+    isFeatured: false
   },
   {
     title: 'Old Portfolio',
@@ -127,7 +139,8 @@ export const projects: Project[] = [
     description: 'my old portfolio',
     link: 'https://barthicus.github.io',
     tags: ['Next.js', 'SCSS', 'StoryBlok'],
-    year: 2018
+    year: 2018,
+    isFeatured: false
   },
   {
     title: 'Taurustal',
@@ -137,7 +150,8 @@ export const projects: Project[] = [
     description: 'website for construction company',
     link: 'https://pl.taurustal.com',
     tags: ['Vue.js', 'Bolt.CM', 'Three.js'],
-    year: 2017
+    year: 2017,
+    isFeatured: true
   },
   {
     title: 'Routes planner',
@@ -145,9 +159,10 @@ export const projects: Project[] = [
     intro: 'web app for planning orders and grouping them into routes',
     industry: 'Steel industry',
     description: 'web app for planning orders and grouping them into routes',
-    link: 'https://google.pl',
+    // link: '',
     tags: ['Vue.js', 'Mapbox', 'PHP'],
-    year: 2018
+    year: 2018,
+    isFeatured: true
   },
   {
     title: 'Curly Weddings',
@@ -155,9 +170,10 @@ export const projects: Project[] = [
     industry: 'Events',
     intro: 'website for Polish wedding organizer',
     description: 'website for Polish wedding organizer',
-    link: 'https://curlyweddings.pl',
+    // link: 'https://curlyweddings.pl',
     tags: ['Bolt.CM', 'UI design'],
-    year: 2019
+    year: 2019,
+    isFeatured: false
   },
   {
     title: 'Compensation Claims CRM',
@@ -165,9 +181,10 @@ export const projects: Project[] = [
     intro: 'CRM for managing compensation claims',
     industry: 'Insurance',
     description: 'CRM for managing compensation claims',
-    link: 'https://google.pl',
+    // link: '',
     tags: ['Laravel', 'PHP', 'JavaScript'],
-    year: 2019
+    year: 2019,
+    isFeatured: false
   },
   {
     title: 'Accounting ARTAX',
@@ -177,7 +194,8 @@ export const projects: Project[] = [
     description: 'website for accounting company',
     link: 'https://artax.com.pl',
     tags: ['Bolt.CM', 'JavaScript'],
-    year: 2019
+    year: 2019,
+    isFeatured: false
   },
   {
     title: '3D reconstruction viewer',
@@ -185,9 +203,10 @@ export const projects: Project[] = [
     intro: 'web app for viewing 3D reconstruction of a building',
     industry: 'Steel industry',
     description: 'web app for viewing 3D reconstruction of a building',
-    link: 'https://google.pl',
+    // link: '',
     tags: ['React.js', 'Three.js', 'JavaScript', 'AWS'],
-    year: 2019
+    year: 2019,
+    isFeatured: false
   },
   {
     title: 'Perfekt-Blach',
@@ -195,9 +214,10 @@ export const projects: Project[] = [
     intro: 'Wordpress based website for Polish company Perfekt-Blach.',
     industry: 'Steel industry',
     description: 'Wordpress based website for Polish company Perfekt-Blach.',
-    link: 'https://perfekt-blach.pl',
+    // link: 'https://perfekt-blach.pl',
     tags: ['WordPress', 'JavaScript'],
-    year: 2015
+    year: 2015,
+    isFeatured: false
   },
   {
     title: 'TaxiBus Kraków',
@@ -205,9 +225,10 @@ export const projects: Project[] = [
     intro: 'Multilanguage portal created for Polish Tours and Travels company - TaxiBus Kraków',
     description: 'Multilanguage portal created for Polish Tours and Travels company - TaxiBus Kraków',
     industry: 'Transport',
-    link: 'https://perfekt-blach.pl',
+    link: 'https://taxibuskrakow.pl',
     tags: ['WordPress', 'jQuery', 'SCSS'],
-    year: 2017
+    year: 2017,
+    isFeatured: false
   },
   {
     title: 'Suwała Studio Bruku',
@@ -215,9 +236,10 @@ export const projects: Project[] = [
     intro: 'Wordpress based website for Polish company',
     industry: 'Construction',
     description: 'Wordpress based website for Polish company',
-    link: 'https://perfekt-blach.pl',
+    link: 'https://studiobruku.pl',
     tags: ['WordPress', 'jQuery', 'SCSS'],
-    year: 2017
+    year: 2017,
+    isFeatured: false
   },
   {
     title: 'BluePear.pl',
@@ -227,7 +249,8 @@ export const projects: Project[] = [
     description: 'website for a BluePear company',
     link: 'https://bluepear.pl',
     tags: ['Joomla', 'jQuery'],
-    year: 2013
+    year: 2013,
+    isFeatured: false
   },
   {
     title: 'PDF documents generator',
@@ -235,9 +258,10 @@ export const projects: Project[] = [
     industry: 'Insurance',
     intro: 'web application (CRM) for managing and generating PDF documents',
     description: 'web application (CRM) for managing and generating PDF documents',
-    link: 'https://bluepear.pl',
+    // link: '',
     tags: ['WordPress', 'jQuery'],
-    year: 2014
+    year: 2014,
+    isFeatured: false
   },
   {
     title: 'Instytut Piękna - Guinot',
@@ -245,8 +269,9 @@ export const projects: Project[] = [
     industry: 'Beauty',
     intro: 'website for a beauty salon',
     description: 'website for a beauty salon',
-    link: 'https://bluepear.pl',
+    link: 'http://instytutpiekna.krakow.pl',
     tags: ['WordPress', 'jQuery'],
-    year: 2014
+    year: 2014,
+    isFeatured: false
   }
 ]

@@ -1,9 +1,10 @@
 import { ReactNode } from 'react'
 import { Inter } from 'next/font/google'
 
-import { Footer } from '@/components/Footer'
-import { Header } from '@/components/Header/Header'
 import { cn } from '@/lib/utils'
+
+import { Footer } from './_layout/Footer'
+import { Header } from './_layout/Header/Header'
 
 import './globals.css'
 

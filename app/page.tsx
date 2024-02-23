@@ -1,6 +1,6 @@
-import { About } from '@/components/home/About'
-import { Experience } from '@/components/home/Experience'
-import { Projects } from '@/components/home/Projects'
+import { About } from './_home/About'
+import { Experience } from './_home/Experience'
+import { Projects } from './_home/Projects'
 
 export const metadata = {
   title: 'Bartosz Podgruszecki FrontEnd Developer',

@@ -1,3 +1,5 @@
+import { FaEnvelope } from 'react-icons/fa'
+
 export const Socials = () => {
   return (
     <ul className="ml-1 mt-8 flex items-center" aria-label="Social media">
@@ -44,11 +46,9 @@ export const Socials = () => {
         </a>
       </li>
       <li className="mr-5 shrink-0 text-xs">
-        <a
-          className="text-sm transition duration-300 hover:text-[#FA5252]"
-          href="mailto:bartosz.podgruszecki@gmail.com"
-        >
-          bartosz.podgruszecki@gmail.com
+        <a className="block hover:text-slate-200" href="mailto:bartosz.podgruszecki@gmail.com">
+          <span className="sr-only">Email</span>
+          <FaEnvelope className="size-6" />
         </a>
       </li>
     </ul>

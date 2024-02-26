@@ -11,7 +11,6 @@ const projectsByYear = {
 export const careerSteps = [
   {
     title: 'Senior Front-End Developer',
-    subtitle: 'React, TypeScript, Next.js, Expo, Firebase, Gatsby, WebRTC, Stripe',
     time: '2022 - Present',
     description: (
       <p>
@@ -21,11 +20,10 @@ export const careerSteps = [
       </p>
     ),
     projects: projectsByYear['2022 - Present'],
-    tags: ['React', 'TypeScript', 'Next.js', 'Expo', 'Firebase', 'Gatsby', 'WebRTC', 'Stripe']
+    tags: ['React', 'TypeScript', 'Next.js', 'Expo']
   },
   {
     title: 'Front-End Developer',
-    subtitle: 'Next.js, Gatsby, Firebase',
     time: '2020 - 2022',
     projects: projectsByYear['2020 - 2022'],
     description: (
@@ -34,7 +32,7 @@ export const careerSteps = [
         and payment systems (Stripe). Building mobile apps with Expo.
       </p>
     ),
-    tags: ['Next.js', 'Gatsby', 'Firebase', 'Stripe', 'SendGrid', 'Twilio']
+    tags: ['Next.js', 'Gatsby', 'Firebase', 'Stripe', 'SendGrid', 'Twilio', 'Expo', 'React']
   },
   {
     title: 'Front-End Developer',
@@ -51,7 +49,7 @@ export const careerSteps = [
       </>
     ),
     projects: projectsByYear['2018 - 2019'],
-    tags: ['PHP', 'Vue.js', 'React', 'Three.js']
+    tags: ['PHP', 'Vue.js', 'React', 'Three.js', 'ApiPlatform', 'Laravel', 'Bolt.CM']
   },
   {
     title: 'Webdeveloper',

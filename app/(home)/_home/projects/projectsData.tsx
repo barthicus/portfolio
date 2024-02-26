@@ -1,10 +1,16 @@
 import { StaticImageData } from 'next/image'
 
+import covidpassImg from './img/covidpass.png'
 import portfolioImg from './img/portfolio.png'
+import rpImg from './img/rp.png'
+import taurustalImg from './img/taurustal.png'
+import vmiImg from './img/vmi.png'
+import ytWithoutSpoilersImg from './img/yt.png'
 
 type Tag =
   | 'Next.js'
   | 'TailwindCSS'
+  | 'SendGrid'
   | 'Framer Motion'
   | 'TypeScript'
   | 'Sanity.io'
@@ -19,6 +25,8 @@ type Tag =
   | 'Mapbox'
   | 'PHP'
   | 'Laravel'
+  | 'API Platform'
+  | 'MySQL'
   | 'JavaScript'
   | 'AWS'
   | 'WordPress'
@@ -70,10 +78,12 @@ export const projects: Project[] = [
     slug: 'yt-without-spoilers',
     industry: 'Software',
     intro: 'simple web app that allows you to watch YouTube videos without player controls',
-    description: 'simple web app that allows you to watch YouTube videos without player controls',
+    description:
+      'Simple website that allows you to watch YouTube videos without player controls. It usefull when you want to watch a video without seeing the progress bar and other controls.',
     link: 'https://yt-without-spoilers.vercel.app',
     tags: ['Next.js', 'TailwindCSS', 'TypeScript'],
     year: 2023,
+    image: ytWithoutSpoilersImg,
     isFeatured: true
   },
   {
@@ -91,11 +101,13 @@ export const projects: Project[] = [
     title: 'VMI',
     slug: 'vmi',
     intro: 'website for interactive agency',
+    description:
+      'Website for interactive agency VMI, built with Next.js and TailwindCSS for styling. Content is managed by Sanity.io - modern headless CMS.',
     industry: 'Interactive agency',
-    description: 'website for interactive agency',
     link: 'https://vmi-website.vercel.app',
-    tags: ['Next.js', 'Sanity.io', 'Three.js', 'TypeScript'],
+    tags: ['Next.js', 'Sanity.io', 'TypeScript', 'TailwindCSS', 'SendGrid', 'Framer Motion'],
     year: 2023,
+    image: vmiImg,
     isFeatured: true
   },
   {
@@ -113,11 +125,13 @@ export const projects: Project[] = [
     title: 'Covid Entrance Ticket',
     slug: 'covid-entrance-ticket',
     industry: 'Healthcare',
-    intro: 'web app for generating entrance tickets',
-    description: 'web app for generating entrance tickets',
+    intro: 'web app for generating entrance tickets during COVID-19 pandemic',
+    description:
+      'Web application created with Next.js and TypeScript for generating entrance tickets built for healthcare facility during COVID-19 pandemic. It uses Firebase for authentication and database.',
     // link: '',
     tags: ['Next.js', 'Firebase', 'TypeScript'],
     year: 2020,
+    image: covidpassImg,
     isFeatured: true
   },
   {
@@ -143,14 +157,16 @@ export const projects: Project[] = [
     isFeatured: false
   },
   {
-    title: 'Taurustal',
+    title: 'Taurustal.com',
     slug: 'taurustal',
     intro: 'website for construction company',
     industry: 'Steel industry',
-    description: 'website for construction company',
+    description:
+      'Responsive 3D garage configurator built in Vue.js that allows to create custom garage and order it. Website is built with WordPress and uses Three.js for 3D rendering. Administation panel was built as a custom WordPress plugin and allows to manage garages costs and other parameters.',
     link: 'https://pl.taurustal.com',
-    tags: ['Vue.js', 'Bolt.CM', 'Three.js'],
+    tags: ['Vue.js', 'Three.js', 'WordPress'],
     year: 2017,
+    image: taurustalImg,
     isFeatured: true
   },
   {
@@ -158,10 +174,13 @@ export const projects: Project[] = [
     slug: 'routes-planner',
     intro: 'web app for planning orders and grouping them into routes',
     industry: 'Steel industry',
-    description: 'web app for planning orders and grouping them into routes',
+    // description: 'web app for planning orders as interactive markers on map and grouping them into routes',
+    description:
+      'Web application for planning orders as interactive markers on map and grouping them into routes. It uses Mapbox for displaying map and the backend is built with API Platform (PHP + MySQL).',
     // link: '',
-    tags: ['Vue.js', 'Mapbox', 'PHP'],
+    tags: ['Vue.js', 'Mapbox', 'PHP', 'API Platform', 'MySQL'],
     year: 2018,
+    image: rpImg,
     isFeatured: true
   },
   {

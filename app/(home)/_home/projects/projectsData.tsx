@@ -100,7 +100,7 @@ export const projects: Project[] = [
   {
     title: 'VMI',
     slug: 'vmi',
-    intro: 'website for interactive agency',
+    intro: 'website for interactive agency VMI built with Next.js and Sanity.io as a headless CMS.',
     description:
       'Website for interactive agency VMI, built with Next.js and TailwindCSS for styling. Content is managed by Sanity.io - modern headless CMS.',
     industry: 'Interactive agency',
@@ -132,7 +132,7 @@ export const projects: Project[] = [
     tags: ['Next.js', 'Firebase', 'TypeScript'],
     year: 2020,
     image: covidpassImg,
-    isFeatured: true
+    isFeatured: false
   },
   {
     title: 'Pain Tracker',
@@ -159,7 +159,7 @@ export const projects: Project[] = [
   {
     title: 'Taurustal.com',
     slug: 'taurustal',
-    intro: 'website for construction company',
+    intro: '3D garage configurator built and custom admin panel in WordPress',
     industry: 'Steel industry',
     description:
       'Responsive 3D garage configurator built in Vue.js that allows to create custom garage and order it. Website is built with WordPress and uses Three.js for 3D rendering. Administation panel was built as a custom WordPress plugin and allows to manage garages costs and other parameters.',
@@ -172,7 +172,7 @@ export const projects: Project[] = [
   {
     title: 'Routes planner',
     slug: 'routes-planner',
-    intro: 'web app for planning orders and grouping them into routes',
+    intro: 'CRM web application for planning orders and grouping them into routes on map',
     industry: 'Steel industry',
     // description: 'web app for planning orders as interactive markers on map and grouping them into routes',
     description:

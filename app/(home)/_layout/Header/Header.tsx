@@ -24,11 +24,12 @@ export const Header = () => {
         <div className="mt-8">
           <h3 className="text-lg font-medium tracking-tight text-teal-500 sm:text-xl">TODO</h3>
           <ul className="mt-5 text-slate-400">
-            <li>- finish exp list (fix titles, update subtitle, fix tags)</li>
-            <li>- finish projects list + add projects link and page + isFeatured</li>
+            <li>☑️ finish exp list (fix titles, update subtitle, fix tags)</li>
+            <li>☑️ finish featured projects list add projects page link</li>
+            <li>☑️ add link to CV in pdf</li>
+            <li>☑️ check styles on mobile</li>
             <li>- finish CV</li>
-            <li>- check styles on mobile</li>
-            <li>- add link to CV in pdf</li>
+            <li>- finish all projects page</li>
           </ul>
         </div>
       </div>

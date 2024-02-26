@@ -14,7 +14,7 @@ export const Experience = () => {
           <div className="absolute -inset-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block"></div>
           <header
             className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2"
-            aria-label="2018 to Present"
+            aria-label={time}
           >
             {time}
           </header>
@@ -30,7 +30,7 @@ export const Experience = () => {
                 </div>
               )} */}
             </h3>
-            <div className="mt-2 text-sm leading-normal">{description}</div>
+            <p className="mt-2 text-sm leading-normal">{description}</p>
             <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
               {tags.map(tag => (
                 <li className="mr-1.5 mt-2" key={tag}>

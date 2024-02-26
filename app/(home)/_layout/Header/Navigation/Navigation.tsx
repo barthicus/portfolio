@@ -19,7 +19,7 @@ export const Navigation = () => {
   }, [hash])
 
   return (
-    <nav className="hidden lg:block" aria-label="In-page jump links">
+    <nav aria-label="In-page jump links">
       <ul className="mt-16 flex w-max gap-5">
         <li className="after:pl-4 after:align-middle after:text-xl after:font-thin after:text-slate-700 after:content-['/']">
           <NavLink href="#about">About</NavLink>

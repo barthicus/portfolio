@@ -1,10 +1,12 @@
 import { NextResponse } from 'next/server'
 import { renderToBuffer } from '@react-pdf/renderer'
 
-import { cvContent } from './cvContent'
+import { getCVContent } from './getCVContent'
 
 export const GET = async (request: Request) => {
   const shouldDownload = request.headers.get('download') === 'true'
+
+  const cvContent = getCVContent()
 
   const buffer = await renderToBuffer(cvContent)
 

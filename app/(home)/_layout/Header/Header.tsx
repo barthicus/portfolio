@@ -29,7 +29,8 @@ export const Header = () => {
             <li>☑️ add link to CV in pdf</li>
             <li>☑️ check styles on mobile</li>
             <li>☑️ finish CV</li>
-            <li>- pick featured projects and improce img and description</li>
+            <li>- update experience descriptions based on bullets</li>
+            <li>- pick featured projects and improve img and description</li>
             <li>- finish all projects page</li>
           </ul>
         </div>

@@ -33,6 +33,8 @@ type Tag =
   | 'jQuery'
   | 'Joomla'
   | 'UI design'
+  | 'NeonDB'
+  | 'shadcn/ui'
 
 type Project = {
   title: string
@@ -172,14 +174,15 @@ export const projects: Project[] = [
   {
     title: 'Routes planner',
     slug: 'routes-planner',
-    intro: 'CRM web application for planning orders and grouping them into routes on map',
+    intro:
+      'Full featured CRM web application built with Next.js, TailwindCSS and Mapbox for planning orders and grouping them into routes on map',
     industry: 'Steel industry',
     // description: 'web app for planning orders as interactive markers on map and grouping them into routes',
     description:
-      'Web application for planning orders as interactive markers on map and grouping them into routes. It uses Mapbox for displaying map and the backend is built with API Platform (PHP + MySQL).',
+      'Full featured CRM web application for planning orders as interactive markers on map and grouping them into routes. Built wih Next.js App Router, NeonDB, Mapbox for displaying map and TailwindCSS.',
     // link: '',
-    tags: ['Vue.js', 'Mapbox', 'PHP', 'API Platform', 'MySQL'],
-    year: 2018,
+    tags: ['Next.js', 'React.js', 'TypeScript', 'Mapbox', 'shadcn/ui', 'NeonDB', 'TailwindCSS'],
+    year: 2024,
     image: rpImg,
     isFeatured: true
   },

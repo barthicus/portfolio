@@ -162,10 +162,11 @@ export const getCVContent = () => {
       <SectionTitle>Featured projects</SectionTitle>
       {allProjects
         .filter(({ isFeatured }) => isFeatured)
+        .toSorted((a, b) => b.year - a.year)
         .map(({ intro, title }, index) => (
           <View key={title} style={{ marginTop: index ? 10 : 0 }}>
             <View style={{ flexDirection: 'row', gap: 5, marginBottom: 3 }}>
-              <Text style={{ fontFamily: 'Helvetica-Bold' }}>{title}</Text>
+              <Text style={{ fontWeight: 'semibold' }}>{title}</Text>
               {/* <Text style={{ color: colors.teal[500] }}>•</Text>
             <Text style={{ color: colors.slate[400] }}>{time}</Text> */}
             </View>
@@ -188,20 +189,22 @@ export const getCVContent = () => {
       <SectionTitle>Spoken languages</SectionTitle>
 
       <Text style={{ marginBottom: 3 }}>
-        <Text style={{ fontFamily: 'Helvetica-Bold' }}>English</Text> - Intermediate-level proficiency
+        <Text style={{ fontWeight: 'semibold' }}>English</Text> - Intermediate-level proficiency
       </Text>
 
       <Text style={{ marginBottom: 3 }}>
-        <Text style={{ fontFamily: 'Helvetica-Bold' }}>Polish</Text> - Native proficiency
+        <Text style={{ fontWeight: 'semibold' }}>Polish</Text> - Native proficiency
       </Text>
     </>
   )
 
-  const hobby = (
+  const freeTime = (
     <>
-      <SectionTitle>Hobby</SectionTitle>
-      <Text>I spend most of my free time with my two kids and my lovely wife.</Text>
-      <Text style={{ marginTop: 5 }}>Outside of that, I really enjoy cooking, running and calisthenics.</Text>
+      <SectionTitle>Free time</SectionTitle>
+      <Text>
+        I spend most of my free time with my two kids and my lovely wife. Outside of that, I really enjoy cooking,
+        running and calisthenics.
+      </Text>
       <Text style={{ marginTop: 5 }}>
         If I can I really like watching esports matches while cheering for my favorite teams and playing video games
         (D2R and POE).
@@ -222,7 +225,7 @@ export const getCVContent = () => {
           <View style={styles.section}>{projects}</View>
           <View style={styles.section}>{education}</View>
           <View style={styles.section}>{languages}</View>
-          <View style={styles.section}>{hobby}</View>
+          <View style={styles.section}>{freeTime}</View>
         </View>
       </Page>
     </Document>

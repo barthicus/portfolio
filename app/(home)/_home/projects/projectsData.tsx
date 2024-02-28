@@ -79,7 +79,7 @@ export const projects: Project[] = [
     title: 'YT without spoilers',
     slug: 'yt-without-spoilers',
     industry: 'Software',
-    intro: 'simple web app that allows you to watch YouTube videos without player controls',
+    intro: 'Simple web application that allows to watch YouTube videos without player controls and other distractions.',
     description:
       'Simple website that allows you to watch YouTube videos without player controls. It usefull when you want to watch a video without seeing the progress bar and other controls.',
     link: 'https://yt-without-spoilers.vercel.app',
@@ -102,9 +102,10 @@ export const projects: Project[] = [
   {
     title: 'VMI',
     slug: 'vmi',
-    intro: 'website for interactive agency VMI built with Next.js and Sanity.io as a headless CMS.',
+    intro:
+      'Website for interactive agency VMI built with Next.js and Sanity.io. Content is managed by Sanity.io - modern headless CMS.',
     description:
-      'Website for interactive agency VMI, built with Next.js and TailwindCSS for styling. Content is managed by Sanity.io - modern headless CMS.',
+      'Website for interactive agency VMI, built with Next.js and TailwindCSS for styling. Content is managed by Sanity.io - modern headless CMS. Users can send messages from contact form to the agency thanks to SendGrid API.',
     industry: 'Interactive agency',
     link: 'https://vmi-website.vercel.app',
     tags: ['Next.js', 'Sanity.io', 'TypeScript', 'TailwindCSS', 'SendGrid', 'Framer Motion'],
@@ -161,7 +162,8 @@ export const projects: Project[] = [
   {
     title: 'Taurustal.com',
     slug: 'taurustal',
-    intro: '3D garage configurator built and custom admin panel in WordPress',
+    intro:
+      '3D garage configurator built in Vue.js and custom admin panel in WordPress for managing garages costs and other parameters.',
     industry: 'Steel industry',
     description:
       'Responsive 3D garage configurator built in Vue.js that allows to create custom garage and order it. Website is built with WordPress and uses Three.js for 3D rendering. Administation panel was built as a custom WordPress plugin and allows to manage garages costs and other parameters.',
@@ -175,11 +177,10 @@ export const projects: Project[] = [
     title: 'Routes planner',
     slug: 'routes-planner',
     intro:
-      'Full featured CRM web application built with Next.js, TailwindCSS and Mapbox for planning orders and grouping them into routes on map',
+      'Fully featured CRM web application built with Next.js for planning orders and grouping them into routes on map as markers thanks to Mapbox.',
     industry: 'Steel industry',
-    // description: 'web app for planning orders as interactive markers on map and grouping them into routes',
     description:
-      'Full featured CRM web application for planning orders as interactive markers on map and grouping them into routes. Built wih Next.js App Router, NeonDB, Mapbox for displaying map and TailwindCSS.',
+      'Fully featured CRM web application for planning orders as interactive markers on map and grouping them into routes. Built wih Next.js App Router, NeonDB, Mapbox for displaying map and TailwindCSS.',
     // link: '',
     tags: ['Next.js', 'React.js', 'TypeScript', 'Mapbox', 'shadcn/ui', 'NeonDB', 'TailwindCSS'],
     year: 2024,

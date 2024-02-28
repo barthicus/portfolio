@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils'
 import { projects } from './projectsData'
 
 export const Projects = () => {
-  const featuredProjects = projects.filter(project => project.isFeatured)
+  const featuredProjects = projects.filter(project => project.isFeatured).toSorted((a, b) => b.year - a.year)
 
   return (
     <section id="projects" className="mb-16 scroll-mt-16 space-y-10 md:mb-24 lg:mb-36 lg:scroll-mt-24">

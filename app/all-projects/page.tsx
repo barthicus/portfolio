@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { projects } from '@/app/(home)/_home/projects/projectsData'
 
 export default function AllProjects() {
+  const sortedProjects = projects.toSorted((a, b) => b.year - a.year)
+
   return (
     <div className="lg:py-24">
       <div className="flex items-center justify-between gap-5">
@@ -35,7 +37,7 @@ export default function AllProjects() {
           </tr>
         </thead>
         <tbody>
-          {projects.map(project => (
+          {sortedProjects.map(project => (
             <tr key={project.title} className="border-b border-slate-300/10 last:border-none">
               <td className="py-4 pr-4 align-top text-sm" style={{ minWidth: '80px' }}>
                 <div className="translate-y-px">{project.year}</div>

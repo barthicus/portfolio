@@ -10,9 +10,9 @@ export const Header = () => {
         <div className="space-y-3">
           <h2 className="text-lg font-medium tracking-tight text-teal-500 sm:text-xl">Freelance Software Engineer</h2>
           <h1 className="text-3xl font-bold tracking-tight text-slate-200 sm:text-[2.6rem]">
-            {/* <Link href="/">
+            <Link href="/">
               Bartosz Podgruszecki<span className="text-teal-400">.</span>
-            </Link> */}
+            </Link>
           </h1>
           <p className="max-w-sm leading-normal">
             I create performant and visually beautiful web applications with React and TypeScript.

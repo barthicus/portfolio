@@ -1,55 +1,12 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-
 import { NavLink } from './NavLink'
-import { useHash } from './useHash'
+import { useActiveSection } from './useActiveSection'
+import { useHashScroll } from './useHashScroll'
 
 export const Navigation = () => {
-  const hash = useHash()
-  const [activeSection, setActiveSection] = useState('')
-
-  // navigate to the correct section when the page loads
-  useEffect(() => {
-    if (hash) {
-      const element = document.getElementById(hash)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
-      }
-    }
-  }, [hash])
-
-  // update the active section based on scroll position
-  useEffect(() => {
-    const sections = document.querySelectorAll('[data-section]')
-
-    console.log({ sections })
-
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
-          }
-        })
-      },
-      {
-        rootMargin: '0px 0px 0px 96px',
-        root: null,
-        threshold: 0.3
-      }
-    )
-
-    sections.forEach(section => {
-      observer.observe(section)
-    })
-
-    return () => {
-      sections.forEach(section => {
-        observer.unobserve(section)
-      })
-    }
-  }, [])
+  useHashScroll()
+  const activeSection = useActiveSection()
 
   return (
     <nav aria-label="In-page jump links">

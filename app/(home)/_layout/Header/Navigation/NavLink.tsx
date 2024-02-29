@@ -7,10 +7,16 @@ import { cn } from '@/lib/utils'
 
 import { useHash } from './useHash'
 
-export const NavLink = ({ href, children }: { href: string; children: ReactNode }) => {
+type Props = {
+  href: string
+  isActiveFromScroll: boolean
+  children: ReactNode
+}
+
+export const NavLink = ({ href, isActiveFromScroll, children }: Props) => {
   const hash = useHash()
 
-  const isActive = (hash === '' && href === '#about') || hash === href.substring(1)
+  const isActive = isActiveFromScroll
 
   return (
     <Link

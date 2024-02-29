@@ -10,7 +10,7 @@ export const Projects = () => {
   const featuredProjects = projects.filter(project => project.isFeatured).toSorted((a, b) => b.year - a.year)
 
   return (
-    <section id="projects" className="mb-16 scroll-mt-16 space-y-10 md:mb-24 lg:mb-36 lg:scroll-mt-24">
+    <section data-section id="projects" className="mb-16 scroll-mt-16 space-y-10 md:mb-24 lg:mb-36 lg:scroll-mt-24">
       <h2 className="text-2xl font-bold tracking-tight text-slate-200 sm:text-4xl">
         Projects<span className="text-teal-400">.</span>
       </h2>

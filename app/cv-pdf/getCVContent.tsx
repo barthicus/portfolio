@@ -109,7 +109,8 @@ export const getCVContent = () => {
           </View>
           {descriptionBullets.map((bullet, index) => (
             <View key={index} style={{ marginTop: 3, marginLeft: 5, flexDirection: 'row', gap: 4 }}>
-              <Text>•</Text> <Text>{bullet}</Text>
+              <Text>•</Text>
+              <Text>{bullet}</Text>
             </View>
           ))}
         </View>

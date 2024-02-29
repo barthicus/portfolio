@@ -6,7 +6,7 @@ const ExternalLink = ({ href, children }: { href: string; children: React.ReactN
 
 export const About = () => {
   return (
-    <section id="about" className="mb-16 scroll-mt-16 space-y-4 md:mb-24 lg:mb-36 lg:scroll-mt-24">
+    <section data-section id="about" className="mb-16 scroll-mt-16 space-y-10 md:mb-24 lg:mb-36 lg:scroll-mt-24">
       <p>
         I&apos;m Software Engineer from Krotoszyn, Poland, working mostly in <strong>web development</strong>. I enjoy
         turning complex problems into performant and beautiful applications. Lately I was working on web applications

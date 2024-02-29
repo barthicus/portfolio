@@ -5,7 +5,7 @@ import { careerSteps } from './experienceData'
 
 export const Experience = () => {
   return (
-    <section id="experience" className="mb-16 scroll-mt-16 space-y-10 md:mb-24 lg:mb-36 lg:scroll-mt-24">
+    <section data-section id="experience" className="mb-16 scroll-mt-16 space-y-10 md:mb-24 lg:mb-36 lg:scroll-mt-24">
       <h2 className="text-2xl font-bold tracking-tight text-slate-200 sm:text-4xl">
         Experience<span className="text-teal-400">.</span>
       </h2>

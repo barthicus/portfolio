@@ -162,8 +162,17 @@ export const getCVContent = () => {
     <>
       <SectionTitle>Featured projects</SectionTitle>
       {allProjects
-        .filter(({ isFeatured }) => isFeatured)
-        .toSorted((a, b) => b.year - a.year)
+        .filter(({ isFeatured, isVisible }) => isFeatured && isVisible)
+        .toSorted((a, b) => {
+          // sort by year and month
+          // date format: "MM/YYYY"
+          const aDate = a.date.split('/') as [string, string]
+          const bDate = b.date.split('/') as [string, string]
+
+          if (aDate.length !== 2 || bDate.length !== 2) return 0
+
+          return Number(bDate[1]) - Number(aDate[1]) || Number(bDate[0]) - Number(aDate[0])
+        })
         .map(({ intro, title }, index) => (
           <View key={title} style={{ marginTop: index ? 10 : 0 }}>
             <View style={{ flexDirection: 'row', gap: 5, marginBottom: 3 }}>

@@ -7,7 +7,18 @@ import { cn } from '@/lib/utils'
 import { projects } from './projectsData'
 
 export const Projects = () => {
-  const featuredProjects = projects.filter(project => project.isFeatured).toSorted((a, b) => b.year - a.year)
+  const featuredProjects = projects
+    .filter(({ isFeatured, isVisible }) => isFeatured && isVisible)
+    .toSorted((a, b) => {
+      // sort by year and month
+      // date format: "MM/YYYY"
+      const aDate = a.date.split('/') as [string, string]
+      const bDate = b.date.split('/') as [string, string]
+
+      if (aDate.length !== 2 || bDate.length !== 2) return 0
+
+      return Number(bDate[1]) - Number(aDate[1]) || Number(bDate[0]) - Number(aDate[0])
+    })
 
   return (
     <section data-section id="projects" className="mb-16 scroll-mt-16 space-y-10 md:mb-24 lg:mb-36 lg:scroll-mt-24">

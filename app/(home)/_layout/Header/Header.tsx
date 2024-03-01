@@ -23,7 +23,7 @@ export const Header = () => {
         <div className="mt-8">
           <h3 className="text-lg font-medium tracking-tight text-teal-500 sm:text-xl">TODO</h3>
           <ul className="mt-5 list-disc pl-5 text-slate-400">
-            <li>finish all projects page</li>
+            <li>add view toggle on projects page (grid | table)</li>
           </ul>
         </div>
       </div>

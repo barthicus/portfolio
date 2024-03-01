@@ -1,7 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { FaList } from 'react-icons/fa'
 import { GoArrowRight } from 'react-icons/go'
 import { LuExternalLink } from 'react-icons/lu'
+import { TfiLayoutGrid2Alt } from 'react-icons/tfi'
 
 import { projects as allProjects } from '@/app/(home)/_home/projects/projectsData'
 import { cn } from '@/lib/utils'
@@ -30,6 +32,15 @@ export default function AllProjects() {
       <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
         All Projects<span className="text-teal-400">.</span>
       </h1>
+      <div className="flex items-center gap-2">
+        <p className="text-slate-300">View:</p>
+        <button type="button" className="rounded-md bg-teal-500 p-2 text-gray-900 hover:bg-slate-700">
+          <TfiLayoutGrid2Alt />
+        </button>
+        <button type="button" className="rounded-md bg-slate-800/95 p-2 text-slate-300 hover:bg-slate-700">
+          <FaList />
+        </button>
+      </div>
       <Link className="group inline-flex items-center font-semibold leading-tight text-teal-300" href="/">
         <GoArrowRight className="mr-1 size-4 rotate-180 transition-transform group-hover:-translate-x-2" />
         Back to home

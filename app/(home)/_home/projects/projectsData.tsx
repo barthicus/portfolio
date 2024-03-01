@@ -1,6 +1,8 @@
 import { StaticImageData } from 'next/image'
 
 import covidpassImg from './img/covidpass.png'
+import perfektImg from './img/perfekt.png'
+import pgarazeImg from './img/pgaraze.png'
 import portfolioImg from './img/portfolio.png'
 import rpImg from './img/rp.png'
 import taurustalImg from './img/taurustal.png'
@@ -60,20 +62,23 @@ type Project = {
   image?: StaticImageData
   images?: StaticImageData[]
   isFeatured: boolean
+  isVisible: boolean
 }
 
 export const projects: Project[] = [
   {
-    title: 'Portfolio (v2 - current)',
+    title: 'Portfolio',
     slug: 'portfolio',
     intro: 'this website, my latest portfolio',
-    description: 'this website, my latest portfolio',
+    description:
+      'My latest portfolio portfolio (this website) powered by Next.js, TypeScript and TailwindCSS for responsive design. All animations were designed with Framer Motion. This project is a refreshment of my old portfolio.',
     link: 'https://bpodgruszecki.vercel.app',
     industry: 'Software',
     tags: ['Next.js', 'TailwindCSS', 'Framer Motion', 'TypeScript'],
     year: 2023,
     image: portfolioImg,
-    isFeatured: false
+    isFeatured: false,
+    isVisible: true
   },
   {
     title: 'YT without spoilers',
@@ -86,7 +91,8 @@ export const projects: Project[] = [
     tags: ['Next.js', 'TailwindCSS', 'TypeScript'],
     year: 2023,
     image: ytWithoutSpoilersImg,
-    isFeatured: true
+    isFeatured: true,
+    isVisible: true
   },
   {
     title: 'Perfektgaraze.pl',
@@ -97,10 +103,12 @@ export const projects: Project[] = [
     industry: 'Steel industry',
     tags: ['Next.js', 'Sanity.io', 'TypeScript'],
     year: 2022,
-    isFeatured: false
+    image: pgarazeImg,
+    isFeatured: false,
+    isVisible: true
   },
   {
-    title: 'VMI',
+    title: 'Visual Motion Interactive',
     slug: 'vmi',
     intro:
       'Website for interactive agency VMI built with Next.js and Sanity.io. Content is managed by Sanity.io - modern headless CMS.',
@@ -111,7 +119,8 @@ export const projects: Project[] = [
     tags: ['Next.js', 'Sanity.io', 'TypeScript', 'TailwindCSS', 'SendGrid', 'Framer Motion'],
     year: 2023,
     image: vmiImg,
-    isFeatured: true
+    isFeatured: true,
+    isVisible: true
   },
   {
     title: 'Live Events',
@@ -122,7 +131,8 @@ export const projects: Project[] = [
     link: 'https://live-events.vercel.app',
     tags: ['Next.js', 'Firebase', 'TypeScript'],
     year: 2020,
-    isFeatured: false
+    isFeatured: false,
+    isVisible: false
   },
   {
     title: 'Covid Entrance Ticket',
@@ -135,7 +145,8 @@ export const projects: Project[] = [
     tags: ['Next.js', 'Firebase', 'TypeScript'],
     year: 2020,
     image: covidpassImg,
-    isFeatured: false
+    isFeatured: false,
+    isVisible: true
   },
   {
     title: 'Pain Tracker',
@@ -146,7 +157,8 @@ export const projects: Project[] = [
     // link: '',
     tags: ['Expo', 'React.js', 'Firebase'],
     year: 2019,
-    isFeatured: false
+    isFeatured: false,
+    isVisible: true
   },
   {
     title: 'Old Portfolio',
@@ -157,7 +169,8 @@ export const projects: Project[] = [
     link: 'https://barthicus.github.io',
     tags: ['Next.js', 'SCSS', 'StoryBlok'],
     year: 2018,
-    isFeatured: false
+    isFeatured: false,
+    isVisible: true
   },
   {
     title: 'Taurustal.com',
@@ -171,7 +184,8 @@ export const projects: Project[] = [
     tags: ['Vue.js', 'Three.js', 'WordPress'],
     year: 2017,
     image: taurustalImg,
-    isFeatured: true
+    isFeatured: true,
+    isVisible: true
   },
   {
     title: 'Routes planner',
@@ -185,7 +199,8 @@ export const projects: Project[] = [
     tags: ['Next.js', 'React.js', 'TypeScript', 'Mapbox', 'shadcn/ui', 'NeonDB', 'TailwindCSS'],
     year: 2024,
     image: rpImg,
-    isFeatured: true
+    isFeatured: true,
+    isVisible: true
   },
   {
     title: 'Curly Weddings',
@@ -196,7 +211,8 @@ export const projects: Project[] = [
     // link: 'https://curlyweddings.pl',
     tags: ['Bolt.CM', 'UI design'],
     year: 2019,
-    isFeatured: false
+    isFeatured: false,
+    isVisible: true
   },
   {
     title: 'Compensation Claims CRM',
@@ -207,7 +223,8 @@ export const projects: Project[] = [
     // link: '',
     tags: ['Laravel', 'PHP', 'JavaScript'],
     year: 2019,
-    isFeatured: false
+    isFeatured: false,
+    isVisible: true
   },
   {
     title: 'Accounting ARTAX',
@@ -218,7 +235,8 @@ export const projects: Project[] = [
     link: 'https://artax.com.pl',
     tags: ['Bolt.CM', 'JavaScript'],
     year: 2019,
-    isFeatured: false
+    isFeatured: false,
+    isVisible: true
   },
   {
     title: '3D reconstruction viewer',
@@ -229,7 +247,8 @@ export const projects: Project[] = [
     // link: '',
     tags: ['React.js', 'Three.js', 'JavaScript', 'AWS'],
     year: 2019,
-    isFeatured: false
+    isFeatured: false,
+    isVisible: true
   },
   {
     title: 'Perfekt-Blach',
@@ -240,7 +259,9 @@ export const projects: Project[] = [
     // link: 'https://perfekt-blach.pl',
     tags: ['WordPress', 'JavaScript'],
     year: 2015,
-    isFeatured: false
+    image: perfektImg,
+    isFeatured: false,
+    isVisible: true
   },
   {
     title: 'TaxiBus Kraków',
@@ -251,7 +272,8 @@ export const projects: Project[] = [
     link: 'https://taxibuskrakow.pl',
     tags: ['WordPress', 'jQuery', 'SCSS'],
     year: 2017,
-    isFeatured: false
+    isFeatured: false,
+    isVisible: true
   },
   {
     title: 'Suwała Studio Bruku',
@@ -262,7 +284,8 @@ export const projects: Project[] = [
     link: 'https://studiobruku.pl',
     tags: ['WordPress', 'jQuery', 'SCSS'],
     year: 2017,
-    isFeatured: false
+    isFeatured: false,
+    isVisible: true
   },
   {
     title: 'BluePear.pl',
@@ -273,7 +296,8 @@ export const projects: Project[] = [
     link: 'https://bluepear.pl',
     tags: ['Joomla', 'jQuery'],
     year: 2013,
-    isFeatured: false
+    isFeatured: false,
+    isVisible: true
   },
   {
     title: 'PDF documents generator',
@@ -284,7 +308,8 @@ export const projects: Project[] = [
     // link: '',
     tags: ['WordPress', 'jQuery'],
     year: 2014,
-    isFeatured: false
+    isFeatured: false,
+    isVisible: true
   },
   {
     title: 'Instytut Piękna - Guinot',
@@ -295,6 +320,7 @@ export const projects: Project[] = [
     link: 'http://instytutpiekna.krakow.pl',
     tags: ['WordPress', 'jQuery'],
     year: 2014,
-    isFeatured: false
+    isFeatured: false,
+    isVisible: true
   }
 ]

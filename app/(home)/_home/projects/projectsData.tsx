@@ -107,7 +107,7 @@ export const projects: Project[] = [
     description:
       'Website for interactive agency VMI, built with Next.js and TailwindCSS for styling. Content is managed by Sanity.io - modern headless CMS. Users can send messages from contact form to the agency thanks to SendGrid API.',
     industry: 'Interactive agency',
-    link: 'https://vmi-website.vercel.app',
+    link: 'https://visualmotioninteractive.com',
     tags: ['Next.js', 'Sanity.io', 'TypeScript', 'TailwindCSS', 'SendGrid', 'Framer Motion'],
     year: 2023,
     image: vmiImg,

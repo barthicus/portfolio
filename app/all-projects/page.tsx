@@ -41,9 +41,14 @@ export default function AllProjects() {
     <div className="space-y-16 lg:py-24">
       {header}
 
-      <div className="space-y-16">
-        {projects.map(({ title, date, tags, link, industry, description, image }) => (
-          <div key={title} className="grid grid-cols-12 items-center gap-3">
+      <div className={cn('grid gap-16 grid-cols-2')}>
+        {projects.map(({ title, date, year, tags, link, description, image }) => (
+          <div
+            key={title}
+            className={cn('grid grid-cols-12 items-center gap-3 col-span-2', {
+              'lg:col-span-1': year < 2019
+            })}
+          >
             <div className="col-start-1 col-end-7 row-start-1 row-end-[-1]">
               <p className="text-xs uppercase tracking-widest text-teal-400">{date}</p>
               <h2 className="mt-1 text-lg font-bold tracking-tight text-slate-200 sm:text-xl">

@@ -69,6 +69,7 @@ type Project = {
     | 'Construction'
     | 'Beauty'
     | 'Sport'
+    | 'Other Services'
   tags: Tag[]
   year: number
   date: string
@@ -368,11 +369,39 @@ export const projects: Project[] = [
     description:
       'TeamSport is a company offering a range of physical activity services, including sports camps and instructor-led courses. The designed portal allows easy management of the entire offer through an administrative panel. Users can also sign up for sports sections dedicated to specific disciplines, and the panel facilitates the management of galleries and various forms on the website.',
     // link: '',
-    tags: ['WordPress', 'jQuery', 'Gulp', 'WordPress'],
+    tags: ['WordPress', 'jQuery', 'Gulp'],
     year: 2017,
     date: '11/2017',
     image: teamsportImg,
     isFeatured: false,
     isVisible: true
+  },
+  {
+    title: 'Agencja Detektywistyczna Winnicki',
+    slug: 'agencja-detektywistyczna-winnicki',
+    industry: 'Other Services',
+    intro: '???',
+    description: '???',
+    // link: 'https://agencjawinnicki.pl',
+    tags: ['WordPress', 'jQuery', 'Gulp'],
+    year: 2019,
+    date: '05/2019',
+    // image: teamsportImg,
+    isFeatured: false,
+    isVisible: false
+  },
+  {
+    title: 'Interior24',
+    slug: 'interior24',
+    industry: 'Other Services',
+    intro: '???',
+    description: '???',
+    // link: 'https://interior-24.pl',
+    tags: ['WordPress', 'jQuery', 'Gulp'],
+    year: 2019,
+    date: '08/2019',
+    // image: teamsportImg,
+    isFeatured: false,
+    isVisible: false
   }
 ]

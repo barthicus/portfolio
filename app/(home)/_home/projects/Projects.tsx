@@ -42,7 +42,11 @@ export const Projects = () => {
             )}
           />
           <div className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
-            {image ? <Image src={image} alt={title} className="rounded-sm border-2 border-white/20" /> : industry}
+            {image ? (
+              <Image src={image} alt={title} placeholder="blur" className="rounded-sm border-2 border-white/20" />
+            ) : (
+              industry
+            )}
           </div>
           <div className="z-10 sm:col-span-6">
             <h3 className="font-medium leading-snug text-slate-200">

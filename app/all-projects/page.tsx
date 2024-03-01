@@ -113,6 +113,7 @@ export default function AllProjects() {
                 <Image
                   src={image}
                   alt={title}
+                  placeholder="blur"
                   className={cn('rounded-md object-cover max-h-40 w-full lg:max-h-none')}
                 />
               ) : (

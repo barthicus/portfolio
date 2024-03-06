@@ -3,15 +3,15 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
-import { FaChevronRight, FaExternalLinkAlt, FaList } from 'react-icons/fa'
+import { FaChevronRight, FaExternalLinkAlt } from 'react-icons/fa'
 
 import { cn } from '@/lib/utils'
 
-import { Project } from '../(home)/_home/projects/projectsData'
+import { Project } from '../../(home)/_home/projects/projectsData'
 
 const stripProtocol = (url?: string) => (url ? url.replace(/(^\w+:|^)\/\//, '') : '')
 
-export const ProjectListItem = ({ project }: { project: Project }) => {
+export const ListItem = ({ project }: { project: Project }) => {
   const [isExpanded, setIsExpanded] = useState(false)
   return (
     <>

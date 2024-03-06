@@ -49,7 +49,7 @@ type Tag =
   | 'NeonDB'
   | 'shadcn/ui'
 
-type Project = {
+export type Project = {
   title: string
   slug: string
   intro: string

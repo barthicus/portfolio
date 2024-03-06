@@ -21,9 +21,11 @@ export const Header = () => {
         <Navigation />
 
         <div className="mt-8">
-          <h3 className="text-lg font-medium tracking-tight text-teal-500 sm:text-xl">TODO</h3>
+          <h3 className="text-lg font-medium tracking-tight text-teal-500 sm:text-xl">Finish projects:</h3>
           <ul className="mt-5 list-disc pl-5 text-slate-400">
-            <li>add view toggle on projects page (grid | table)</li>
+            <li>Live Events</li>
+            <li>Pain Tracker</li>
+            <li>3D reconstruction viewer</li>
           </ul>
         </div>
       </div>

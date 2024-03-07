@@ -2,32 +2,27 @@
 
 /** @type {import("@ianvs/prettier-plugin-sort-imports").PrettierConfig} */
 const config = {
-  arrowParens: "always",
-  printWidth: 100,
-  singleQuote: false,
-  jsxSingleQuote: false,
-  semi: false,
-  trailingComma: "all",
+  printWidth: 120,
   tabWidth: 2,
-  plugins: ["@ianvs/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
+  useTabs: false,
+  semi: false,
+  singleQuote: true,
+  trailingComma: 'none',
+  endOfLine: 'auto',
+  arrowParens: 'avoid',
+  plugins: ['prettier-plugin-tailwindcss', '@ianvs/prettier-plugin-sort-imports'],
   importOrder: [
-    "^(react/(.*)$)|^(react$)",
-    "^(next/(.*)$)|^(next$)",
-    "<THIRD_PARTY_MODULES>",
-    "",
-    "^@acme/(.*)$",
-    "",
-    "^~/utils/(.*)$",
-    "^~/types/(.*)$",
-    "^~/components/(.*)$",
-    "^~/styles/(.*)$",
-    "^~/(.*)$",
-    "",
-    "^[./]",
-    "",
-    "^(.css*)",
+    '^(react/(.*)$)|^(react$)',
+    '^(next/(.*)$)|^(next$)',
+    '<THIRD_PARTY_MODULES>',
+    '',
+    '^@/(.*)$',
+    '',
+    '^[./]',
+    '',
+    '^(.css*)'
   ],
-  importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
+  importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy']
 }
 
 module.exports = config

@@ -1,9 +1,9 @@
 import { headers } from 'next/headers'
-import { Document, Font, Link, Page, StyleSheet, Text, View } from '@react-pdf/renderer'
+import { Document, Font, Image, Link, Page, StyleSheet, Text, View } from '@react-pdf/renderer'
 import colors from 'tailwindcss/colors'
 
 import { careerSteps } from '@/app/(home)/_home/experience/experienceData'
-import { projects } from '@/app/(home)/_home/projects/projectsData'
+import { projects as allProjects } from '@/app/(home)/_home/projects/projectsData'
 
 const loadFonts = () => {
   // read headers to get the host and protocol
@@ -131,8 +131,8 @@ export const getCVContent = () => {
         <Link style={styles.contactLink} href="https://github.com/barthicus">
           github.com/barthicus
         </Link>
-        <Link style={styles.contactLink} href="https://barthicus.github.io">
-          barthicus.github.io
+        <Link style={styles.contactLink} href="https://bpodgruszecki.vercel.app">
+          bpodgruszecki.vercel.app
         </Link>
         <Link style={styles.contactLink} href="https://www.linkedin.com/in/bartosz-podgruszecki">
           linkedin.com/in/bartosz-podgruszecki
@@ -158,15 +158,27 @@ export const getCVContent = () => {
     </>
   )
 
-  const featuredProjects = (
+  const projects = (
     <>
       <SectionTitle>Featured projects</SectionTitle>
-      {projects
-        .filter(({ isFeatured }) => isFeatured)
+      {allProjects
+        .filter(({ isFeatured, isVisible }) => isFeatured && isVisible)
+        .toSorted((a, b) => {
+          // sort by year and month
+          // date format: "MM/YYYY"
+          const aDate = a.date.split('/') as [string, string]
+          const bDate = b.date.split('/') as [string, string]
+
+          if (aDate.length !== 2 || bDate.length !== 2) return 0
+
+          return Number(bDate[1]) - Number(aDate[1]) || Number(bDate[0]) - Number(aDate[0])
+        })
         .map(({ intro, title }, index) => (
           <View key={title} style={{ marginTop: index ? 10 : 0 }}>
             <View style={{ flexDirection: 'row', gap: 5, marginBottom: 3 }}>
               <Text style={{ fontWeight: 'semibold' }}>{title}</Text>
+              {/* <Text style={{ color: colors.teal[500] }}>•</Text>
+            <Text style={{ color: colors.slate[400] }}>{time}</Text> */}
             </View>
             <Text>{intro}</Text>
           </View>
@@ -220,7 +232,7 @@ export const getCVContent = () => {
         <View style={styles.right}>
           <View style={styles.section}>{contact}</View>
           <View style={styles.section}>{skills}</View>
-          <View style={styles.section}>{featuredProjects}</View>
+          <View style={styles.section}>{projects}</View>
           <View style={styles.section}>{education}</View>
           <View style={styles.section}>{languages}</View>
           <View style={styles.section}>{freeTime}</View>

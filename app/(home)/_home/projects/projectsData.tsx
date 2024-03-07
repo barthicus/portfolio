@@ -5,11 +5,14 @@ import bluepearImg from './img/bluepear.png'
 import casesImg from './img/cases.png'
 import covidpassImg from './img/covidpass.png'
 import curlyImg from './img/curly.png'
+import eventsPlatformImg from './img/eventsPlatform.png'
 import guinotImg from './img/guinot.png'
 import oldfolioImg from './img/oldfolio.png'
+import painTrackerImg from './img/painTracker.png'
 import perfektblachImg from './img/perfektblach.png'
 import pgarazeImg from './img/pgaraze.png'
 import portfolioImg from './img/portfolio.png'
+import reconstructionViewerImg from './img/reconstructionViewerImg.png'
 import rpImg from './img/rp.png'
 import suwalaImg from './img/suwala.png'
 import taurustalImg from './img/taurustal.png'
@@ -47,6 +50,8 @@ type Tag =
   | 'UI design'
   | 'NeonDB'
   | 'shadcn/ui'
+  | 'MaterialUI'
+  | 'Styled Components'
 
 export type Project = {
   title: string
@@ -132,7 +137,7 @@ export const projects: Project[] = [
       'Website for interactive agency VMI, built with Next.js and TailwindCSS for styling. Content is managed by Sanity.io - modern headless CMS. Users can send messages from contact form to the agency thanks to SendGrid API.',
     industry: 'Interactive agency',
     link: 'https://visualmotioninteractive.com',
-    tags: ['Next.js', 'Sanity.io', 'TypeScript', 'TailwindCSS', 'SendGrid', 'Framer Motion'],
+    tags: ['Next.js', 'Sanity.io', 'TypeScript', 'TailwindCSS', 'Framer Motion'],
     year: 2024,
     date: '01/2024',
     image: vmiImg,
@@ -140,17 +145,19 @@ export const projects: Project[] = [
     isVisible: true
   },
   {
-    title: 'Live Events',
-    slug: 'live-events',
-    intro: 'web app for live events',
+    title: 'Live Events Platform',
+    slug: 'live-events-platform',
     industry: 'Events',
-    description: 'web app for live events',
-    link: 'https://live-events.vercel.app',
-    tags: ['Next.js', 'Firebase', 'TypeScript'],
-    year: 2020,
-    date: '03/2020',
-    isFeatured: false,
-    isVisible: false
+    intro: 'Multiplatform solution for managing live events organized by company from healthcare industry.',
+    description:
+      'Multiplatform solution for managing live events organized by company from healthcare industry. Employees can sign in with SSO and register for live show events, manage product demos, scan QR codes and create other accounts. The web application was built with Next.js and Firebase and also offers a dedicated mobile app for Android and iOS. It is integrated with many 3d party services like Salesforce, SendGrid, and others.',
+    // link: 'https://live-events.vercel.app',
+    tags: ['Next.js', 'Firebase', 'TypeScript', 'MaterialUI', 'SendGrid', 'Styled Components'],
+    year: 2022,
+    date: '03/2022',
+    image: eventsPlatformImg,
+    isFeatured: true,
+    isVisible: true
   },
   {
     title: 'Covid Entrance Ticket',
@@ -160,9 +167,9 @@ export const projects: Project[] = [
     description:
       'Web application created with Next.js and TypeScript for generating entrance tickets built for healthcare facility during COVID-19 pandemic. It uses Firebase for authentication and database.',
     // link: '',
-    tags: ['Next.js', 'Firebase', 'TypeScript'],
-    year: 2020,
-    date: '06/2020',
+    tags: ['Next.js', 'Firebase', 'TypeScript', 'MaterialUI', 'Styled Components'],
+    year: 2021,
+    date: '06/2021',
     image: covidpassImg,
     isFeatured: false,
     isVisible: true
@@ -170,15 +177,17 @@ export const projects: Project[] = [
   {
     title: 'Pain Tracker',
     slug: 'pain-tracker',
-    intro: 'mobile and web app for tracking pain',
+    intro: 'complex solution for tracking face pains and other symptoms',
     industry: 'Healthcare',
-    description: 'mobile and web app for tracking pain',
+    description:
+      'Complex solution for tracking face pains and other symptoms. Mobile app was built with Expo and AWS Cognito and the web application dashboard was built with React.js and MaterialUI. Doctors can manage patients and their symptoms and patients can track their pain and other symptoms. The app is integrated with AWS S3 for storing images and AWS Lambda for sending emails with reports.',
     // link: '',
     tags: ['Expo', 'React.js', 'Firebase'],
-    year: 2019,
-    date: '04/2019',
+    year: 2020,
+    date: '04/2020',
+    image: painTrackerImg,
     isFeatured: false,
-    isVisible: false
+    isVisible: true
   },
   {
     title: 'Old Portfolio',
@@ -236,8 +245,8 @@ export const projects: Project[] = [
       'Multilingual SPA website for Polish Weddings Planning company "Curly Weddings". CMS panel allows company owner to add new services and manage galleries. The main goal was to deliver fast, modern website that may help find more potential customers.',
     // link: 'https://curlyweddings.pl',
     tags: ['Bolt.CM', 'UI design', 'JavaScript', 'SCSS', 'PHP'],
-    year: 2019,
-    date: '09/2019',
+    year: 2021,
+    date: '09/2021',
     image: curlyImg,
     isFeatured: false,
     isVisible: true
@@ -262,13 +271,15 @@ export const projects: Project[] = [
     slug: '3d-reconstruction-viewer',
     intro: 'web app for viewing 3D reconstruction of a building',
     industry: 'Steel industry',
-    description: 'web app for viewing 3D reconstruction of a building',
+    description:
+      'Web application built in React.js and Three.js for viewing 3D reconstruction of a building. It allows to view 3D model of a building and navigate through it using virtual 3D markers. The app was deployed on AWS S3 and uses AWS CloudFront for serving static files. The layout was created with MaterialUI.',
     // link: '',
-    tags: ['React.js', 'Three.js', 'JavaScript', 'AWS'],
+    tags: ['React.js', 'Three.js', 'JavaScript', 'AWS', 'MaterialUI'],
     year: 2019,
     date: '07/2019',
+    image: reconstructionViewerImg,
     isFeatured: false,
-    isVisible: false
+    isVisible: true
   },
   {
     title: 'Perfekt-Blach',

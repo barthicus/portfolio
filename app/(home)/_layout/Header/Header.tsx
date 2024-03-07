@@ -23,9 +23,7 @@ export const Header = () => {
         <div className="mt-8">
           <h3 className="text-lg font-medium tracking-tight text-teal-500 sm:text-xl">Finish projects:</h3>
           <ul className="mt-5 list-disc pl-5 text-slate-400">
-            <li>Live Events</li>
-            <li>Pain Tracker</li>
-            <li>3D reconstruction viewer</li>
+            <li>improve description, add styles</li>
           </ul>
         </div>
       </div>

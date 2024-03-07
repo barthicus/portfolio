@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { LuExternalLink } from 'react-icons/lu'
 
-import { Project } from '@/app/(home)/_home/projects/projectsData'
+import { Project } from '@/app/(home)/_home/projects/types'
 import { cn } from '@/lib/utils'
 
 export const Grid = ({ projects }: { projects: Project[] }) => {
@@ -35,9 +35,9 @@ export const Grid = ({ projects }: { projects: Project[] }) => {
                 title
               )}
             </h2>
-            <p className="relative z-10 my-4 rounded-md bg-slate-800/95 p-6 text-sm text-slate-300 shadow-md">
+            <div className="relative z-10 my-4 rounded-md bg-slate-800/95 p-6 text-sm text-slate-300 shadow-md">
               {description}
-            </p>
+            </div>
             <ul className="mt-2 flex max-w-[80%] flex-wrap" aria-label="Technologies used">
               {tags.map(tag => (
                 <li className="mr-1.5 mt-2" key={tag}>

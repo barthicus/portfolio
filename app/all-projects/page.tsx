@@ -3,7 +3,7 @@ import { FaList } from 'react-icons/fa'
 import { GoArrowRight } from 'react-icons/go'
 import { TfiLayoutGrid2Alt } from 'react-icons/tfi'
 
-import { projects as allProjects } from '@/app/(home)/_home/projects/projectsData'
+import { projects } from '@/app/(home)/_home/projects/projectsData'
 import { cn } from '@/lib/utils'
 
 import { Grid } from './_projects/Grid'
@@ -19,19 +19,6 @@ type SearchParams = {
 }
 export default function AllProjects({ searchParams }: { searchParams: SearchParams }) {
   const view = searchParams.view || 'grid'
-
-  const projects = allProjects
-    .toSorted((a, b) => {
-      // sort by year and month
-      // date format: "MM/YYYY"
-      const aDate = a.date.split('/') as [string, string]
-      const bDate = b.date.split('/') as [string, string]
-
-      if (aDate.length !== 2 || bDate.length !== 2) return 0
-
-      return Number(bDate[1]) - Number(aDate[1]) || Number(bDate[0]) - Number(aDate[0])
-    })
-    .filter(({ isVisible }) => isVisible)
 
   const header = (
     <div className="flex items-center justify-between gap-5">

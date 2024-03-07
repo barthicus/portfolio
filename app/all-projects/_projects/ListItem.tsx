@@ -7,12 +7,13 @@ import { FaChevronRight, FaExternalLinkAlt } from 'react-icons/fa'
 
 import { cn } from '@/lib/utils'
 
-import { Project } from '../../(home)/_home/projects/projectsData'
+import { Project } from '../../(home)/_home/projects/types'
 
 const stripProtocol = (url?: string) => (url ? url.replace(/(^\w+:|^)\/\//, '') : '')
 
 export const ListItem = ({ project }: { project: Project }) => {
   const [isExpanded, setIsExpanded] = useState(false)
+
   return (
     <>
       <tr
@@ -83,7 +84,7 @@ export const ListItem = ({ project }: { project: Project }) => {
                   ) : (
                     <p className="flex h-48 w-72 items-center justify-center rounded-md bg-slate-700/10">no image</p>
                   )}
-                  <p className="text-slate-300">{project.description}</p>
+                  <div className="text-slate-300">{project.description}</div>
                 </div>
               </td>
               <td colSpan={3} className="hidden p-4 sm:table-cell lg:hidden">

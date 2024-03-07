@@ -1,5 +1,3 @@
-import { StaticImageData } from 'next/image'
-
 import artaxImg from './img/artax.png'
 import bluepearImg from './img/bluepear.png'
 import casesImg from './img/cases.png'
@@ -20,76 +18,31 @@ import taxibusImg from './img/taxibus.png'
 import teamsportImg from './img/teamsport.png'
 import vmiImg from './img/vmi.png'
 import ytWithoutSpoilersImg from './img/yt.png'
+import { Project } from './types'
 
-type Tag =
-  | 'Next.js'
-  | 'TailwindCSS'
-  | 'SendGrid'
-  | 'Framer Motion'
-  | 'TypeScript'
-  | 'Sanity.io'
-  | 'Three.js'
-  | 'Firebase'
-  | 'Expo'
-  | 'React.js'
-  | 'SCSS'
-  | 'StoryBlok'
-  | 'Vue.js'
-  | 'Bolt.CM'
-  | 'Mapbox'
-  | 'PHP'
-  | 'Laravel'
-  | 'API Platform'
-  | 'MySQL'
-  | 'JavaScript'
-  | 'AWS'
-  | 'WordPress'
-  | 'jQuery'
-  | 'Gulp'
-  | 'Joomla'
-  | 'UI design'
-  | 'NeonDB'
-  | 'shadcn/ui'
-  | 'MaterialUI'
-  | 'Styled Components'
-
-export type Project = {
-  title: string
-  slug: string
-  intro: string
-  description: string
-  link?: string
-  industry:
-    | 'Software'
-    | 'Healthcare'
-    | 'Media'
-    | 'Events'
-    | 'e-Commerce'
-    | 'Interactive agency'
-    | 'Steel industry'
-    | 'Insurance'
-    | 'Transport'
-    | 'Finance'
-    | 'Construction'
-    | 'Beauty'
-    | 'Sport'
-    | 'Other Services'
-  tags: Tag[]
-  year: number
-  date: string
-  image?: StaticImageData
-  images?: StaticImageData[]
-  isFeatured: boolean
-  isVisible: boolean
-}
-
-export const projects: Project[] = [
+const allProjects: Project[] = [
   {
     title: 'Portfolio',
     slug: 'portfolio',
     intro: 'this website, my latest portfolio',
-    description:
-      'My latest portfolio portfolio (this website) powered by Next.js, TypeScript and TailwindCSS for responsive design. All animations were designed with Framer Motion. This project is a refreshment of my old portfolio.',
+    description: (
+      <div className="space-y-2">
+        <p>
+          My latest portfolio portfolio (this website) powered by Next.js, TypeScript and{' '}
+          <a href="https://tailwindcss.com" className="text-teal-400 hover:underline">
+            TailwindCSS
+          </a>{' '}
+          for responsive design. All animations were designed with Framer Motion.
+        </p>
+        <p>
+          This project is a refreshment of my old portfolio created in Gatsby.js,{' '}
+          <a href="https://www.storyblok.com" className="text-teal-400 hover:underline">
+            Storyblok
+          </a>{' '}
+          (for CMS) and SCSS.
+        </p>
+      </div>
+    ),
     link: 'https://bpodgruszecki.vercel.app',
     industry: 'Software',
     tags: ['Next.js', 'TailwindCSS', 'Framer Motion', 'TypeScript'],
@@ -111,7 +64,7 @@ export const projects: Project[] = [
     year: 2023,
     date: '05/2023',
     image: ytWithoutSpoilersImg,
-    isFeatured: true,
+    isFeatured: false,
     isVisible: true
   },
   {
@@ -133,8 +86,21 @@ export const projects: Project[] = [
     slug: 'vmi',
     intro:
       'Website for interactive agency VMI built with Next.js and Sanity.io. Content is managed by Sanity.io - modern headless CMS.',
-    description:
-      'Website for interactive agency VMI, built with Next.js and TailwindCSS for styling. Content is managed by Sanity.io - modern headless CMS. Users can send messages from contact form to the agency thanks to SendGrid API.',
+    description: (
+      <div className="space-y-2">
+        <p>
+          Website for interactive agency VMI, built with Next.js and TailwindCSS for styling. Content is managed by{' '}
+          <a href="https://www.sanity.io" className="text-teal-400 hover:underline">
+            Sanity.io
+          </a>{' '}
+          - modern headless CMS. Users can send messages from contact form to the agency thanks to SendGrid API.
+        </p>
+        <p>
+          The website is integrated with Framer Motion for animations and uses TypeScript for better code quality and
+          maintainability.
+        </p>
+      </div>
+    ),
     industry: 'Interactive agency',
     link: 'https://visualmotioninteractive.com',
     tags: ['Next.js', 'Sanity.io', 'TypeScript', 'TailwindCSS', 'Framer Motion'],
@@ -149,8 +115,19 @@ export const projects: Project[] = [
     slug: 'live-events-platform',
     industry: 'Events',
     intro: 'Multiplatform solution for managing live events organized by company from healthcare industry.',
-    description:
-      'Multiplatform solution for managing live events organized by company from healthcare industry. Employees can sign in with SSO and register for live show events, manage product demos, scan QR codes and create other accounts. The web application was built with Next.js and Firebase and also offers a dedicated mobile app for Android and iOS. It is integrated with many 3d party services like Salesforce, SendGrid, and others.',
+    description: (
+      <div className="space-y-2">
+        <p>
+          Multiplatform solution for managing live events organized by company from healthcare industry. Employees can
+          sign in with SSO and register for live show events, manage product demos, scan QR codes and create other
+          accounts.
+        </p>
+        <p>
+          The web application was built with Next.js and Firebase and also offers a dedicated mobile app for Android and
+          iOS. It is integrated with many 3d party services like Salesforce, SendGrid, and others.
+        </p>
+      </div>
+    ),
     // link: 'https://live-events.vercel.app',
     tags: ['Next.js', 'Firebase', 'TypeScript', 'MaterialUI', 'SendGrid', 'Styled Components'],
     year: 2022,
@@ -179,10 +156,22 @@ export const projects: Project[] = [
     slug: 'pain-tracker',
     intro: 'complex solution for tracking face pains and other symptoms',
     industry: 'Healthcare',
-    description:
-      'Complex solution for tracking face pains and other symptoms. Mobile app was built with Expo and AWS Cognito and the web application dashboard was built with React.js and MaterialUI. Doctors can manage patients and their symptoms and patients can track their pain and other symptoms. The app is integrated with AWS S3 for storing images and AWS Lambda for sending emails with reports.',
+    description: (
+      <div className="space-y-2">
+        <p>
+          Complex healthcare solution for tracking face pains and other related symptoms. Doctors can manage patients,
+          their symptoms and medications via web dashboard. Patients can track their symptoms using mobile app and send
+          reports to their doctors.
+        </p>
+        <p>
+          Mobile app was built with Expo and AWS Cognito and the web application dashboard was built with React.js and
+          MaterialUI. The app is integrated with AWS S3 for storing images and AWS Lambda for sending emails with
+          reports.
+        </p>
+      </div>
+    ),
     // link: '',
-    tags: ['Expo', 'React.js', 'Firebase'],
+    tags: ['Expo', 'React.js', 'Firebase', 'SendGrid', 'AWS', 'MaterialUI'],
     year: 2020,
     date: '04/2020',
     image: painTrackerImg,
@@ -226,8 +215,26 @@ export const projects: Project[] = [
     intro:
       'Fully featured CRM web application built with Next.js for planning orders and grouping them into routes on map as markers thanks to Mapbox.',
     industry: 'Steel industry',
-    description:
-      'Fully featured CRM web application for planning orders as interactive markers on map and grouping them into routes. Built wih Next.js App Router, NeonDB, Mapbox for displaying map and TailwindCSS.',
+    description: (
+      <div className="space-y-2">
+        <p>
+          Fully featured CRM web application for planning orders as interactive markers on map. Users can group orders
+          into routes and inform thei clients about delivery via email messages.
+        </p>
+        <p>
+          Projects is built in TypeScript wih{' '}
+          <a href="https://ui.shadcn.com" className="text-teal-400 hover:underline">
+            Next.js App Router
+          </a>
+          , NeonDB for data storage, Mapbox for displaying map and
+          <a href="https://ui.shadcn.com" className="text-teal-400 hover:underline">
+            {' '}
+            shadcn/ui
+          </a>{' '}
+          + Tailwind for styling.
+        </p>
+      </div>
+    ),
     // link: '',
     tags: ['Next.js', 'React.js', 'TypeScript', 'Mapbox', 'shadcn/ui', 'NeonDB', 'TailwindCSS'],
     year: 2024,
@@ -415,3 +422,16 @@ export const projects: Project[] = [
     isVisible: false
   }
 ]
+
+export const projects = allProjects
+  .toSorted((a, b) => {
+    // sort by year and month
+    // date format: "MM/YYYY"
+    const aDate = a.date.split('/') as [string, string]
+    const bDate = b.date.split('/') as [string, string]
+
+    if (aDate.length !== 2 || bDate.length !== 2) return 0
+
+    return Number(bDate[1]) - Number(aDate[1]) || Number(bDate[0]) - Number(aDate[0])
+  })
+  .filter(({ isVisible }) => isVisible)

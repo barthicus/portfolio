@@ -24,6 +24,7 @@ export const Header = () => {
           <h3 className="text-lg font-medium tracking-tight text-teal-500 sm:text-xl">Finish projects:</h3>
           <ul className="mt-5 list-disc pl-5 text-slate-400">
             <li>improve description, add styles</li>
+            <li>shorten CV sections on home</li>
           </ul>
         </div>
       </div>

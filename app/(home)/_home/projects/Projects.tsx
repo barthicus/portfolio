@@ -7,25 +7,14 @@ import { cn } from '@/lib/utils'
 import { projects } from './projectsData'
 
 export const Projects = () => {
-  const featuredProjects = projects
-    .filter(({ isFeatured, isVisible }) => isFeatured && isVisible)
-    .toSorted((a, b) => {
-      // sort by year and month
-      // date format: "MM/YYYY"
-      const aDate = a.date.split('/') as [string, string]
-      const bDate = b.date.split('/') as [string, string]
-
-      if (aDate.length !== 2 || bDate.length !== 2) return 0
-
-      return Number(bDate[1]) - Number(aDate[1]) || Number(bDate[0]) - Number(aDate[0])
-    })
+  const featuredProjects = projects.filter(({ isFeatured }) => isFeatured)
 
   return (
     <section data-section id="projects" className="mb-16 scroll-mt-16 space-y-10 md:mb-24 lg:mb-36 lg:scroll-mt-24">
       <h2 className="text-2xl font-bold tracking-tight text-slate-200 sm:text-4xl">
         Projects<span className="text-teal-400">.</span>
       </h2>
-      {featuredProjects.map(({ title, description, intro, link, slug, industry, image, tags }) => (
+      {featuredProjects.map(({ title, intro, link, slug, industry, image, tags }) => (
         <a
           href={link}
           target="_blank"
@@ -62,7 +51,7 @@ export const Projects = () => {
                 </span>
               </div>
             </h3>
-            <div className="mt-2 text-sm leading-normal">{description}</div>
+            <p className="mt-2 text-sm leading-normal">{intro}</p>
             <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
               {tags.map(tag => (
                 <li className="mr-1.5 mt-2" key={tag}>

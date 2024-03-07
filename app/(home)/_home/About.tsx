@@ -9,17 +9,17 @@ export const About = () => {
     <section data-section id="about" className="mb-16 scroll-mt-16 space-y-10 md:mb-24 lg:mb-36 lg:scroll-mt-24">
       <p>
         I&apos;m Software Engineer from Krotoszyn, Poland, working mostly in <strong>web development</strong>. I enjoy
-        turning complex problems into performant and beautiful applications. Lately I was working on web applications
-        for medical clinics from United States like <strong>video-call solutions</strong>,
-        <strong>virtual tradeshow CRMs</strong> and covid pass applications.
+        turning complex problems into performant and beautiful applications. Recently, I&apos;ve been designing web
+        applications for medical clinics from United States like <strong>video-call solutions</strong>,{' '}
+        <strong>live events CRMs</strong>, and orders management applications.
       </p>
       <p>
-        For my next projects, I prefer to choose <ExternalLink href="https://nextjs.org">Next.js</ExternalLink> with{' '}
+        For my upcoming projects, I prefer to choose <ExternalLink href="https://nextjs.org">Next.js</ExternalLink> with{' '}
         <ExternalLink href="https://www.typescriptlang.org/">TypeScript</ExternalLink> and{' '}
-        <ExternalLink href="https://tailwindcss.com/">TailwindCSS</ExternalLink>. I&apos;m also using{' '}
+        <ExternalLink href="https://tailwindcss.com/">TailwindCSS</ExternalLink>. I also rely on{' '}
         <ExternalLink href="https://vercel.com">Vercel</ExternalLink> for hosting and{' '}
-        <ExternalLink href="https://planetscale.com">Planetscale</ExternalLink> for the database. When it comes to the
-        UI, <ExternalLink href="https://figma.com">Figma</ExternalLink> is my choice for designing and prototyping.
+        <ExternalLink href="https://neon.tech">NeonDB</ExternalLink> for the database. When it comes to the UI,{' '}
+        <ExternalLink href="https://figma.com">Figma</ExternalLink> is my choice for designing and prototyping.
       </p>
       <p>
         Family is everything to me so I spend most of my free time with my two kids and my lovely wife. Outside of that,

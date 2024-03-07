@@ -13,8 +13,18 @@ export const careerSteps = [
     title: 'Senior Front-End Developer',
     company: 'Voltiso',
     time: '2022 - Present',
-    description:
-      'Building web applications with Next.js, TypeScript, TailwindCSS, and serverless functions, hosted on Vercel/Google Cloud/AWS. Maintaining mobile apps in Expo and TypeScript. Delivering fast, SEO-friendly websites with Sanity.io as headless CMS. Helping with estimating features, crafting proposals, providing technical documentation, and supporting recruitment and onboarding for new developers.',
+    description: (
+      <div className="space-y-2">
+        <p>
+          Building web applications with Next.js, TypeScript, TailwindCSS, and serverless functions in TypeScript.
+          Maintaining mobile apps in Expo and Firebase.
+        </p>
+        <p>
+          Helping with estimating features, crafting proposals, providing technical documentation, and supporting
+          recruitment and onboarding for new developers.
+        </p>
+      </div>
+    ),
     descriptionBullets: [
       'Built web applications in React (Next.js) with TypeScript and TailwindCSS using serverless functions and Vercel/Google Cloud/AWS for hosting.',
       'Support currently running applications by adding new features and maintaining mobile apps written in Expo and TypeScript.',
@@ -30,8 +40,19 @@ export const careerSteps = [
     company: 'Voltiso',
     time: '2020 - 2022',
     projects: projectsByYear['2020 - 2022'],
-    description:
-      'Built a Routes Planner - SaSS for European companies using Vue.js and ApiPlatform, allowing users to manage orders and routes through map markers. Developed video-call platforms with scheduling and payment features. Developed mobile apps with Expo and Firebase. Integrated ThreeJS for 3D animation. Created various smaller websites using headless CMS platforms like Sanity.io, StoryBlok, and Strapi.',
+    description: (
+      <div className="space-y-2">
+        <p>
+          Built a Routes Planner - SaSS for European companies using Vue.js and ApiPlatform, allowing users to manage
+          orders and routes through map markers.
+        </p>
+        <p>Developed video-call platforms with scheduling and payment features.</p>
+        <p>
+          Created various fast, SEO-friendly websites using headless CMS platforms like Sanity.io, StoryBlok, and
+          Strapi.
+        </p>
+      </div>
+    ),
     descriptionBullets: [
       'Built Routes Planner - SaSS for european companies that offer orders and routes planning as map markers (Vue.js + ApiPlatform).',
       'Developed platforms for video-calls where users can schedule and join video calls after payment (React, Twilio Video, MaterialUI, Stripe).',
@@ -44,8 +65,18 @@ export const careerSteps = [
     title: 'Front-End Developer',
     company: 'Freelancer',
     time: '2018 - 2019',
-    description:
-      'Developed interactive admin dashboards (CRMs) using Vue.js/React integrated with API backends on Laravel, Strapi, or API Platform. Created 3D product configurators using Three.js and Vue.js. Designed responsive layouts and SEO-optimized websites using Bolt.CM and Wordpress, ensuring optimal performance with tools such as Google Analytics, Google Search Console, and other dedicated SEO tools.',
+    description: (
+      <div className="space-y-2">
+        <p>
+          Developed interactive admin dashboards (CRMs) using Vue.js/React integrated with Laravel, Strapi, or API
+          Platform. Created 3D product configurators using Three.js and Vue.js.
+        </p>
+        <p>
+          Designed websites using Bolt.CM and Wordpress. Integrating with tools such as Google Analytics, Google Search
+          Console, and other dedicated SEO tools.
+        </p>
+      </div>
+    ),
     descriptionBullets: [
       'Built interactive admin dashboards (CRMs) - web applications using Vue.js/React integrated with API backend on Laravel, Strapi or API Platform.',
       'Creating 3D product configurators with dynamic price calculator using Three.js and Vue.js. Integrating them on clients websites with various type of forms.',
@@ -58,8 +89,22 @@ export const careerSteps = [
     title: 'WebDeveloper',
     company: 'BluePear',
     time: '2015 - 2017',
-    description:
-      'Built custom WordPress themes using the Timber framework, SCSS and Gulp. Developed custom admin WordPress plugins. Helped to create specialised SEO tools to automate tasks, enhancing website speed, performance, and ranking in Google Search. Constructed PHP applications with Laravel, and authored scripts to boost interactivity on websites using JavaScript with jQuery and AngularJS.',
+    description: (
+      <div className="space-y-2">
+        <p>
+          Built custom WordPress themes using the Timber framework, SCSS and Gulp. Developed custom admin WordPress
+          plugins.
+        </p>
+        <p>
+          Helped to create specialised SEO tools to automate tasks, enhancing website speed, performance, and ranking in
+          Google Search.
+        </p>
+        <p>
+          Constructed PHP applications with Laravel, and authored scripts to boost interactivity on websites using
+          JavaScript with jQuery and AngularJS.
+        </p>
+      </div>
+    ),
     descriptionBullets: [
       'Creating custom company websites themes in Wordpress using Timber framework and developed WordPress plugins and integrating them in websites.',
       'Creating dedicated SEO tools to automate repetitive optimisation tasks in order to improve website speed, performance and ranking in Google Search.',
@@ -72,8 +117,22 @@ export const careerSteps = [
     title: 'Beginner WebDeveloper',
     company: 'BluePear',
     time: '2009 - 2014',
-    description:
-      'Designed and coded company websites and landing pages using HTML, CSS, and WordPress. Implemented basic JavaScript jQuery scripts, helped to perform website audits for SEO improvements, and optimized initial loading speed. Developed and maintained PHP 5 applications, including simple admin dashboards with basic UI interactivity. Additionally, designed logos, business cards, responsive layouts, and other branding graphics using PhotoShop.',
+    description: (
+      <div className="space-y-2">
+        <p>
+          Designed and coded company websites and landing pages using HTML, CSS, and WordPress. Implemented basic
+          JavaScript jQuery scripts, helped to perform website audits for SEO improvements, and optimized initial
+          loading speed.
+        </p>
+        <p>
+          Developed and maintained PHP 5 applications, including simple admin dashboards with basic UI interactivity.
+        </p>
+        <p>
+          Designed website logos, business cards, brochures, responsive layouts for websites, and other branding
+          graphics using PhotoShop.
+        </p>
+      </div>
+    ),
     descriptionBullets: [
       'Designing and coding simple company websites and ladning pages with HTML, CSS and WordPress.',
       'Implementing simple JavaScript jQuery scripts and auditing websites to improve SEO and initial speed loading',

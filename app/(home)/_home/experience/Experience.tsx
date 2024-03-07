@@ -24,13 +24,8 @@ export const Experience = () => {
                 <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
                 <span>{title}</span>
               </div>
-              {/* {subtitle && (
-                <div className="text-slate-500" aria-hidden="true">
-                  {subtitle}
-                </div>
-              )} */}
             </h3>
-            <p className="mt-2 text-sm leading-normal">{description}</p>
+            <div className="mt-2 text-sm leading-normal">{description}</div>
             <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
               {tags.map(tag => (
                 <li className="mr-1.5 mt-2" key={tag}>

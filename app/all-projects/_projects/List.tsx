@@ -1,4 +1,4 @@
-import { Project } from '@/app/(home)/_home/projects/projectsData'
+import { Project } from '@/app/(home)/_home/projects/types'
 
 import { ListItem } from './ListItem'
 

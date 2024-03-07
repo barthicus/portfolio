@@ -7,7 +7,7 @@
     "dev:old": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint && tsc --noEmit",
     "lint:fix": "next lint --fix",
     "format": "prettier --write \"**/*.{js,cjs,mjs,ts,tsx,md,json}\" --ignore-path .gitignore",
     "upg": "bunx npm-check-updates -u"

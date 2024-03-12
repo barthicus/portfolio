@@ -1,5 +1,7 @@
 import { ReactNode } from 'react'
 import { Inter } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import { cn } from '@/lib/utils'
 
@@ -26,6 +28,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
           {children}
         </div>
+
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

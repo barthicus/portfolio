@@ -35,3 +35,5 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     </html>
   )
 }
+
+export const dynamic = 'error'

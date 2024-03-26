@@ -65,7 +65,7 @@ export const Projects = () => {
         </a>
       ))}
       <Link
-        href="/all-projects"
+        href="/all-projects/grid"
         className="inline-flex items-center gap-2 rounded-md border border-slate-200/20 p-3 text-xs font-medium leading-tight text-slate-200 transition-colors hover:text-teal-400 sm:text-sm"
       >
         Check all projects <FaArrowRight className="text-xs" />

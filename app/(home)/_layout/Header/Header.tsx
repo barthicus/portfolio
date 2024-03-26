@@ -5,7 +5,7 @@ import { Socials } from './Socials'
 
 export const Header = () => {
   return (
-    <header className="lg:sticky lg:top-0 lg:flex lg:h-[100lvh] lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
+    <header className="lg:sticky lg:top-0 lg:flex lg:h-lvh lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
       <div>
         <div className="space-y-3">
           <h2 className="text-lg font-medium tracking-tight text-teal-500 sm:text-xl">Freelance Software Engineer</h2>

@@ -14,6 +14,12 @@ const inter = Inter({
   variable: '--font-inter'
 })
 
+export const metadata = {
+  verification: { google: 'oViuJpscTpC3QMYA2uh_ZhdcvwltCa9aR3jBV5YZAVM' }
+}
+
+export const dynamic = 'error'
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
@@ -35,5 +41,3 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     </html>
   )
 }
-
-export const dynamic = 'error'

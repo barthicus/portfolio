@@ -1,3 +1,4 @@
+import configurator3dImg from './img/3d-configurator.png'
 import artaxImg from './img/artax.png'
 import bluepearImg from './img/bluepear.png'
 import casesImg from './img/cases.png'
@@ -21,6 +22,35 @@ import ytWithoutSpoilersImg from './img/yt.png'
 import { Project } from './types'
 
 const allProjects: Project[] = [
+  {
+    title: '3D Garage Configurator',
+    slug: '3d-garage-configurator',
+    intro: '3D garage configurator for At-Stal company',
+    description: (
+      <div className="space-y-2">
+        <p>
+          This functional 3D garage configurator was built with React.js and Vite and integrated into the pre-existing
+          WordPress website for the At-Stal company.
+        </p>
+        <p>
+          Customers can configure their garage and order it online by filling out a form. The system then sends emails
+          with the garage configuration and other details to both the customer and the company.
+        </p>
+        <p>
+          The 3D component was built with Three.js (React Three Fiber) and renders the garage in 3D, updating the model
+          in real-time as the user configures it.
+        </p>
+      </div>
+    ),
+    link: 'https://www.at-stal.pl/konfigurator',
+    industry: 'Steel industry',
+    tags: ['React.js', 'TailwindCSS', 'Three.js', 'Framer Motion', 'WordPress'],
+    year: 2024,
+    date: '12/2024',
+    image: configurator3dImg,
+    isFeatured: true,
+    isVisible: true
+  },
   {
     title: 'Portfolio',
     slug: 'portfolio',

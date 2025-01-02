@@ -5,11 +5,11 @@ import colors from 'tailwindcss/colors'
 import { careerSteps } from '@/app/(home)/_home/experience/experienceData'
 import { projects as allProjects } from '@/app/(home)/_home/projects/projectsData'
 
-const loadFonts = () => {
+const loadFonts = async () => {
   // read headers to get the host and protocol
   // this is needed to load the fonts from the correct absolute location
   // because Next.js cannot be loaded as regular import
-  const headersList = headers()
+  const headersList = await headers()
   const host = headersList.get('host')
   const protocol = headersList.get('x-forwarded-proto')
 
@@ -33,8 +33,8 @@ const loadFonts = () => {
   Font.registerHyphenationCallback(word => [word])
 }
 
-export const getCVContent = () => {
-  loadFonts()
+export const getCVContent = async () => {
+  await loadFonts()
 
   const styles = StyleSheet.create({
     page: {

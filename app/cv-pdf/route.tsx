@@ -6,7 +6,7 @@ import { getCVContent } from './getCVContent'
 export const GET = async (_request: Request) => {
   // const shouldDownload = request.headers.get('download') === 'true'
 
-  const cvContent = getCVContent()
+  const cvContent = await getCVContent()
 
   const buffer = await renderToBuffer(cvContent)
 

@@ -63,7 +63,7 @@ export const getCVContent = async () => {
       letterSpacing: -1
     },
     subTitle: {
-      marginTop: 5,
+      marginTop: 30,
       maxWidth: 250
     },
     sectionTitle: {

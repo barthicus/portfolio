@@ -31,6 +31,7 @@ type Tag =
   | 'NeonDB'
   | 'shadcn/ui'
   | 'MaterialUI'
+  | 'Mantine'
   | 'Styled Components'
 
 export type Project = {

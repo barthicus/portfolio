@@ -25,7 +25,7 @@ const allProjects: Project[] = [
   {
     title: '3D Garage Configurator',
     slug: '3d-garage-configurator',
-    intro: '3D garage configurator for At-Stal company',
+    intro: 'Functional and interactive 3D garage configurator for At-Stal company integrated into Wordpress.',
     description: (
       <div className="space-y-2">
         <p>
@@ -44,7 +44,7 @@ const allProjects: Project[] = [
     ),
     link: 'https://www.at-stal.pl/konfigurator',
     industry: 'Steel industry',
-    tags: ['React.js', 'TailwindCSS', 'Three.js', 'Framer Motion', 'WordPress'],
+    tags: ['React.js', 'TailwindCSS', 'Three.js', 'Framer Motion', 'Mantine', 'WordPress'],
     year: 2024,
     date: '12/2024',
     image: configurator3dImg,
@@ -240,7 +240,7 @@ const allProjects: Project[] = [
     isVisible: true
   },
   {
-    title: 'Routes planner',
+    title: 'Routes planner (WIP)',
     slug: 'routes-planner',
     intro:
       'Fully featured CRM web application built with Next.js for planning orders and grouping them into routes on map as markers thanks to Mapbox.',
@@ -268,7 +268,7 @@ const allProjects: Project[] = [
     // link: '',
     tags: ['Next.js', 'React.js', 'TypeScript', 'Mapbox', 'shadcn/ui', 'NeonDB', 'TailwindCSS'],
     year: 2024,
-    date: '03/2024',
+    date: '11/2024',
     image: rpImg,
     isFeatured: true,
     isVisible: true
